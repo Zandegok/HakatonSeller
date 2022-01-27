@@ -2,10 +2,11 @@ package com.example.bf_kotlin_client.utils
 
 import android.content.Context
 
-class GlobalData {
+class GlobalVariables private constructor(){
     companion object {
-        val instance = GlobalData()
+        val instance = GlobalVariables()
     }
 
     lateinit var applicationContext: Context
+    lateinit var httpWorker: HttpWorker
 }
