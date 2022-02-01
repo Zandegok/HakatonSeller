@@ -17,27 +17,23 @@
         tools:context=".views.MainActivity">
 
         <Button
-            android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{(view)->viewModel.authorize()}"
             android:text="Load data" />
 
         <TextView
-            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{viewModel.fieldApiKey}" />
 
         <Button
-            android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{(view)->viewModel.getAllCategories()}"
             android:text="loadCategories" />
 
         <TextView
-            android:id="@+id/fieldProductsCategories"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{viewModel.fieldProductsCategories}" />
