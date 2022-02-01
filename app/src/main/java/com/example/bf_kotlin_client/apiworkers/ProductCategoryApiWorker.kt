@@ -6,10 +6,15 @@ import com.example.bf_kotlin_client.utils.GlobalVariables
 import com.google.gson.Gson
 
 class ProductCategoryApiWorker {
-    fun getAll(callbackFunction: (String) -> Unit,apiKey:String,deviceId:String) {
+    fun getAll(callbackFunction: (String) -> Unit, apiKey: String, deviceId: String) {
         val httpMethod = Request.Method.GET
-        val url = "http.://.151.248.113.116:8080/mobile/productsCategories/getAll"
+        val url = "http://151.248.113.116:8080/mobile/productsCategories/getAll"
         val httpWorker = GlobalVariables.instance.httpWorker
-        httpWorker.makeStringRequestWithoutBody(httpMethod, url,callbackFunction, mutableMapOf(apiKey to "API_KEY",deviceId to "DEVICE_ID"))
+        httpWorker.makeStringRequestWithoutBody(
+            httpMethod,
+            url,
+            callbackFunction,
+            mutableMapOf("API_KEY" to apiKey, "DEVICE_ID" to deviceId)
+        )
     }
 }
