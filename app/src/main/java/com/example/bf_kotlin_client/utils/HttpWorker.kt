@@ -24,10 +24,7 @@ class HttpWorker(private val applicationContext: Context) {
         val request = object : StringRequest(
             httpMethod,
             url,
-            {
-                val utf8String = String(it.toByteArray(), Charsets.UTF_8)
-                callbackFunction(utf8String)
-            },
+            callbackFunction,
             ::errorFunction
         ) {
             override fun getHeaders(): MutableMap<String, String> {
