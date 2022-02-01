@@ -6,6 +6,7 @@ import com.android.volley.Request
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import java.nio.charset.Charset
 
 class HttpWorker(private val applicationContext: Context) {
     private val volleyQueue = Volley.newRequestQueue(applicationContext)
