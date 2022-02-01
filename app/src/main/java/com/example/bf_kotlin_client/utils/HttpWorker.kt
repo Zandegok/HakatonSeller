@@ -6,6 +6,7 @@ import com.android.volley.Request
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import java.nio.charset.Charset
 
 class HttpWorker(private val applicationContext: Context) {
     private val volleyQueue = Volley.newRequestQueue(applicationContext)
@@ -23,7 +24,10 @@ class HttpWorker(private val applicationContext: Context) {
         val request = object : StringRequest(
             httpMethod,
             url,
-            callbackFunction,
+            {
+                val utf8String = String(it.toByteArray(), Charsets.UTF_8)
+                callbackFunction(utf8String)
+            },
             ::errorFunction
         ) {
             override fun getHeaders(): MutableMap<String, String> {
