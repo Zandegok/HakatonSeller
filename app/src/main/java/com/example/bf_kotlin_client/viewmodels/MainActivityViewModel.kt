@@ -31,11 +31,7 @@ class MainActivityViewModel {
     }
 
     fun getAllCategories() {
-        productCategoryApiWorker.getAll(
-            ::updateFieldCategories,
-            "f9f195057e841496f6ba4bb0234224d1917f7efb73295eb79585857f080c17e4",
-            "2sdfssdf3"
-        )
+        productCategoryApiWorker.getAll(::updateFieldCategories)
     }
 
 }
