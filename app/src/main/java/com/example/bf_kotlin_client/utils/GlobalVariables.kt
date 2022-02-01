@@ -9,4 +9,5 @@ class GlobalVariables private constructor(){
 
     lateinit var applicationContext: Context
     lateinit var httpWorker: HttpWorker
+    lateinit var apiKey:String
 }
