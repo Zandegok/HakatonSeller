@@ -9,6 +9,8 @@ class GlobalVariables private constructor() {
 
     lateinit var applicationContext: Context
     lateinit var httpWorker: HttpWorker
+    lateinit var appDatabase: AppDatabase
+
     var apiKey: String = ""
     var androidId: String = ""
 }

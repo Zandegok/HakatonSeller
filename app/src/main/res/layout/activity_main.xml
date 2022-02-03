@@ -38,6 +38,23 @@
             android:layout_height="wrap_content"
             android:text="@{viewModel.fieldProductsCategories}" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view)->viewModel.saveApiKeyToLocalDb()}"
+            android:text="Save api key" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view)->viewModel.loadApiKeyFromLocalDb()}"
+            android:text="load api key" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.fieldApiKey2}" />
+
     </LinearLayout>
 
 </layout>

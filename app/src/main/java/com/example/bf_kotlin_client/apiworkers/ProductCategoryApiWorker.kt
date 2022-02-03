@@ -1,9 +1,7 @@
 package com.example.bf_kotlin_client.apiworkers
 
 import com.android.volley.Request
-import com.example.bf_kotlin_client.models.AppAuthRequest
 import com.example.bf_kotlin_client.utils.GlobalVariables
-import com.google.gson.Gson
 
 class ProductCategoryApiWorker {
     fun getAll(callbackFunction: (String) -> Unit) {

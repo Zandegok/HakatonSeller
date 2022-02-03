@@ -1,4 +1,4 @@
-package com.example.bf_kotlin_client.models
+package com.example.bf_kotlin_client.dtos
 
 class AppAuthRequest(
     var login: String,
