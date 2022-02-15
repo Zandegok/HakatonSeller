@@ -2,17 +2,25 @@ package com.example.bf_kotlin_client.utils
 
 import android.content.Context
 import android.widget.Toast
-import com.android.volley.Request
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import java.nio.charset.Charset
+import com.example.bf_kotlin_client.dtos.ServerError
+import com.google.gson.Gson
 
 class HttpWorker(private val applicationContext: Context) {
     private val volleyQueue = Volley.newRequestQueue(applicationContext)
 
     private fun errorFunction(volleyError: VolleyError) {
-        Toast.makeText(applicationContext, volleyError.toString(), Toast.LENGTH_LONG).show()
+
+        var httpCode = volleyError.networkResponse.statusCode
+        var dataInJson = volleyError.networkResponse.data.toString(Charsets.UTF_8)
+
+        var data = Gson().fromJson(dataInJson,ServerError::class.java)
+
+        var errorMessage = "$httpCode: ${data.message}";
+
+        Toast.makeText(applicationContext, errorMessage, Toast.LENGTH_LONG).show()
     }
 
     fun makeStringRequestWithoutBody(

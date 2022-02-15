@@ -21,18 +21,21 @@ class MainActivity : AppCompatActivity() {
 
         globalVariables.applicationContext = applicationContext
         globalVariables.httpWorker = HttpWorker(applicationContext)
-        globalVariables.androidId =
+        //globalVariables.androidId =
             Secure.getString(applicationContext.contentResolver, Secure.ANDROID_ID)
         globalVariables.appDatabase = AppDatabase.getInstance(applicationContext)
 
-        GlobalScope.launch(Dispatchers.IO) {
+        /*GlobalScope.launch(Dispatchers.IO) {
             var value =
                 GlobalVariables.instance.appDatabase.keyValuePairsRepository.getByKey("api_key")
 
             if (value != null) {
                 globalVariables.apiKey = value
             }
-        }
+        }*/
+
+        globalVariables.apiKey = "6425b7c09cc12971fbf65d2c6fbab7c0fd6596f3cff6ec2e693c9470e28ca47a";
+        globalVariables.androidId = "100002";
 
 
         var binding = ActivityMainBinding.inflate(layoutInflater)

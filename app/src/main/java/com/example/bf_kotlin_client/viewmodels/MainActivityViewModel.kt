@@ -25,7 +25,6 @@ class MainActivityViewModel {
         val appAuthResponse = Gson().fromJson(data, AppAuthResponse::class.java)
         GlobalVariables.instance.apiKey = appAuthResponse.apiKey
 
-
         fieldApiKey.set(appAuthResponse.apiKey)
     }
 
