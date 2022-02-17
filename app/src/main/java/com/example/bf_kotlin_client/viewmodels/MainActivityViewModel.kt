@@ -13,12 +13,19 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class MainActivityViewModel {
-    private val appAuthApiWorker = AppAuthApiWorker()
+
+    init {
+        
+    }
+
+
+
+//test code
+/*private val appAuthApiWorker = AppAuthApiWorker()
     private val productCategoryApiWorker = ProductCategoryApiWorker()
 
     val fieldApiKey: ObservableField<String> = ObservableField("data....")
     val fieldApiKey2: ObservableField<String> = ObservableField("api key")
-
     val fieldProductsCategories: ObservableField<String> = ObservableField("data....")
 
     private fun updateFieldApiKey(data: String) {
@@ -64,6 +71,6 @@ class MainActivityViewModel {
                 fieldApiKey2.set(value)
             }
         }
-    }
+    }*/
 
 }
