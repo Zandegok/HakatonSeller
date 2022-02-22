@@ -2,10 +2,6 @@ package com.example.bf_kotlin_client.viewmodels
 
 class MainActivityViewModel {
 
-    init {
-
-    }
-
 //test code
 /*private val appAuthApiWorker = AppAuthApiWorker()
     private val productCategoryApiWorker = ProductCategoryApiWorker()

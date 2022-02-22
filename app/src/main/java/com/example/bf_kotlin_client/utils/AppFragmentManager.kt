@@ -6,7 +6,7 @@ import com.example.bf_kotlin_client.R
 import com.example.bf_kotlin_client.fragments.farmers.FarmersListFragment
 import com.example.bf_kotlin_client.fragments.products.ProductsCategoriesFragment
 
-class MyFragmentManager(private var fragmentManager: FragmentManager) {
+class AppFragmentManager(private var fragmentManager: FragmentManager) {
 
     enum class FragmentsNames(var fname: String) {
         ProductsCategoriesFragment("ProductsCategoriesFragment"),

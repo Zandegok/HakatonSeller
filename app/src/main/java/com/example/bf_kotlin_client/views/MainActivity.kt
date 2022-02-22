@@ -6,11 +6,10 @@ import com.example.bf_kotlin_client.databinding.ActivityMainBinding
 import com.example.bf_kotlin_client.utils.GlobalVariables
 import com.example.bf_kotlin_client.utils.HttpWorker
 import com.example.bf_kotlin_client.viewmodels.MainActivityViewModel
-import android.provider.Settings.Secure
 import com.example.bf_kotlin_client.R
 import com.example.bf_kotlin_client.utils.AppDatabase
-import com.example.bf_kotlin_client.utils.MyFragmentManager
-import com.example.bf_kotlin_client.utils.MyFragmentManager.FragmentsNames.*
+import com.example.bf_kotlin_client.utils.AppFragmentManager
+import com.example.bf_kotlin_client.utils.AppFragmentManager.FragmentsNames.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -18,9 +17,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //global variables
         var globalVariables = GlobalVariables.instance
 
-        globalVariables.fragmentManager = MyFragmentManager(supportFragmentManager)
+        globalVariables.fragmentManager = AppFragmentManager(supportFragmentManager)
         globalVariables.applicationContext = applicationContext
         globalVariables.httpWorker = HttpWorker(applicationContext)
         globalVariables.appDatabase = AppDatabase.getInstance(applicationContext)
@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         globalVariables.apiKey = "6425b7c09cc12971fbf65d2c6fbab7c0fd6596f3cff6ec2e693c9470e28ca47a";
         globalVariables.androidId = "100002";
 
+        //binding
 
         var binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -49,6 +50,7 @@ class MainActivity : AppCompatActivity() {
 
         globalVariables.fragmentManager.replaceFragment(ProductsCategoriesFragment)
 
+        //bottomNavigationViewActivityMain
         var bottomNavigationViewActivityMain: BottomNavigationView =
             findViewById(R.id.bottomNavigationViewActivityMain)
 
