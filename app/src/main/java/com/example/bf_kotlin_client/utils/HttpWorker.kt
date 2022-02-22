@@ -5,7 +5,7 @@ import android.widget.Toast
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.example.bf_kotlin_client.dtos.ServerError
+import com.example.bf_kotlin_client.dtos.entities.ServerError
 import com.google.gson.Gson
 
 class HttpWorker(private val applicationContext: Context) {
@@ -16,7 +16,7 @@ class HttpWorker(private val applicationContext: Context) {
         var httpCode = volleyError.networkResponse.statusCode
         var dataInJson = volleyError.networkResponse.data.toString(Charsets.UTF_8)
 
-        var data = Gson().fromJson(dataInJson,ServerError::class.java)
+        var data = Gson().fromJson(dataInJson, ServerError::class.java)
 
         var errorMessage = "$httpCode: ${data.message}";
 

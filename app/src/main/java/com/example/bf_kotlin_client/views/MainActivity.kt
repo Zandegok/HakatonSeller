@@ -7,23 +7,26 @@ import com.example.bf_kotlin_client.utils.GlobalVariables
 import com.example.bf_kotlin_client.utils.HttpWorker
 import com.example.bf_kotlin_client.viewmodels.MainActivityViewModel
 import android.provider.Settings.Secure
+import com.example.bf_kotlin_client.R
 import com.example.bf_kotlin_client.utils.AppDatabase
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import com.example.bf_kotlin_client.utils.MyFragmentManager
+import com.example.bf_kotlin_client.utils.MyFragmentManager.FragmentsNames.*
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val globalVariables = GlobalVariables.instance
+        var globalVariables = GlobalVariables.instance
 
+        globalVariables.fragmentManager = MyFragmentManager(supportFragmentManager)
         globalVariables.applicationContext = applicationContext
         globalVariables.httpWorker = HttpWorker(applicationContext)
-        //globalVariables.androidId =
-            Secure.getString(applicationContext.contentResolver, Secure.ANDROID_ID)
         globalVariables.appDatabase = AppDatabase.getInstance(applicationContext)
+
+
+        //globalVariables.androidId = Secure.getString(applicationContext.contentResolver, Secure.ANDROID_ID)
 
         /*GlobalScope.launch(Dispatchers.IO) {
             var value =
@@ -43,5 +46,27 @@ class MainActivity : AppCompatActivity() {
 
         var mainActivityViewModel = MainActivityViewModel()
         binding.viewModel = mainActivityViewModel
+
+        globalVariables.fragmentManager.replaceFragment(ProductsCategoriesFragment)
+
+        var bottomNavigationViewActivityMain: BottomNavigationView =
+            findViewById(R.id.bottomNavigationViewActivityMain)
+
+        bottomNavigationViewActivityMain.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.productsSection -> {
+                    globalVariables.fragmentManager.replaceFragment(ProductsCategoriesFragment)
+                    true
+                }
+                R.id.farmersSection -> {
+                    globalVariables.fragmentManager.replaceFragment(FarmersListFragment)
+                    true
+                }
+                else -> false
+            }
+
+        }
     }
+
+
 }

@@ -1,24 +1,10 @@
 package com.example.bf_kotlin_client.viewmodels
 
-import androidx.databinding.ObservableField
-import com.example.bf_kotlin_client.apiworkers.AppAuthApiWorker
-import com.example.bf_kotlin_client.apiworkers.ProductCategoryApiWorker
-import com.example.bf_kotlin_client.dtos.AppAuthResponse
-import com.example.bf_kotlin_client.dtos.ProductsCategoriesResponse
-import com.example.bf_kotlin_client.models.KeyValuePair
-import com.example.bf_kotlin_client.utils.GlobalVariables
-import com.google.gson.Gson
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-
 class MainActivityViewModel {
 
     init {
-        
+
     }
-
-
 
 //test code
 /*private val appAuthApiWorker = AppAuthApiWorker()

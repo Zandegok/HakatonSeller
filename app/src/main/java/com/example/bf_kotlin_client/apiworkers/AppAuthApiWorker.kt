@@ -1,7 +1,7 @@
 package com.example.bf_kotlin_client.apiworkers
 
 import com.android.volley.Request
-import com.example.bf_kotlin_client.dtos.AppAuthRequest
+import com.example.bf_kotlin_client.dtos.requests.AppAuthRequest
 import com.example.bf_kotlin_client.utils.GlobalVariables
 import com.google.gson.Gson
 

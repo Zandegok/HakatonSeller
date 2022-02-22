@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/actionUser"
+        android:id="@+id/productsSection"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="User" />
     <item
-        android:id="@+id/actionSearch"
+        android:id="@+id/farmersSection"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="Search"
         />
     <item
-        android:id="@+id/actionCatalog"
+        android:id="@+id/favouritesSection"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="Catalog" />
     <item
-        android:id="@+id/actionMap"
+        android:id="@+id/profileSection"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="Map" />
     <item
-        android:id="@+id/actionCart"
+        android:id="@+id/supportSection"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="Cart" />
 </menu>

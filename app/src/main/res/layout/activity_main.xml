@@ -15,7 +15,7 @@
         android:layout_height="match_parent">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigationView"
+            android:id="@+id/bottomNavigationViewActivityMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -24,9 +24,10 @@
             app:menu="@menu/menu_activity_main" />
 
         <FrameLayout
+            android:id="@+id/frameLayoutActivityMain"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/bottomNavigationView"/>
+            android:layout_above="@+id/bottomNavigationViewActivityMain" />
     </RelativeLayout>
 
 
