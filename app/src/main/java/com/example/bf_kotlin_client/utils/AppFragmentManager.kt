@@ -6,26 +6,38 @@ import com.example.bf_kotlin_client.R
 import com.example.bf_kotlin_client.fragments.farmers.FarmersListFragment
 import com.example.bf_kotlin_client.fragments.products.ProductsCategoriesFragment
 
+
 class AppFragmentManager(private var fragmentManager: FragmentManager) {
 
-    enum class FragmentsNames(var fname: String) {
-        ProductsCategoriesFragment("ProductsCategoriesFragment"),
-        FarmersListFragment("FarmersListFragment"),
-        BLUE("")
+    enum class FragmentsNames {
+        ProductsCategoriesFragment,
+        FarmersListFragment,
     }
 
-    private var fragments = hashMapOf<String, Fragment>(
-        "ProductsCategoriesFragment" to ProductsCategoriesFragment(),
-        "FarmersListFragment" to FarmersListFragment()
-    )
+    init {
+//        val factory=fragmentManager.fragmentFactory
+//        val classLoader=GlobalVariables.instance.applicationContext.classLoader
+        val containerId = R.id.frameLayoutActivityMain
+        with(fragmentManager.beginTransaction()) {
+//            for (fragmentName in FragmentsNames.values()){
+//                add(factory.instantiate(classLoader,fragmentName.name),fragmentName.name)
+//            }
+            add(containerId,
+                ProductsCategoriesFragment(),
+                FragmentsNames.ProductsCategoriesFragment.name)
+            add(containerId, FarmersListFragment(), FragmentsNames.FarmersListFragment.name)
+            commit()
+        }
+    }
 
-    fun replaceFragment(fragmentName: FragmentsNames){
-        var fragmentTransaction = fragmentManager.beginTransaction()
-
-        var fragment = fragments[fragmentName.fname]!!
-
-        fragmentTransaction.replace(R.id.frameLayoutActivityMain, fragment)
-
-        fragmentTransaction.commitNow()
+    fun replaceFragment(fragmentName: FragmentsNames) {
+        fragmentManager.executePendingTransactions()//защита от асинхронности
+        var fragment = fragmentManager.findFragmentByTag(fragmentName.name)!!
+        with(fragmentManager.beginTransaction()) {
+            for (fragment in fragmentManager.fragments)
+                hide(fragment)
+            show(fragment)
+            commitNow()
+        }
     }
 }
