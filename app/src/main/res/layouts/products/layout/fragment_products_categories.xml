@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.bf_kotlin_client.viewmodels.products.ProductsCategoriesFragmentViewModel" />
+            type="com.example.bf_kotlin_client.viewmodels.products.ProductsCategoriesViewModel" />
     </data>
 
     <LinearLayout

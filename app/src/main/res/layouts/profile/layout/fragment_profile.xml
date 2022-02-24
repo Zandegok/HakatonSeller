@@ -3,11 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+
     <data>
 
         <variable
             name="viewModel"
-            type="com.example.bf_kotlin_client.viewmodels.farmers.FarmersListViewModel" />
+            type="com.example.bf_kotlin_client.viewmodels.profile.ProfileViewModel" />
     </data>
 
     <LinearLayout
@@ -19,6 +20,6 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Farmers" />
+            android:text="Profile" />
     </LinearLayout>
 </layout>

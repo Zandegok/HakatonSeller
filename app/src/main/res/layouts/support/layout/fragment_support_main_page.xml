@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.bf_kotlin_client.viewmodels.farmers.FarmersListViewModel" />
+            type="com.example.bf_kotlin_client.viewmodels.support.SupportMainPageViewModel" />
     </data>
 
     <LinearLayout
@@ -19,6 +19,6 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Farmers" />
+            android:text="Support" />
     </LinearLayout>
 </layout>

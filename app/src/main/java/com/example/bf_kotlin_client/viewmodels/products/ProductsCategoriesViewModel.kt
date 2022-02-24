@@ -4,7 +4,7 @@ import android.widget.Toast
 import androidx.databinding.ObservableField
 import com.example.bf_kotlin_client.utils.GlobalVariables
 
-class ProductsCategoriesFragmentViewModel {
+class ProductsCategoriesViewModel {
     val fieldData: ObservableField<String> = ObservableField("data....")
 
     fun createToast(){

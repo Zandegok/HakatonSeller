@@ -24,8 +24,6 @@ class MainActivity : AppCompatActivity() {
         globalVariables.applicationContext = applicationContext
         globalVariables.httpWorker = HttpWorker(applicationContext)
         globalVariables.appDatabase = AppDatabase.getInstance(applicationContext)
-
-
         //globalVariables.androidId = Secure.getString(applicationContext.contentResolver, Secure.ANDROID_ID)
 
         /*GlobalScope.launch(Dispatchers.IO) {
@@ -54,14 +52,26 @@ class MainActivity : AppCompatActivity() {
         var bottomNavigationViewActivityMain: BottomNavigationView =
             findViewById(R.id.bottomNavigationViewActivityMain)
 
-        bottomNavigationViewActivityMain.setOnItemSelectedListener { item ->
-            when (item.itemId) {
+        bottomNavigationViewActivityMain.setOnItemSelectedListener {
+            when (it.itemId) {
                 R.id.productsSection -> {
                     globalVariables.fragmentManager.replaceFragment(ProductsCategoriesFragment)
                     true
                 }
                 R.id.farmersSection -> {
                     globalVariables.fragmentManager.replaceFragment(FarmersListFragment)
+                    true
+                }
+                R.id.favouritesSection -> {
+                    globalVariables.fragmentManager.replaceFragment(FavoriteProductsFragment)
+                    true
+                }
+                R.id.profileSection -> {
+                    globalVariables.fragmentManager.replaceFragment(ProfileFragment)
+                    true
+                }
+                R.id.supportSection -> {
+                    globalVariables.fragmentManager.replaceFragment(SupportMainPageFragment)
                     true
                 }
                 else -> false
