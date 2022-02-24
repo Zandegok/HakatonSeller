@@ -2,12 +2,23 @@ package com.example.bf_kotlin_client.viewmodels.products
 
 import android.widget.Toast
 import androidx.databinding.ObservableField
+import com.example.bf_kotlin_client.apiworkers.ProductCategoryApiWorker
+import com.example.bf_kotlin_client.dtos.responses.ProductsCategoriesResponse
 import com.example.bf_kotlin_client.utils.GlobalVariables
+import com.google.gson.Gson
 
 class ProductsCategoriesViewModel {
-    val fieldData: ObservableField<String> = ObservableField("data....")
 
-    fun createToast(){
-        Toast.makeText(GlobalVariables.instance.applicationContext,"AAAA!", Toast.LENGTH_LONG).show()
+    private var globalVariables = GlobalVariables.instance
+    private var productCategoryApiWorker = ProductCategoryApiWorker()
+
+    init {
+        productCategoryApiWorker.getAll(::updateRv)
+    }
+
+    private fun updateRv(jsonData: String) {
+        var response = Gson().fromJson(jsonData, ProductsCategoriesResponse::class.java)
+
+        //response.productCategories
     }
 }
