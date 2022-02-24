@@ -18,10 +18,10 @@ class FavoriteProductsFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
 
-        val binding =FragmentFavoritesProductsListBinding.inflate(layoutInflater)
+        val binding = FragmentFavoritesProductsListBinding.inflate(layoutInflater)
 
-        val farmersListViewModel = FavoriteProductsViewModel()
-        binding.viewModel = farmersListViewModel
+        val favoriteProductsViewModel = FavoriteProductsViewModel()
+        binding.viewModel = favoriteProductsViewModel
 
         //var view = inflater.inflate(R.layout.fragment_products_categories, container, false)
 
