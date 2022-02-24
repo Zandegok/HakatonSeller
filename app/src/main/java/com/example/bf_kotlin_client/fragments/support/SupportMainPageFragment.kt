@@ -5,17 +5,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.bf_kotlin_client.R
+import com.example.bf_kotlin_client.databinding.FragmentSupportMainPageBinding
+import com.example.bf_kotlin_client.viewmodels.support.SupportMainPageViewModel
 
 class SupportMainPageFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+        savedInstanceState: Bundle?,
+    ): View {
 
-        var view = inflater.inflate(R.layout.fragment_support_main_page, container, false)
+        val binding = FragmentSupportMainPageBinding.inflate(layoutInflater)
 
-        return view;
+        val supportMainPageViewModel = SupportMainPageViewModel()
+        binding.viewModel = supportMainPageViewModel
+
+        //var view = inflater.inflate(R.layout.fragment_products_categories, container, false)
+
+        return binding.root;
     }
 }
