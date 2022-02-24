@@ -37,7 +37,7 @@ android {
     sourceSets {
         main {
             res {
-                srcDirs 'src/main/res/layouts/products', 'src/main/res/layouts/farmers', 'src/main/res', 'src/main/res/layouts/favourites'
+                srcDirs 'src/main/res/layouts/products', 'src/main/res/layouts/farmers', 'src/main/res', 'src/main/res/layouts/favourites', 'src\\main\\res', 'src\\main\\res\\layouts\\profile', 'src\\main\\res\\layouts\\support'
             }
         }
     }

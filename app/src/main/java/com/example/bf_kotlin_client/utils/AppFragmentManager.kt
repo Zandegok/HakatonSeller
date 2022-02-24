@@ -43,7 +43,7 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         var fragment = fragmentManager.findFragmentByTag(fragmentName.name)!!
         with(fragmentManager.beginTransaction()) {
             for (fragment in fragmentManager.fragments)
-                hide(fragment)
+                show(fragment)
             show(fragment)
             commitNow()
         }
