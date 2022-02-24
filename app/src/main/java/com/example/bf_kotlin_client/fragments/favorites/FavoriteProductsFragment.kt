@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.bf_kotlin_client.R
 import com.example.bf_kotlin_client.databinding.FragmentFarmersListBinding
-import com.example.bf_kotlin_client.databinding.FragmentFavouritesProductsListBinding
+import com.example.bf_kotlin_client.databinding.FragmentFavoritesProductsListBinding
 import com.example.bf_kotlin_client.viewmodels.farmers.FarmersListViewModel
 import com.example.bf_kotlin_client.viewmodels.favorites.FavoriteProductsViewModel
 
@@ -18,7 +18,7 @@ class FavoriteProductsFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
 
-        val binding = FragmentFavouritesProductsListBinding.inflate(layoutInflater)
+        val binding =FragmentFavoritesProductsListBinding.inflate(layoutInflater)
 
         val farmersListViewModel = FavoriteProductsViewModel()
         binding.viewModel = farmersListViewModel
