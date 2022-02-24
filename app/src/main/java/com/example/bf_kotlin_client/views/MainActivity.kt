@@ -62,6 +62,18 @@ class MainActivity : AppCompatActivity() {
                     globalVariables.fragmentManager.replaceFragment(FarmersListFragment)
                     true
                 }
+                R.id.favouritesSection -> {
+                    globalVariables.fragmentManager.replaceFragment(FavoriteProductsFragment)
+                    true
+                }
+                R.id.profileSection -> {
+                    globalVariables.fragmentManager.replaceFragment(ProfileFragment)
+                    true
+                }
+                R.id.supportSection -> {
+                    globalVariables.fragmentManager.replaceFragment(SupportMainPageFragment)
+                    true
+                }
                 else -> false
             }
 
