@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             }
         }*/
 
-        globalVariables.apiKey = "6425b7c09cc12971fbf65d2c6fbab7c0fd6596f3cff6ec2e693c9470e28ca47a";
+        globalVariables.apiKey = "2c06052652117d40823b3614b06f965ed7df43086f5a1fe1ad2e8717ffb90e2b";
         globalVariables.androidId = "100002";
 
         //binding
