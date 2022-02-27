@@ -68,4 +68,5 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         fragmentTransaction.show(foundFragment)
         fragmentTransaction.commitNow()
     }
+    fun getFragment(fragmentName: FragmentsNames)=fragmentManager.findFragmentByTag(fragmentName.name)
 }
