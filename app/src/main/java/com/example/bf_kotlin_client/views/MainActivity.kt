@@ -24,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         globalVariables.applicationContext = applicationContext
         globalVariables.httpWorker = HttpWorker(applicationContext)
         globalVariables.appDatabase = AppDatabase.getInstance(applicationContext)
+
+
         //globalVariables.androidId = Secure.getString(applicationContext.contentResolver, Secure.ANDROID_ID)
 
         /*GlobalScope.launch(Dispatchers.IO) {

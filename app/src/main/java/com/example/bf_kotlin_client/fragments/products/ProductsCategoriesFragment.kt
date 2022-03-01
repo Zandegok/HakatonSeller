@@ -20,8 +20,7 @@ class ProductsCategoriesFragment: Fragment() {
         val productsCategoriesViewModel = ProductsCategoriesViewModel()
         binding.viewModel = productsCategoriesViewModel
 
-        //var view = inflater.inflate(R.layout.fragment_products_categories, container, false)
-
         return binding.root;
     }
+
 }

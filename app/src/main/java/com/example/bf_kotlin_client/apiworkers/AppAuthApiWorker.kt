@@ -20,7 +20,5 @@ class AppAuthApiWorker {
         val httpWorker = GlobalVariables.instance.httpWorker
 
         httpWorker.makeStringRequestWithBody(httpMethod, url, successCallbackFunction, request)
-        //
-
     }
 }
