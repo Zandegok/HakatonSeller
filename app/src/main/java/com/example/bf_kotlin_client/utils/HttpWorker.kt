@@ -12,8 +12,10 @@ class HttpWorker(private val applicationContext: Context) {
     private val volleyQueue = Volley.newRequestQueue(applicationContext)
 
     private fun errorFunction(volleyError: VolleyError) {
-
-        var httpCode = volleyError.networkResponse.statusCode
+        var httpCode = (volleyError.networkResponse?:
+        run{Toast.makeText(applicationContext, volleyError.message, Toast.LENGTH_LONG).show();
+            return
+        }).statusCode
         var dataInJson = volleyError.networkResponse.data.toString(Charsets.UTF_8)
 
         var data = Gson().fromJson(dataInJson, ServerError::class.java)
@@ -46,14 +48,14 @@ class HttpWorker(private val applicationContext: Context) {
     fun makeStringRequestWithBody(
         httpMethod: Int,
         url: String,
-        callbackFunction: (String) -> Unit,
+        successCallbackFunction: (String) -> Unit,
         request: String,
         httpHeaders: MutableMap<String, String> = hashMapOf()
     ) {
         val request = object : StringRequest(
             httpMethod,
             url,
-            callbackFunction,
+            successCallbackFunction,
             ::errorFunction
         ) {
             override fun getBodyContentType(): String {
