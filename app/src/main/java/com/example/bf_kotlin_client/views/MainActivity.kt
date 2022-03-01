@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         }*/
 
         globalVariables.apiKey = "2c06052652117d40823b3614b06f965ed7df43086f5a1fe1ad2e8717ffb90e2b";
-        globalVariables.androidId = "100002";
+        globalVariables.deviceId = "100002";
 
         //binding
 

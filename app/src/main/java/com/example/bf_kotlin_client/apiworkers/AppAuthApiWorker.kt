@@ -9,7 +9,7 @@ class AppAuthApiWorker {
     fun auth(successCallbackFunction: (String) -> Unit) {
         val login = "android"
         val password = "12345"
-        val deviceId = GlobalVariables.instance.androidId
+        val deviceId = GlobalVariables.instance.deviceId
 
         val appAuthRequest = AppAuthRequest(login, password, deviceId)
 

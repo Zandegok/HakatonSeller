@@ -13,5 +13,5 @@ class GlobalVariables private constructor() {
     lateinit var fragmentManager: AppFragmentManager
 
     var apiKey: String = ""
-    var androidId: String = ""
+    var deviceId: String = ""
 }

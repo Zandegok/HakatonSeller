@@ -32,7 +32,9 @@ class RvAdapterProductsCategories(private var categories: ArrayList<ProductCateg
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.viewModel = holder
 
-        holder.fieldTitle.set(categories[position].name);
+        holder.fieldTitle.set(categories[position].name)
+
+        //todo coroutine with glide to load image
     }
 
     override fun getItemCount(): Int {

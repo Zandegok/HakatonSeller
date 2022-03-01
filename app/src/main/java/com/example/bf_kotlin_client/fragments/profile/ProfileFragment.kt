@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.Observable
 import androidx.fragment.app.Fragment
+import com.example.bf_kotlin_client.databinding.FragmentProductsCategoriesBinding
 import com.example.bf_kotlin_client.databinding.FragmentProfileBinding
+import com.example.bf_kotlin_client.viewmodels.products.ProductsCategoriesViewModel
 import com.example.bf_kotlin_client.viewmodels.profile.ProfileViewModel
 
 class ProfileFragment : Fragment() {
@@ -16,19 +18,18 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        val binding = FragmentProfileBinding.inflate(layoutInflater)
+        var binding = FragmentProfileBinding.inflate(layoutInflater)
 
-        val profileViewModel = ProfileViewModel()
-        binding.viewModel = profileViewModel.apply {
-            image.run {
-                addOnPropertyChangedCallback(object :
-                        Observable.OnPropertyChangedCallback() {
-                        override fun onPropertyChanged(sender: Observable?, propertyId: Int) {
-                            binding.profileImageView.setImageBitmap(get())
-                        }
-                    })
+        var profileViewModel = ProfileViewModel()
+        binding.viewModel = profileViewModel
+
+        profileViewModel.image.addOnPropertyChangedCallback(object :
+            Observable.OnPropertyChangedCallback() {
+            override fun onPropertyChanged(sender: Observable?, propertyId: Int) {
+                binding.profileImageView.setImageBitmap(profileViewModel.image.get())
             }
-        }
+        })
+
         return binding.root;
     }
 }

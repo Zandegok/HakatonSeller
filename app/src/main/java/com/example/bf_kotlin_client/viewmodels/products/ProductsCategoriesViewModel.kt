@@ -10,7 +10,8 @@ import com.google.gson.Gson
 class ProductsCategoriesViewModel {
     private var globalVariables = GlobalVariables.instance
     private var productCategoryApiWorker = ProductCategoryApiWorker()
-    var adapter = ObservableField(RvAdapterProductsCategories(arrayListOf()))
+
+    var rvProductsAdapter = ObservableField(RvAdapterProductsCategories(arrayListOf()))
 
     init {
         productCategoryApiWorker.getAll(::updateRv)
@@ -19,6 +20,6 @@ class ProductsCategoriesViewModel {
     private fun updateRv(jsonData: String) {
         var response = Gson().fromJson(jsonData, ProductsCategoriesResponse::class.java)
 
-        adapter.set(RvAdapterProductsCategories(response.productCategories))
+        rvProductsAdapter.set(RvAdapterProductsCategories(response.productCategories))
     }
 }
