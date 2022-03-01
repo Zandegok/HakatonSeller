@@ -15,9 +15,9 @@ class ProductsCategoriesFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        val binding = FragmentProductsCategoriesBinding.inflate(layoutInflater)
+        var binding = FragmentProductsCategoriesBinding.inflate(layoutInflater)
 
-        val productsCategoriesViewModel = ProductsCategoriesViewModel()
+        var productsCategoriesViewModel = ProductsCategoriesViewModel()
         binding.viewModel = productsCategoriesViewModel
 
         return binding.root;

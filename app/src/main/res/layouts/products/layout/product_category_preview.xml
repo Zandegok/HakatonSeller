@@ -7,20 +7,20 @@
 
         <variable
             name="viewModel"
-            type="com.example.bf_kotlin_client.viewmodels.products.RvAdapterProductsCategories.ViewHolder" />
+            type="com.example.bf_kotlin_client.adapters.products.RvAdapterProductsCategories.ViewHolder" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="50dp"
-            android:text="@{viewModel.fieldTitle}"
-            android:textAlignment="center" />
+            android:layout_gravity="center_horizontal"
+            android:text="@{viewModel.fieldTitle}" />
+
     </LinearLayout>
 </layout>
