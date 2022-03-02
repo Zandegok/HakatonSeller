@@ -1,10 +1,14 @@
 package com.example.bf_kotlin_client.viewmodels.profile
 
 import android.graphics.Bitmap
+import android.widget.ImageView
+import androidx.core.graphics.drawable.toBitmap
+import androidx.databinding.BindingAdapter
 import androidx.databinding.ObservableField
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.model.GlideUrl
 import com.bumptech.glide.load.model.Headers
+import com.example.bf_kotlin_client.R
 import com.example.bf_kotlin_client.apiworkers.ImageApiWorker
 import com.example.bf_kotlin_client.utils.GlobalVariables
 import kotlinx.coroutines.Dispatchers
@@ -15,7 +19,7 @@ class ProfileViewModel {
 
     private var globalVariables = GlobalVariables.instance
 
-    var image = ObservableField<Bitmap>()
+    var image = ObservableField<Bitmap>(GlobalVariables.instance.applicationContext.getDrawable(R.drawable.ic_launcher_background)?.toBitmap())
     var imageApiWorker = ImageApiWorker()
 
     init {
@@ -36,4 +40,5 @@ class ProfileViewModel {
 
 
     }
+
 }
