@@ -23,7 +23,6 @@ class RvAdapterProductsCategories(private var categories: ArrayList<ProductCateg
 
     inner class ViewHolder internal constructor(var binding: ProductCategoryPreviewBinding) : RecyclerView.ViewHolder(binding.root) {
         private var globalVariables = GlobalVariables.instance
-        private var imageApiWorker = ImageApiWorker()
 
         var productCategory=ProductCategory()
         set(value){
@@ -31,9 +30,7 @@ class RvAdapterProductsCategories(private var categories: ArrayList<ProductCateg
             fieldTitle.set(value.name)
             GlobalScope.launch(Dispatchers.IO) {
                 var glideUrl = GlideUrl("http://151.248.113.116:8080/mobile/productsCategories/getPictureByName/${value.pictureName}",
-                    Headers {
-                        mutableMapOf("API_KEY" to globalVariables.apiKey, "DEVICE_ID" to globalVariables.deviceId)
-                    })
+                    globalVariables.headers)
 
                 var bitmap = Glide.with(GlobalVariables.instance.applicationContext).asBitmap()
                     .load(glideUrl)
@@ -47,13 +44,6 @@ class RvAdapterProductsCategories(private var categories: ArrayList<ProductCateg
 
         var fieldTitle = ObservableField("")
         var image = ObservableField<Bitmap>(GlobalVariables.instance.applicationContext.getDrawable(R.drawable.ic_launcher_background)?.toBitmap())
-
-
-        init {
-            // imageApiWorker.getImage("no path") { image.set(it) }
-
-
-        }
     }
 
 

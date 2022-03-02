@@ -14,26 +14,38 @@ import com.example.bf_kotlin_client.utils.GlobalVariables
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.lang.Exception
 
 class ProfileViewModel {
 
     private var globalVariables = GlobalVariables.instance
 
-    var image = ObservableField<Bitmap>(GlobalVariables.instance.applicationContext.getDrawable(R.drawable.ic_launcher_background)?.toBitmap())
+    var image =
+        ObservableField<Bitmap>(GlobalVariables.instance.applicationContext.getDrawable(R.drawable.ic_launcher_background)
+            ?.toBitmap())
     var imageApiWorker = ImageApiWorker()
 
     init {
         // imageApiWorker.getImage("no path") { image.set(it) }
 
         GlobalScope.launch(Dispatchers.IO) {
-            var glideUrl =GlideUrl("http://151.248.113.116:8080/mobile/productsCategories/getPictureByName/milk.jpg",
-                Headers {
-                    mutableMapOf("API_KEY" to globalVariables.apiKey, "DEVICE_ID" to globalVariables.deviceId)
-                })
+            var glideUrl =
+                GlideUrl("http://151.248.113.116:8080/mobile/productsCategories/getPictureByName/milk.jpg",
+                    Headers {
+                        mutableMapOf("API_KEY" to globalVariables.apiKey,
+                            "DEVICE_ID" to globalVariables.deviceId)
+                    })
 
-            var bitmap = Glide.with(GlobalVariables.instance.applicationContext).asBitmap()
-                .load(glideUrl)
-                .submit().get()
+            var bitmap = try {
+                Glide.with(GlobalVariables.instance.applicationContext).asBitmap()
+                    .load(glideUrl)
+                    .error(R.drawable.error)
+                    .fallback(R.drawable.fallback)
+                    .submit().get()
+            } catch (e: Exception) {
+                GlobalVariables.instance.applicationContext.getDrawable(R.drawable.ic_launcher_background)
+                    ?.toBitmap()
+            }
 
             image.set(bitmap)
         }
