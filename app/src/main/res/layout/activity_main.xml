@@ -12,7 +12,9 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#91BCB3"
+        android:backgroundTint="#B9DCD5">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigationViewActivityMain"
@@ -32,53 +34,4 @@
 
         </FrameLayout>
     </RelativeLayout>
-
-
-    <!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:orientation="vertical"-->
-<!--        tools:context=".views.MainActivity">-->
-
-<!--        <Button-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:onClick="@{(view)->viewModel.authorize()}"-->
-<!--            android:text="Load data" />-->
-
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="@{viewModel.fieldApiKey}" />-->
-
-<!--        <Button-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:onClick="@{(view)->viewModel.getAllCategories()}"-->
-<!--            android:text="loadCategories" />-->
-
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="@{viewModel.fieldProductsCategories}" />-->
-
-<!--        <Button-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:onClick="@{(view)->viewModel.saveApiKeyToLocalDb()}"-->
-<!--            android:text="Save api key" />-->
-
-<!--        <Button-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:onClick="@{(view)->viewModel.loadApiKeyFromLocalDb()}"-->
-<!--            android:text="load api key" />-->
-
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="@{viewModel.fieldApiKey2}" />-->
-
-<!--    </LinearLayout>-->
-
 </layout>
