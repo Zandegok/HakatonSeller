@@ -4,17 +4,20 @@ import com.android.volley.Request
 import com.example.bf_kotlin_client.utils.GlobalVariables
 
 class ProductCategoryApiWorker {
+
+    private var globalVariables = GlobalVariables.instance
+
     fun getAll(successCallbackFunction: (String) -> Unit) {
         val httpMethod = Request.Method.GET
         val url = "http://151.248.113.116:8080/mobile/productsCategories/getAll"
-        val apiKey = GlobalVariables.instance.apiKey
-        val deviceId = GlobalVariables.instance.deviceId
-        val httpWorker = GlobalVariables.instance.httpWorker
+
+        val httpWorker = globalVariables.httpWorker
+
         httpWorker.makeStringRequestWithoutBody(
             httpMethod,
             url,
             successCallbackFunction,
-            mutableMapOf("API_KEY" to apiKey, "DEVICE_ID" to deviceId)
+            globalVariables.httpHeaders
         )
     }
 }

@@ -21,29 +21,27 @@ import kotlinx.coroutines.launch
 class RvAdapterProductsCategories(private var categories: ArrayList<ProductCategory>) :
     RecyclerView.Adapter<RvAdapterProductsCategories.ViewHolder>() {
 
-    inner class ViewHolder internal constructor(var binding: ProductCategoryPreviewBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder internal constructor(var binding: ProductCategoryPreviewBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         private var globalVariables = GlobalVariables.instance
+        private var imageApiWorker = ImageApiWorker()
 
-        var productCategory=ProductCategory()
-        set(value){
-            field=value
-            fieldTitle.set(value.name)
-            GlobalScope.launch(Dispatchers.IO) {
-                var glideUrl = GlideUrl("http://151.248.113.116:8080/mobile/productsCategories/getPictureByName/${value.pictureName}",
-                    globalVariables.headers)
+        var productCategory = ProductCategory()
+            set(value) {
+                field = value
+                fieldTitle.set(value.name)
 
-                var bitmap = Glide.with(GlobalVariables.instance.applicationContext).asBitmap()
-                    .load(glideUrl)
-                    .error(R.drawable.error)
-                    .fallback(R.drawable.fallback)
-                    .submit().get()
-
-                image.set(bitmap)
+                GlobalScope.launch(Dispatchers.IO) {
+                    var bitmap = imageApiWorker.getPictureByName(value.pictureName)
+                    fieldImage.set(bitmap)
+                }
             }
-        }
 
-        var fieldTitle = ObservableField("")
-        var image = ObservableField<Bitmap>(GlobalVariables.instance.applicationContext.getDrawable(R.drawable.ic_launcher_background)?.toBitmap())
+        var fieldTitle: ObservableField<String> = ObservableField("")
+        var fieldImage: ObservableField<Bitmap> = ObservableField(
+            globalVariables.applicationContext.getDrawable(R.drawable.ic_launcher_background)
+                ?.toBitmap()
+        )
     }
 
 
@@ -59,7 +57,7 @@ class RvAdapterProductsCategories(private var categories: ArrayList<ProductCateg
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.viewModel = holder
 
-        holder.productCategory=categories[position]
+        holder.productCategory = categories[position]
 
     }
 

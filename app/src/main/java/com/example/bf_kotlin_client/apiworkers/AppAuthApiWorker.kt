@@ -6,10 +6,13 @@ import com.example.bf_kotlin_client.utils.GlobalVariables
 import com.google.gson.Gson
 
 class AppAuthApiWorker {
-    fun auth(successCallbackFunction: (String) -> Unit) {
+
+    private var globalVariables = GlobalVariables.instance
+
+    fun authByLoginAndPassword(successCallbackFunction: (String) -> Unit) {
         val login = "android"
         val password = "12345"
-        val deviceId = GlobalVariables.instance.deviceId
+        val deviceId = globalVariables.deviceId
 
         val appAuthRequest = AppAuthRequest(login, password, deviceId)
 
@@ -17,7 +20,7 @@ class AppAuthApiWorker {
         val url = "http://151.248.113.116:8080/mobile/apps/authByLoginAndPassword"
         val request = Gson().toJson(appAuthRequest)
 
-        val httpWorker = GlobalVariables.instance.httpWorker
+        val httpWorker = globalVariables.httpWorker
 
         httpWorker.makeStringRequestWithBody(httpMethod, url, successCallbackFunction, request)
     }

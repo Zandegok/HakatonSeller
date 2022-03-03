@@ -12,13 +12,9 @@ class GlobalVariables private constructor() {
     lateinit var httpWorker: HttpWorker
     lateinit var appDatabase: AppDatabase
     lateinit var fragmentManager: AppFragmentManager
+    lateinit var httpHeaders: MutableMap<String, String>
 
     var apiKey: String = ""
     var deviceId: String = ""
 
-    val headers by lazy {
-        Headers{
-        mutableMapOf("API_KEY" to apiKey, "DEVICE_ID" to deviceId)
-    }
-    }
 }

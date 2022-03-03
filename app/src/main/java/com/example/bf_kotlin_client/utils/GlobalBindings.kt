@@ -1,13 +1,9 @@
 package com.example.bf_kotlin_client.utils
 
 import android.graphics.Bitmap
-import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-
-
-class GlobalFunctions {}
 
 @BindingAdapter("android:image_bitmap")
 fun setImageBitmap(
@@ -15,13 +11,15 @@ fun setImageBitmap(
 ) {
     imageView.setImageBitmap(bitmap)
 }
-@BindingAdapter("android:isRefresh")
+
+@BindingAdapter("android:is_refresh")
 fun setRefresh(
-    swipeRefreshLayout: SwipeRefreshLayout, value:Boolean,
+    swipeRefreshLayout: SwipeRefreshLayout, value: Boolean,
 ) {
-    swipeRefreshLayout.isRefreshing=value
+    swipeRefreshLayout.isRefreshing = value
 }
-@BindingAdapter("android:onRefresh")
+
+@BindingAdapter("android:on_refresh")
 fun setOnRefreshListener(
     swipeRefreshLayout: SwipeRefreshLayout,
     oldValue: SwipeRefreshLayout.OnRefreshListener?,
@@ -33,5 +31,4 @@ fun setOnRefreshListener(
     if (newValue != null) {
         swipeRefreshLayout.setOnRefreshListener(newValue)
     }
-
 }

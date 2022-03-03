@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         globalVariables.httpWorker = HttpWorker(applicationContext)
         globalVariables.appDatabase = AppDatabase.getInstance(applicationContext)
 
-
         //globalVariables.androidId = Secure.getString(applicationContext.contentResolver, Secure.ANDROID_ID)
 
         /*GlobalScope.launch(Dispatchers.IO) {
@@ -39,6 +38,9 @@ class MainActivity : AppCompatActivity() {
 
         globalVariables.apiKey = "2c06052652117d40823b3614b06f965ed7df43086f5a1fe1ad2e8717ffb90e2b";
         globalVariables.deviceId = "100002";
+
+        globalVariables.httpHeaders =
+            hashMapOf("API_KEY" to globalVariables.apiKey, "DEVICE_ID" to globalVariables.deviceId)
 
         //binding
 

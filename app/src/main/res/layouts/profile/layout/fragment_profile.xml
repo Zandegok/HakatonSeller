@@ -21,12 +21,6 @@
             android:layout_height="wrap_content"
             android:text="Profile" />
 
-        <ImageView
-            android:id="@+id/profileImageView"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:scaleType="fitCenter"
-            android:image_bitmap="@{viewModel.image}"
-            />
+
     </LinearLayout>
 </layout>
