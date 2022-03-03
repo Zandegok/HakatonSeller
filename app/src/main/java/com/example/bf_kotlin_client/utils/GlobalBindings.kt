@@ -4,6 +4,8 @@ import android.graphics.Bitmap
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationBarView
 
 @BindingAdapter("android:image_bitmap")
 fun setImageBitmap(
@@ -30,5 +32,18 @@ fun setOnRefreshListener(
     }
     if (newValue != null) {
         swipeRefreshLayout.setOnRefreshListener(newValue)
+    }
+}
+@BindingAdapter("android:onItemSelected")
+fun setOnItemSelected(
+    bottomNavigationView: BottomNavigationView,
+    oldValue: NavigationBarView.OnItemSelectedListener?,
+    newValue: NavigationBarView.OnItemSelectedListener?,
+) {
+    if (oldValue != null) {
+        bottomNavigationView.setOnItemSelectedListener(oldValue)
+    }
+    if (newValue != null) {
+        bottomNavigationView.setOnItemSelectedListener(newValue)
     }
 }
