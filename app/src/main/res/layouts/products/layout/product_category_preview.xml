@@ -10,23 +10,59 @@
             type="com.example.bf_kotlin_client.adapters.products.RvAdapterProductsCategories.ViewHolder" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@{viewModel.fieldTitle}" />
+            android:text="5 товаров"
+            android:textColor="#9BB2AE"
+            android:textSize="12sp"
+            tools:layout_editor_absoluteX="176dp"
+            tools:layout_editor_absoluteY="272dp" />
+
         <ImageView
-            android:id="@+id/profileImageView"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:scaleType="fitCenter"
-            android:image_bitmap="@{viewModel.fieldImage}"
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="234dp"
+            tools:layout_editor_absoluteY="253dp"
+            android:image_bitmap="@{viewModel.fieldImage}"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="76dp"
+            android:layout_height="30dp"
+            android:text="@{viewModel.fieldTitle}"
+            android:textColor="#354B47"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="166dp"
+            tools:layout_editor_absoluteY="242dp"
             />
-    </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView3"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:text="@{viewModel.fieldTitle}" />-->
+<!--        <ImageView-->
+<!--            android:id="@+id/profileImageView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:scaleType="fitCenter"-->
+<!--            android:image_bitmap="@{viewModel.fieldImage}"-->
+<!--            />-->
+<!--    </LinearLayout>-->
 </layout>
