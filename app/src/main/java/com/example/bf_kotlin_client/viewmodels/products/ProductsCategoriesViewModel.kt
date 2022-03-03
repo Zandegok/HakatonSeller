@@ -12,14 +12,22 @@ class ProductsCategoriesViewModel {
     private var productCategoryApiWorker = ProductCategoryApiWorker()
 
     var rvProductsAdapter = ObservableField(RvAdapterProductsCategories(arrayListOf()))
+    var isRefreshing=ObservableField(false)
 
     init {
+        update()
+    }
+
+    fun update() {
+        isRefreshing.set(true)
         productCategoryApiWorker.getAll(::updateRv)
+        isRefreshing.set(false)
     }
 
     private fun updateRv(jsonData: String) {
         var response = Gson().fromJson(jsonData, ProductsCategoriesResponse::class.java)
 
         rvProductsAdapter.set(RvAdapterProductsCategories(response.productCategories))
+
     }
 }

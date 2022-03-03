@@ -19,16 +19,8 @@ class ProfileFragment : Fragment() {
     ): View {
 
         var binding = FragmentProfileBinding.inflate(layoutInflater)
-
         var profileViewModel = ProfileViewModel()
         binding.viewModel = profileViewModel
-
-        profileViewModel.image.addOnPropertyChangedCallback(object :
-            Observable.OnPropertyChangedCallback() {
-            override fun onPropertyChanged(sender: Observable?, propertyId: Int) {
-                binding.profileImageView.setImageBitmap(profileViewModel.image.get())
-            }
-        })
 
         return binding.root;
     }
