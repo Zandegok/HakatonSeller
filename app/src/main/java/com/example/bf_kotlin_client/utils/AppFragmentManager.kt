@@ -1,10 +1,12 @@
 package com.example.bf_kotlin_client.utils
 
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.bf_kotlin_client.R
 import com.example.bf_kotlin_client.fragments.farmers.FarmersListFragment
 import com.example.bf_kotlin_client.fragments.favorites.FavoriteProductsFragment
 import com.example.bf_kotlin_client.fragments.products.ProductsCategoriesFragment
+import com.example.bf_kotlin_client.fragments.products.ProductsInCategoryFragment
 import com.example.bf_kotlin_client.fragments.profile.ProfileFragment
 import com.example.bf_kotlin_client.fragments.support.SupportMainPageFragment
 
@@ -17,6 +19,7 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         ProductsCategoriesFragment,
         ProfileFragment,
         SupportMainPageFragment,
+        ProductsInCategoriesFragment,
     }
 
     init {
@@ -51,10 +54,15 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
             FragmentsNames.SupportMainPageFragment.name
         )
 
+        fragmentTransaction.add(
+            containerId,
+            ProductsInCategoryFragment(),
+            FragmentsNames.ProductsInCategoriesFragment.name
+        )
         fragmentTransaction.commit()
     }
 
-    fun replaceFragment(fragmentName: FragmentsNames) {
+    fun replaceFragment(fragmentName: FragmentsNames): Fragment {
         fragmentManager.executePendingTransactions()//защита от асинхронности
 
         var foundFragment = fragmentManager.findFragmentByTag(fragmentName.name)!!
@@ -67,6 +75,7 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
 
         fragmentTransaction.show(foundFragment)
         fragmentTransaction.commitNow()
+        return foundFragment
     }
     fun getFragment(fragmentName: FragmentsNames)=fragmentManager.findFragmentByTag(fragmentName.name)
 }
