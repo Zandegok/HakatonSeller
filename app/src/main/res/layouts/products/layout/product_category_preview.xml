@@ -10,41 +10,42 @@
             type="com.example.bf_kotlin_client.adapters.products.RvAdapterProductsCategories.ViewHolder" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:onClick="@{(view)->viewModel.openProductList()}">
 
-        <TextView
-            android:id="@+id/textView"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="5 товаров"
-            android:textColor="#9BB2AE"
-            android:textSize="12sp"
-            tools:layout_editor_absoluteX="176dp"
-            tools:layout_editor_absoluteY="272dp" />
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="76dp"
+                android:layout_height="30dp"
+                android:text="@{viewModel.fieldTitle}"
+                android:textColor="#354B47"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5 товаров"
+                android:textColor="#9BB2AE"
+                android:textSize="12sp" />
+
+        </LinearLayout>
 
         <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="234dp"
-            tools:layout_editor_absoluteY="253dp"
-            android:image_bitmap="@{viewModel.fieldImage}"/>
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:image_bitmap="@{viewModel.fieldImage}" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="76dp"
-            android:layout_height="30dp"
-            android:text="@{viewModel.fieldTitle}"
-            android:textColor="#354B47"
-            android:textSize="20sp"
-            tools:layout_editor_absoluteX="166dp"
-            tools:layout_editor_absoluteY="242dp"
-            />
+    </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 <!--    <LinearLayout-->

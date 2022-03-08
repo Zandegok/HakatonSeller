@@ -10,6 +10,7 @@ import com.example.bf_kotlin_client.utils.GlobalVariables
 class MainActivityViewModel {
     private val fragmentManager = GlobalVariables.instance.fragmentManager
 
+
     var selectedItemId: ObservableField<Int> = ObservableField(0)
     var onBackPressedCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
@@ -47,6 +48,5 @@ class MainActivityViewModel {
         }
 
     }
-
 
 }

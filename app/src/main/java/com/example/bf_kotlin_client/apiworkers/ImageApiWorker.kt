@@ -16,12 +16,12 @@ import com.google.gson.Gson
 import java.io.ByteArrayInputStream
 
 class ImageApiWorker {
-    fun getPictureByName(pictureName:String):Bitmap {
+    fun getPictureByName(controllerName: String, pictureName: String): Bitmap {
 
         var globalVariables = GlobalVariables.instance
-
+//productsCategories
         var glideUrl = GlideUrl(
-            "http://151.248.113.116:8080/mobile/productsCategories/getPictureByName/${pictureName}",
+            "http://151.248.113.116:8080/mobile/${controllerName}/getPictureByName/${pictureName}",
             Headers {
                 globalVariables.httpHeaders
             }

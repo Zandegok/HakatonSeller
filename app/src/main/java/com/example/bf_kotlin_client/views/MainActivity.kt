@@ -49,8 +49,5 @@ class MainActivity : AppCompatActivity() {
 
         globalVariables.fragmentManager.showOneOfMainFragment(ProductsCategoriesFragment)
 
-
     }
-
-
 }
