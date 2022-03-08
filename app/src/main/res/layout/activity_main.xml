@@ -14,7 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#91BCB3"
-        android:backgroundTint="#B9DCD5">
+        android:backgroundTint="#B9DCD5"
+        android:onBackPressed="@{viewModel.onBackPressedCallback}">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigationViewActivityMain"

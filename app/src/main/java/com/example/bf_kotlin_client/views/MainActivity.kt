@@ -6,11 +6,9 @@ import com.example.bf_kotlin_client.databinding.ActivityMainBinding
 import com.example.bf_kotlin_client.utils.GlobalVariables
 import com.example.bf_kotlin_client.utils.HttpWorker
 import com.example.bf_kotlin_client.viewmodels.MainActivityViewModel
-import com.example.bf_kotlin_client.R
 import com.example.bf_kotlin_client.utils.AppDatabase
 import com.example.bf_kotlin_client.utils.AppFragmentManager
 import com.example.bf_kotlin_client.utils.AppFragmentManager.FragmentsNames.*
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         var mainActivityViewModel = MainActivityViewModel()
         binding.viewModel = mainActivityViewModel
 
-        globalVariables.fragmentManager.replaceFragment(ProductsCategoriesFragment)
+        globalVariables.fragmentManager.showOneOfMainFragment(ProductsCategoriesFragment)
 
 
     }
