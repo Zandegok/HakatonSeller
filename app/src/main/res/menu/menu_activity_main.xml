@@ -2,23 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/productsSection"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="User" />
+        android:icon="@drawable/products"
+        android:title="Продукты" />
     <item
         android:id="@+id/farmersSection"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="Search"
+        android:icon="@drawable/farmer"
+        android:title="Фермеры"
         />
     <item
         android:id="@+id/favouritesSection"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="Catalog" />
+        android:icon="@drawable/favourites"
+        android:title="Избранное" />
     <item
         android:id="@+id/profileSection"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="Map" />
+        android:icon="@drawable/profile"
+        android:title="Профиль" />
     <item
         android:id="@+id/supportSection"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="Cart" />
+        android:icon="@drawable/support"
+        android:title="Поддержка" />
 </menu>
