@@ -14,7 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#91BCB3"
-        android:backgroundTint="#B9DCD5">
+        android:backgroundTint="#B9DCD5"
+        android:onBackPressed="@{viewModel.onBackPressedCallback}">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigationViewActivityMain"
@@ -26,7 +27,9 @@
             app:itemTextColor="@color/drawer_item"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/menu_activity_main" />
+            android:onItemSelected="@{(item)-> viewModel.onItemSelected(item)}"
+            android:selectedItemId="@{viewModel.selectedItemId}"
+            app:menu="@menu/menu_activity_main" /><!--android:itemsIds="@{}"-->
 
         <FrameLayout
             android:id="@+id/frameLayoutActivityMain"

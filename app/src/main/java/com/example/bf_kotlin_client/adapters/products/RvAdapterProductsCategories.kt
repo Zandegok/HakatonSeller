@@ -6,13 +6,12 @@ import android.view.ViewGroup
 import androidx.core.graphics.drawable.toBitmap
 import androidx.databinding.ObservableField
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.model.GlideUrl
-import com.bumptech.glide.load.model.Headers
 import com.example.bf_kotlin_client.R
 import com.example.bf_kotlin_client.apiworkers.ImageApiWorker
+import com.example.bf_kotlin_client.databinding.FragmentProductsInCategoryBinding
 import com.example.bf_kotlin_client.databinding.ProductCategoryPreviewBinding
 import com.example.bf_kotlin_client.dtos.entities.ProductCategory
+import com.example.bf_kotlin_client.utils.AppFragmentManager.FragmentsNames.ProductsInCategoryFragment
 import com.example.bf_kotlin_client.utils.GlobalVariables
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -25,6 +24,13 @@ class RvAdapterProductsCategories(private var categories: ArrayList<ProductCateg
         RecyclerView.ViewHolder(binding.root) {
         private var globalVariables = GlobalVariables.instance
         private var imageApiWorker = ImageApiWorker()
+        var fieldTitle: ObservableField<String> = ObservableField("")
+            private set
+        var fieldImage: ObservableField<Bitmap> = ObservableField(
+            globalVariables.applicationContext.getDrawable(R.drawable.ic_launcher_background)
+                ?.toBitmap()
+        )
+            private set
 
         var productCategory = ProductCategory()
             set(value) {
@@ -32,16 +38,21 @@ class RvAdapterProductsCategories(private var categories: ArrayList<ProductCateg
                 fieldTitle.set(value.name)
 
                 GlobalScope.launch(Dispatchers.IO) {
-                    var bitmap = imageApiWorker.getPictureByName(value.pictureName)
+                    var bitmap =
+                        imageApiWorker.getPictureByName("productsCategories", value.pictureName)
                     fieldImage.set(bitmap)
                 }
             }
 
-        var fieldTitle: ObservableField<String> = ObservableField("")
-        var fieldImage: ObservableField<Bitmap> = ObservableField(
-            globalVariables.applicationContext.getDrawable(R.drawable.ic_launcher_background)
-                ?.toBitmap()
-        )
+        fun openProductList() {
+
+          var fm = globalVariables.fragmentManager
+          fm.openFragmentAboveMain(ProductsInCategoryFragment)
+          var binding=fm.getBinding<FragmentProductsInCategoryBinding>(ProductsInCategoryFragment)
+          var viewModel=binding!!.viewModel
+
+          viewModel!!.category.set(productCategory)
+        }
     }
 
 
