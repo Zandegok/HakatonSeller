@@ -43,15 +43,18 @@ class RvAdapterProductsCategories(private var categories: ArrayList<ProductCateg
                 fieldTitle.set(value.name)
 
                 GlobalScope.launch(Dispatchers.IO) {
-                    var bitmap = imageApiWorker.getPictureByName(value.pictureName)
+                    var bitmap =
+                        imageApiWorker.getPictureByName("productsCategories", value.pictureName)
                     fieldImage.set(bitmap)
                 }
             }
 
         fun openProductList() {
-            var newFragment=globalVariables.fragmentManager.replaceFragment(ProductsInCategoriesFragment)
-            var binding=DataBindingUtil.getBinding<FragmentProductsInCategoryBinding>(newFragment.requireView())!!
-            var viewModel=binding.viewModel
+            var newFragment =
+                globalVariables.fragmentManager.replaceFragment(ProductsInCategoriesFragment)
+            var binding =
+                DataBindingUtil.getBinding<FragmentProductsInCategoryBinding>(newFragment.requireView())!!
+            var viewModel = binding.viewModel
             viewModel!!.category.set(productCategory)
         }
     }

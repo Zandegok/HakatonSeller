@@ -50,9 +50,5 @@ class MainActivity : AppCompatActivity() {
         binding.viewModel = mainActivityViewModel
 
         globalVariables.fragmentManager.replaceFragment(ProductsCategoriesFragment)
-
-
     }
-
-
 }
