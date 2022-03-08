@@ -1,5 +1,7 @@
 package com.example.bf_kotlin_client.utils
 
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.bf_kotlin_client.R
@@ -13,13 +15,16 @@ import com.example.bf_kotlin_client.fragments.support.SupportMainPageFragment
 
 class AppFragmentManager(private var fragmentManager: FragmentManager) {
 
+    val mainFragmentsNames =
+        FragmentsNames.FarmersListFragment..FragmentsNames.SupportMainPageFragment
+
     enum class FragmentsNames {
         FarmersListFragment,
         FavoriteProductsFragment,
         ProductsCategoriesFragment,
         ProfileFragment,
         SupportMainPageFragment,
-        ProductsInCategoriesFragment,
+        ProductsInCategoryFragment,
     }
 
     init {
@@ -53,19 +58,16 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
             SupportMainPageFragment(),
             FragmentsNames.SupportMainPageFragment.name
         )
-
-        fragmentTransaction.add(
-            containerId,
-            ProductsInCategoryFragment(),
-            FragmentsNames.ProductsInCategoriesFragment.name
-        )
         fragmentTransaction.commit()
     }
 
-    fun replaceFragment(fragmentName: FragmentsNames): Fragment {
+    fun showOneOfMainFragment(fragmentName: FragmentsNames) {
+        if (fragmentName !in mainFragmentsNames) {
+            throw IllegalArgumentException("$fragmentName is not main fragment")
+        }
         fragmentManager.executePendingTransactions()//защита от асинхронности
 
-        var foundFragment = fragmentManager.findFragmentByTag(fragmentName.name)!!
+        var foundFragment: Fragment = fragmentManager.findFragmentByTag(fragmentName.name)!!
 
         var fragmentTransaction = fragmentManager.beginTransaction()
 
@@ -74,8 +76,50 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         }
 
         fragmentTransaction.show(foundFragment)
-        fragmentTransaction.commitNow()
-        return foundFragment
+        fragmentTransaction.addToBackStack(fragmentName.name)
+        fragmentTransaction.commit()
     }
-    fun getFragment(fragmentName: FragmentsNames)=fragmentManager.findFragmentByTag(fragmentName.name)
+
+    fun openFragmentAboveMain(fragmentName: FragmentsNames) {
+        fragmentManager.executePendingTransactions()
+
+        var newFragment: Fragment = when (fragmentName) {
+            FragmentsNames.ProductsInCategoryFragment -> ProductsInCategoryFragment()
+            else -> throw IllegalArgumentException("This Fragment cant be instantiate")
+        }
+
+        var fragmentTransaction = fragmentManager.beginTransaction()
+
+        for (fragment in fragmentManager.fragments) {
+            fragmentTransaction.hide(fragment)
+        }
+
+        var containerId = R.id.frameLayoutActivityMain
+        fragmentTransaction.add(containerId,newFragment, fragmentName.name)
+        fragmentTransaction.addToBackStack(fragmentName.name)
+        fragmentTransaction.commit()
+
+    }
+
+    fun <T : ViewDataBinding?> getBinding(fragmentName: FragmentsNames): T? {
+        fragmentManager.executePendingTransactions()
+        return DataBindingUtil.getBinding<T>(
+            fragmentManager.findFragmentByTag(fragmentName.name)!!.requireView())
+    }
+
+    fun popBackStack(): Int? {
+        fragmentManager.executePendingTransactions()
+        if (fragmentManager.backStackEntryCount < 2) return null
+        val backStackEntry =
+            fragmentManager.getBackStackEntryAt(fragmentManager.backStackEntryCount - 2)
+        fragmentManager.popBackStack()
+        var foundFragment: Fragment = fragmentManager.findFragmentByTag(backStackEntry.name!!)!!
+        var fragmentTransaction = fragmentManager.beginTransaction()
+        for (fragment in fragmentManager.fragments) {
+            fragmentTransaction.hide(fragment)
+        }
+        fragmentTransaction.show(foundFragment)
+        fragmentTransaction.commit()
+        return FragmentsNames.valueOf(backStackEntry.name!!).ordinal
+    }
 }

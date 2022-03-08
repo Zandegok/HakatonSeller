@@ -1,7 +1,10 @@
 package com.example.bf_kotlin_client.utils
 
 import android.graphics.Bitmap
+import android.view.View
 import android.widget.ImageView
+import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.BindingAdapter
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -24,26 +27,32 @@ fun setRefresh(
 @BindingAdapter("android:on_refresh")
 fun setOnRefreshListener(
     swipeRefreshLayout: SwipeRefreshLayout,
-    oldValue: SwipeRefreshLayout.OnRefreshListener?,
-    newValue: SwipeRefreshLayout.OnRefreshListener?,
+    listener: SwipeRefreshLayout.OnRefreshListener?,
 ) {
-    if (oldValue != null) {
-        swipeRefreshLayout.setOnRefreshListener(oldValue)
-    }
-    if (newValue != null) {
-        swipeRefreshLayout.setOnRefreshListener(newValue)
+    if (listener != null) {
+        swipeRefreshLayout.setOnRefreshListener(listener)
     }
 }
 @BindingAdapter("android:onItemSelected")
 fun setOnItemSelected(
     bottomNavigationView: BottomNavigationView,
-    oldValue: NavigationBarView.OnItemSelectedListener?,
-    newValue: NavigationBarView.OnItemSelectedListener?,
+    listener: NavigationBarView.OnItemSelectedListener?,
 ) {
-    if (oldValue != null) {
-        bottomNavigationView.setOnItemSelectedListener(oldValue)
+    if (listener != null) {
+        bottomNavigationView.setOnItemSelectedListener(listener)
     }
-    if (newValue != null) {
-        bottomNavigationView.setOnItemSelectedListener(newValue)
+}
+@BindingAdapter("android:selectedItemId")
+fun setSelectedItemPosition(
+    bottomNavigationView: BottomNavigationView,
+    position: Int,
+) {
+    bottomNavigationView.selectedItemId
+}
+@BindingAdapter("android:onBackPressed")
+fun onBackPressed(view: View, callback:OnBackPressedCallback?){
+    var activity= view.context as AppCompatActivity
+    if (callback != null) {
+        activity.onBackPressedDispatcher.addCallback(callback)
     }
 }
