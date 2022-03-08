@@ -2,6 +2,7 @@ package com.example.bf_kotlin_client.viewmodels
 
 import android.view.MenuItem
 import androidx.activity.OnBackPressedCallback
+import androidx.databinding.ObservableField
 import com.example.bf_kotlin_client.R
 import com.example.bf_kotlin_client.utils.AppFragmentManager.FragmentsNames.*
 import com.example.bf_kotlin_client.utils.GlobalVariables
@@ -9,9 +10,14 @@ import com.example.bf_kotlin_client.utils.GlobalVariables
 class MainActivityViewModel {
     private val fragmentManager = GlobalVariables.instance.fragmentManager
 
-    var onBackPressedCallback=object :OnBackPressedCallback(true){
+    var selectedItemId: ObservableField<Int> = ObservableField(0)
+    var onBackPressedCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
-            fragmentManager.popBackStack()
+            var result: Int? = fragmentManager.popBackStack()
+//            if (result != null &&
+//                result in
+//                fragmentManager.mainFragmentsNames.start.ordinal..fragmentManager.mainFragmentsNames.endInclusive.ordinal)
+//                selectedItemId=
         }
     }
 

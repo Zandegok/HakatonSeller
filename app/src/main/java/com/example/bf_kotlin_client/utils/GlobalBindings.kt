@@ -42,6 +42,13 @@ fun setOnItemSelected(
         bottomNavigationView.setOnItemSelectedListener(listener)
     }
 }
+@BindingAdapter("android:selectedItemId")
+fun setSelectedItemPosition(
+    bottomNavigationView: BottomNavigationView,
+    position: Int,
+) {
+    bottomNavigationView.selectedItemId
+}
 @BindingAdapter("android:onBackPressed")
 fun onBackPressed(view: View, callback:OnBackPressedCallback?){
     var activity= view.context as AppCompatActivity

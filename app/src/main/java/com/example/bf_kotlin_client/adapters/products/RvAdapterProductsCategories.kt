@@ -49,6 +49,7 @@ class RvAdapterProductsCategories(private var categories: ArrayList<ProductCateg
             var binding=fm.getBinding<FragmentProductsInCategoryBinding>(ProductsInCategoryFragment)
             var viewModel=binding!!.viewModel
             viewModel!!.category.set(productCategory)
+            var t= binding.textView2.text
         }
     }
 

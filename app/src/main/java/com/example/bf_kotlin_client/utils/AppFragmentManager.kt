@@ -94,7 +94,8 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
             fragmentTransaction.hide(fragment)
         }
 
-        fragmentTransaction.add(newFragment, fragmentName.name)
+        var containerId = R.id.frameLayoutActivityMain
+        fragmentTransaction.add(containerId,newFragment, fragmentName.name)
         fragmentTransaction.addToBackStack(fragmentName.name)
         fragmentTransaction.commit()
 
@@ -106,9 +107,9 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
             fragmentManager.findFragmentByTag(fragmentName.name)!!.requireView())
     }
 
-    fun popBackStack() {
+    fun popBackStack(): Int? {
         fragmentManager.executePendingTransactions()
-        if (fragmentManager.backStackEntryCount < 2) return
+        if (fragmentManager.backStackEntryCount < 2) return null
         val backStackEntry =
             fragmentManager.getBackStackEntryAt(fragmentManager.backStackEntryCount - 2)
         fragmentManager.popBackStack()
@@ -119,5 +120,6 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         }
         fragmentTransaction.show(foundFragment)
         fragmentTransaction.commit()
+        return FragmentsNames.valueOf(backStackEntry.name!!).ordinal
     }
 }

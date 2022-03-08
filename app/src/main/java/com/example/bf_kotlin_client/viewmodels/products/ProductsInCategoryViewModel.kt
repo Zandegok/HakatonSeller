@@ -10,12 +10,12 @@ class ProductsInCategoryViewModel {
     init {
         category.addOnPropertyChangedCallback(object :Observable.OnPropertyChangedCallback(){
             override fun onPropertyChanged(sender: Observable?, propertyId: Int) {
-                Update()
+                update()
             }
         })
     }
 
-    private fun Update() {
+    private fun update() {
         text.set("Продукты в категории \"${category.get()!!.name}\"")
     }
 }
