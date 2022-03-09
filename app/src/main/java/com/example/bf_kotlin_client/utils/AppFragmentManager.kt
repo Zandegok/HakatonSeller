@@ -37,10 +37,8 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
     init {
         var containerId = R.id.frameLayoutActivityMain
         var fragmentTransaction = fragmentManager.beginTransaction()
-
         for (tab in tabs)
             fragmentTransaction.add(containerId, tab.value[0])
-
         fragmentTransaction.commit()
     }
 
@@ -49,14 +47,18 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
             throw IllegalArgumentException("$fragmentName is not main fragment")
         }
         fragmentManager.executePendingTransactions()//защита от асинхронности
+        val newTab = tabs.entries.first { it.key == fragmentName }
+        if (newTab==currentTab){
+            refreshCurrentTab()
+            return
+        }
         var fragmentTransaction = fragmentManager.beginTransaction()
-
         for (fragment in fragmentManager.fragments) {
             fragmentTransaction.hide(fragment)
         }
         fragmentTransaction.show(tabs[fragmentName]!!.last())
         fragmentTransaction.commit()
-        currentTab=tabs.entries.first{it.key == fragmentName}
+        currentTab= newTab
     }
 
     fun refreshCurrentTab() {
@@ -90,16 +92,14 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         currentTab.value.add(newFragment)
 
     }
-
-    fun <T : ViewDataBinding?> getBinding(fragmentName: FragmentsName): T? {
-        fragmentManager.executePendingTransactions()
-        return DataBindingUtil.getBinding<T>(
-            fragmentManager.findFragmentByTag(fragmentName.name)!!.requireView())
+    fun <T : ViewDataBinding?> getCurrentFragmentBinding(): T? {
+        fragmentManager.executePendingTransactions()//защита от асинхронности
+        return DataBindingUtil.getBinding<T>(currentTab.value.last().requireView())
     }
 
     fun popBackStack() {
-        fragmentManager.executePendingTransactions()
-        val currentTabFragments = currentTab.value
+        fragmentManager.executePendingTransactions()//защита от асинхронности
+        var currentTabFragments = currentTab.value
         if (currentTabFragments.size == 1) {
             refreshCurrentTab()
             return
