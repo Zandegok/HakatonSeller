@@ -4,7 +4,7 @@ import android.view.MenuItem
 import androidx.activity.OnBackPressedCallback
 import androidx.databinding.ObservableField
 import com.example.bf_kotlin_client.R
-import com.example.bf_kotlin_client.utils.AppFragmentManager.FragmentsNames.*
+import com.example.bf_kotlin_client.utils.AppFragmentManager.FragmentsName.*
 import com.example.bf_kotlin_client.utils.GlobalVariables
 
 class MainActivityViewModel {
@@ -14,34 +14,30 @@ class MainActivityViewModel {
     var selectedItemId: ObservableField<Int> = ObservableField(0)
     var onBackPressedCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
-            var result: Int? = fragmentManager.popBackStack()
-//            if (result != null &&
-//                result in
-//                fragmentManager.mainFragmentsNames.start.ordinal..fragmentManager.mainFragmentsNames.endInclusive.ordinal)
-//                selectedItemId=
+            fragmentManager.popBackStack()
         }
     }
 
     fun onItemSelected(menuItem: MenuItem): Boolean {
         when (menuItem.itemId) {
             R.id.productsSection -> {
-                fragmentManager.showOneOfMainFragment(ProductsCategoriesFragment)
+                fragmentManager.showTab(ProductsCategoriesFragment)
                 return true
             }
             R.id.farmersSection -> {
-                fragmentManager.showOneOfMainFragment(FarmersListFragment)
+                fragmentManager.showTab(FarmersListFragment)
                 return true
             }
             R.id.favouritesSection -> {
-                fragmentManager.showOneOfMainFragment(FavoriteProductsFragment)
+                fragmentManager.showTab(FavoriteProductsFragment)
                 return true
             }
             R.id.profileSection -> {
-                fragmentManager.showOneOfMainFragment(ProfileFragment)
+                fragmentManager.showTab(ProfileFragment)
                 return true
             }
             R.id.supportSection -> {
-                fragmentManager.showOneOfMainFragment(SupportMainPageFragment)
+                fragmentManager.showTab(SupportMainPageFragment)
                 return true
             }
             else -> return false

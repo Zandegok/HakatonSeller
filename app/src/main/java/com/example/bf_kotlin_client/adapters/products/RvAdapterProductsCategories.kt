@@ -11,7 +11,7 @@ import com.example.bf_kotlin_client.apiworkers.ImageApiWorker
 import com.example.bf_kotlin_client.databinding.FragmentProductsInCategoryBinding
 import com.example.bf_kotlin_client.databinding.ProductCategoryPreviewBinding
 import com.example.bf_kotlin_client.dtos.entities.ProductCategory
-import com.example.bf_kotlin_client.utils.AppFragmentManager.FragmentsNames.ProductsInCategoryFragment
+import com.example.bf_kotlin_client.utils.AppFragmentManager.FragmentsName.ProductsInCategoryFragment
 import com.example.bf_kotlin_client.utils.GlobalVariables
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -51,7 +51,7 @@ class RvAdapterProductsCategories(private var categories: ArrayList<ProductCateg
           var binding=fm.getBinding<FragmentProductsInCategoryBinding>(ProductsInCategoryFragment)
           var viewModel=binding!!.viewModel
 
-          viewModel!!.category.set(productCategory)
+          viewModel!!.category=productCategory
         }
     }
 
