@@ -16,7 +16,7 @@ import java.util.ArrayList
 
 class AppFragmentManager(private var fragmentManager: FragmentManager) {
 
-    private val tabs: MutableMap<FragmentsName, ArrayList<Fragment>> = mutableMapOf(
+    private var tabs: MutableMap<FragmentsName, ArrayList<Fragment>> = mutableMapOf(
         FragmentsName.FarmersListFragment to arrayListOf(FarmersListFragment()),
         FragmentsName.FavoriteProductsFragment to arrayListOf(FavoriteProductsFragment()),
         FragmentsName.ProductsCategoriesFragment to arrayListOf(ProductsCategoriesFragment()),
@@ -47,7 +47,7 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
             throw IllegalArgumentException("$fragmentName is not main fragment")
         }
         fragmentManager.executePendingTransactions()//защита от асинхронности
-        val newTab = tabs.entries.first { it.key == fragmentName }
+        var newTab = tabs.entries.first { it.key == fragmentName }
         if (newTab==currentTab){
             refreshCurrentTab()
             return
@@ -56,7 +56,7 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         for (fragment in fragmentManager.fragments) {
             fragmentTransaction.hide(fragment)
         }
-        fragmentTransaction.show(tabs[fragmentName]!!.last())
+        fragmentTransaction.show(currentTab.value.last())
         fragmentTransaction.commit()
         currentTab= newTab
     }
