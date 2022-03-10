@@ -37,7 +37,7 @@ class RvAdapterProducts(private var categories: ArrayList<Product>) :
                 fieldTitle.set(value.name)
                 GlobalScope.launch(Dispatchers.IO) {
                     var bitmap =
-                        imageApiWorker.getPictureByName("productsCategories", value.photoPath)
+                        imageApiWorker.getPictureByName("products", value.photoPath)
                     fieldImage.set(bitmap)
                 }
             }

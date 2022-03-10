@@ -45,12 +45,12 @@ class RvAdapterProductsCategories(private var categories: ArrayList<ProductCateg
             }
 
         fun openProductList() {
-          var fm = globalVariables.fragmentManager
-          fm.openFragmentAboveMain(ProductsInCategoryFragment)
-          var binding=fm.getCurrentFragmentBinding<FragmentProductsInCategoryBinding>()
-          var viewModel=binding!!.viewModel
+            var fm = globalVariables.fragmentManager
+            fm.openFragmentAboveMain(ProductsInCategoryFragment)
+            var binding = fm.getCurrentFragmentBinding<FragmentProductsInCategoryBinding>()
+            var viewModel = binding!!.viewModel
 
-          viewModel!!.category=productCategory
+            viewModel!!.category = productCategory
         }
     }
 
