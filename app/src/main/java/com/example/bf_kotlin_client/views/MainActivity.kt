@@ -8,7 +8,7 @@ import com.example.bf_kotlin_client.utils.HttpWorker
 import com.example.bf_kotlin_client.viewmodels.MainActivityViewModel
 import com.example.bf_kotlin_client.utils.AppDatabase
 import com.example.bf_kotlin_client.utils.AppFragmentManager
-import com.example.bf_kotlin_client.utils.AppFragmentManager.FragmentsNames.*
+import com.example.bf_kotlin_client.utils.AppFragmentManager.FragmentsName.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         var mainActivityViewModel = MainActivityViewModel()
         binding.viewModel = mainActivityViewModel
 
-        globalVariables.fragmentManager.showOneOfMainFragment(ProductsCategoriesFragment)
+        globalVariables.fragmentManager.showTab(ProductsCategoriesFragment)
 
     }
 }

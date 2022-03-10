@@ -5,17 +5,14 @@ import androidx.databinding.ObservableField
 import com.example.bf_kotlin_client.dtos.entities.ProductCategory
 
 class ProductsInCategoryViewModel {
-    var category= ObservableField<ProductCategory>()
-    var text=ObservableField<String>("Продукты")
-    init {
-        category.addOnPropertyChangedCallback(object :Observable.OnPropertyChangedCallback(){
-            override fun onPropertyChanged(sender: Observable?, propertyId: Int) {
-                update()
-            }
-        })
-    }
+    var text = ObservableField<String>("Продукты")
+    var category: ProductCategory = ProductCategory()
+        set(value) {
+            field = value
+            update()
+        }
 
     private fun update() {
-        text.set("Продукты в категории \"${category.get()!!.name}\"")
+        text.set("Продукты в категории \"${category.name}\"")
     }
 }
