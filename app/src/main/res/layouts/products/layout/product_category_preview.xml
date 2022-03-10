@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="viewModel"
             type="com.example.bf_kotlin_client.adapters.products.RvAdapterProductsCategories.ViewHolder" />
@@ -15,7 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@drawable/round_shape"
-        android:backgroundTint="#FFFFFF">
+        android:backgroundTint="#FFFFFF"
+        android:onClick="@{(view)->viewModel.openProductList()}">
 
         <LinearLayout
             android:layout_width="match_parent"
