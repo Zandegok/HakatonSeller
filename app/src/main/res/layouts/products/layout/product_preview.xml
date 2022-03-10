@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.bf_kotlin_client.adapters.products.RvAdapterProductsCategories.ViewHolder" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:onClick="@{(view)->viewModel.openProductList()}"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:image_bitmap="@{viewModel.fieldImage}"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Яблоко"
+            android:textAlignment="center"
+            android:textColor="#354B47"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</layout>
