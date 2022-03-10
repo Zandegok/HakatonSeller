@@ -55,7 +55,7 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         for (fragment in fragmentManager.fragments) {
             fragmentTransaction.hide(fragment)
         }
-        fragmentTransaction.show(currentTab.value.last())
+        fragmentTransaction.show(newTab.value.last())
         fragmentTransaction.commit()
         currentTab= newTab
     }
