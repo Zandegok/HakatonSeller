@@ -33,7 +33,6 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         SupportMainPageFragment,
         ProductsInCategoryFragment,
     }
-
     init {
         var containerId = R.id.frameLayoutActivityMain
         var fragmentTransaction = fragmentManager.beginTransaction()
@@ -56,7 +55,7 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         for (fragment in fragmentManager.fragments) {
             fragmentTransaction.hide(fragment)
         }
-        fragmentTransaction.show(currentTab.value.last())
+        fragmentTransaction.show(newTab.value.last())
         fragmentTransaction.commit()
         currentTab= newTab
     }
