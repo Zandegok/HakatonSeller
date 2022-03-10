@@ -8,16 +8,17 @@
 
         <variable
             name="viewModel"
-            type="com.example.bf_kotlin_client.viewmodels.products.ProductsCategoriesViewModel" />
+            type="com.example.bf_kotlin_client.viewmodels.products.ProductsInCategoryViewModel" />
     </data>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#F5FAF9"
-        android:backgroundTint="#F5FAF9"
-        android:is_refresh="@{viewModel.isRefreshing}"
-        android:on_refresh="@{()-> viewModel.update()}">
+        android:backgroundTint="#F5FAF9">
+<!--        android:is_refresh="@{viewModel.isRefreshing}"-->
+<!--        android:on_refresh="@{()-> viewModel.update()}"-->
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -113,10 +114,11 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:adapter="@{viewModel.rvProductsAdapter}"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="3"
                 />
+<!--                android:adapter="@{viewModel.rvProductsAdapter}"-->
+
 
 
         </LinearLayout>

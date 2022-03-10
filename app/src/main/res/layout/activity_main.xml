@@ -17,6 +17,9 @@
         android:backgroundTint="#B9DCD5"
         android:onBackPressed="@{viewModel.onBackPressedCallback}">
 
+<!--          android:background="#91BCB3"
+        android:backgroundTint="#B9DCD5"-->
+
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigationViewActivityMain"
             android:layout_width="wrap_content"
