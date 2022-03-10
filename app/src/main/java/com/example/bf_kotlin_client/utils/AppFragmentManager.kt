@@ -33,7 +33,6 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         SupportMainPageFragment,
         ProductsInCategoryFragment,
     }
-
     init {
         var containerId = R.id.frameLayoutActivityMain
         var fragmentTransaction = fragmentManager.beginTransaction()
