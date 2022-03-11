@@ -3,7 +3,6 @@ package com.example.bf_kotlin_client.adapters.products
 import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.graphics.drawable.toBitmap
 import androidx.databinding.ObservableField
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bf_kotlin_client.R
@@ -27,8 +26,7 @@ class RvAdapterProductsCategories(private var categories: ArrayList<ProductCateg
         var fieldTitle: ObservableField<String> = ObservableField("")
             private set
         var fieldImage: ObservableField<Bitmap> = ObservableField(
-            globalVariables.applicationContext.getDrawable(R.drawable.ic_launcher_background)
-                ?.toBitmap()
+            imageApiWorker.getSystemBitmapFromDrawableId(R.drawable.ic_launcher_background)
         )
             private set
 

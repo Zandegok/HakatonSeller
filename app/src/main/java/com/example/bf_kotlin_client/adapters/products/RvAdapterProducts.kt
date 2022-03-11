@@ -3,20 +3,18 @@ package com.example.bf_kotlin_client.adapters.products
 import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.graphics.drawable.toBitmap
 import androidx.databinding.ObservableField
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bf_kotlin_client.R
 import com.example.bf_kotlin_client.apiworkers.ImageApiWorker
 import com.example.bf_kotlin_client.databinding.ProductPreviewBinding
 import com.example.bf_kotlin_client.dtos.entities.Product
-import com.example.bf_kotlin_client.dtos.entities.ProductCategory
 import com.example.bf_kotlin_client.utils.GlobalVariables
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class RvAdapterProducts(private var categories: ArrayList<Product>) :
+class RvAdapterProducts(private var products: ArrayList<Product>) :
     RecyclerView.Adapter<RvAdapterProducts.ViewHolder>() {
 
     inner class ViewHolder internal constructor(var binding: ProductPreviewBinding) :
@@ -26,8 +24,7 @@ class RvAdapterProducts(private var categories: ArrayList<Product>) :
         var fieldTitle: ObservableField<String> = ObservableField("")
             private set
         var fieldImage: ObservableField<Bitmap> = ObservableField(
-            globalVariables.applicationContext.getDrawable(R.drawable.ic_launcher_background)
-                ?.toBitmap()
+            imageApiWorker.getSystemBitmapFromDrawableId(R.drawable.ic_launcher_background)
         )
             private set
 
@@ -58,12 +55,12 @@ class RvAdapterProducts(private var categories: ArrayList<Product>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.viewModel = holder
 
-        holder.product = categories[position]
+        holder.product = products[position]
 
     }
 
     override fun getItemCount(): Int {
-        return categories.size
+        return products.size
     }
 
 }
