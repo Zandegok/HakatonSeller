@@ -16,8 +16,8 @@ import kotlinx.coroutines.launch
 
 class RvAdapterProducts(private var products: ArrayList<Product>) :
     RecyclerView.Adapter<RvAdapterProducts.ViewHolder>() {
-    private val globalVariables = GlobalVariables.instance
-    private val layoutInflater = LayoutInflater.from(globalVariables.applicationContext)
+    private var globalVariables = GlobalVariables.instance
+    private var layoutInflater = LayoutInflater.from(globalVariables.applicationContext)
     private var imageApiWorker = ImageApiWorker()
 
     inner class ViewHolder internal constructor(var binding: ProductPreviewBinding) :
