@@ -1,6 +1,6 @@
 package com.example.bf_kotlin_client.dtos.entities
 
-class Product (
+data class Product (
     var id: Int = 0,
     var name: String = "",
     var price: Int = 0,

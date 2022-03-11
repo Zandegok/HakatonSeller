@@ -7,8 +7,12 @@ import androidx.databinding.ObservableField
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bf_kotlin_client.R
 import com.example.bf_kotlin_client.apiworkers.ImageApiWorker
+import com.example.bf_kotlin_client.databinding.FragmentProductBinding
+import com.example.bf_kotlin_client.databinding.FragmentProductsInCategoryBinding
 import com.example.bf_kotlin_client.databinding.ProductPreviewBinding
 import com.example.bf_kotlin_client.dtos.entities.Product
+import com.example.bf_kotlin_client.utils.AppFragmentManager
+import com.example.bf_kotlin_client.utils.AppFragmentManager.FragmentsName.ProductFragment
 import com.example.bf_kotlin_client.utils.GlobalVariables
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -19,6 +23,7 @@ class RvAdapterProducts(private var products: ArrayList<Product>) :
     private var globalVariables = GlobalVariables.instance
     private var layoutInflater = LayoutInflater.from(globalVariables.applicationContext)
     private var imageApiWorker = ImageApiWorker()
+    private var fragmentManager = globalVariables.fragmentManager
 
     inner class ViewHolder internal constructor(var binding: ProductPreviewBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -35,6 +40,13 @@ class RvAdapterProducts(private var products: ArrayList<Product>) :
                     fieldImage.set(bitmap)
                 }
             }
+        fun openProductView(){
+            fragmentManager.openFragmentAboveMain(ProductFragment)
+            var binding =
+                fragmentManager.getCurrentFragmentBinding<FragmentProductBinding>()
+            var viewModel = binding!!.viewModel
+            viewModel!!.product=product
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
