@@ -1,5 +1,6 @@
 package com.example.bf_kotlin_client.viewmodels.products
 
+import android.util.Log
 import androidx.databinding.Observable
 import androidx.databinding.ObservableField
 import com.example.bf_kotlin_client.adapters.products.RvAdapterProducts
@@ -19,6 +20,7 @@ class ProductsInCategoryViewModel {
         set(value) {
             field = value
             update()
+            Log.d("MYTAG", value.name)
         }
     var rvProductsAdapter = ObservableField(RvAdapterProducts(arrayListOf()))
     var isRefreshing=ObservableField(false)
@@ -31,14 +33,13 @@ class ProductsInCategoryViewModel {
         isRefreshing.set(true)
         if (category.id>0) {
             productApiWorker.getAllByCategoryId(category.id,::updateRv)
-        } else {
-            productApiWorker.getAll(::updateRv)
-        }
+        } 
         isRefreshing.set(false)
     }
 
     private fun updateRv(jsonData: String) {
         var response = Gson().fromJson(jsonData, ProductsResponseDto::class.java)
         rvProductsAdapter.set(RvAdapterProducts(response.products))
+        Log.d("MYTAG", response.products.size.toString())
     }
 }

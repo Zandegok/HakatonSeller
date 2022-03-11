@@ -15,9 +15,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#000"
-        android:backgroundTint="#000">
-<!--        android:is_refresh="@{viewModel.isRefreshing}"-->
-<!--        android:on_refresh="@{()-> viewModel.update()}"-->
+        android:backgroundTint="#000"
+        android:is_refresh="@{viewModel.isRefreshing}"
+        android:on_refresh="@{()-> viewModel.update()}">
 
 
         <LinearLayout
