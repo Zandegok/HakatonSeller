@@ -16,47 +16,35 @@ import kotlinx.coroutines.launch
 
 class RvAdapterProducts(private var products: ArrayList<Product>) :
     RecyclerView.Adapter<RvAdapterProducts.ViewHolder>() {
+    private val globalVariables = GlobalVariables.instance
+    private val layoutInflater = LayoutInflater.from(globalVariables.applicationContext)
+    private var imageApiWorker = ImageApiWorker()
 
     inner class ViewHolder internal constructor(var binding: ProductPreviewBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        private var globalVariables = GlobalVariables.instance
-        private var imageApiWorker = ImageApiWorker()
-        var fieldTitle: ObservableField<String> = ObservableField("")
-            private set
         var fieldImage: ObservableField<Bitmap> = ObservableField(
             imageApiWorker.getSystemBitmapFromDrawableId(R.drawable.ic_launcher_background)
         )
             private set
-
         var product = Product()
             set(value) {
                 field = value
-                fieldTitle.set(value.name)
                 GlobalScope.launch(Dispatchers.IO) {
                     var bitmap =
                         imageApiWorker.getPictureByName("products", value.photoPath)
                     fieldImage.set(bitmap)
                 }
             }
-
-
     }
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var binding = ProductPreviewBinding.bind(
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.product_preview, parent, false)
-        )
+        var binding = ProductPreviewBinding.inflate(layoutInflater)
         return ViewHolder(binding)
-
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.viewModel = holder
-
         holder.product = products[position]
-
     }
 
     override fun getItemCount(): Int {
