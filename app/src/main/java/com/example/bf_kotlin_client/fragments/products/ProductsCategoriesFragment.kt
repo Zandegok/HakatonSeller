@@ -1,9 +1,7 @@
 package com.example.bf_kotlin_client.fragments.products
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import com.example.bf_kotlin_client.databinding.FragmentProductsCategoriesBinding
 import com.example.bf_kotlin_client.viewmodels.products.ProductsCategoriesViewModel
@@ -20,7 +18,7 @@ class ProductsCategoriesFragment: Fragment() {
         var productsCategoriesViewModel = ProductsCategoriesViewModel()
         binding.viewModel = productsCategoriesViewModel
 
-        return binding.root;
+        return binding.root
     }
 
 }

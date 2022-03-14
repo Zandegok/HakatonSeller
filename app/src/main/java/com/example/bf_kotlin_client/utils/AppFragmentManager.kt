@@ -7,12 +7,9 @@ import androidx.fragment.app.FragmentManager
 import com.example.bf_kotlin_client.R
 import com.example.bf_kotlin_client.fragments.farmers.FarmersListFragment
 import com.example.bf_kotlin_client.fragments.favorites.FavoriteProductsFragment
-import com.example.bf_kotlin_client.fragments.products.ProductFragment
-import com.example.bf_kotlin_client.fragments.products.ProductsCategoriesFragment
-import com.example.bf_kotlin_client.fragments.products.ProductsInCategoryFragment
+import com.example.bf_kotlin_client.fragments.products.*
 import com.example.bf_kotlin_client.fragments.profile.ProfileFragment
 import com.example.bf_kotlin_client.fragments.support.SupportMainPageFragment
-import java.util.ArrayList
 
 
 class AppFragmentManager(private var fragmentManager: FragmentManager) {
@@ -79,7 +76,7 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         var newFragment: Fragment = when (fragmentName) {
             FragmentsName.ProductsInCategoryFragment -> ProductsInCategoryFragment()
             FragmentsName.ProductFragment-> ProductFragment()
-            else -> throw IllegalArgumentException("This Fragment cant be instantiate")
+            else -> throw IllegalArgumentException("This Fragment can't be instantiate")
         }
 
         var fragmentTransaction = fragmentManager.beginTransaction()

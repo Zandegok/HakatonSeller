@@ -13,6 +13,6 @@ class ProductViewModel {
             picture = imageApiWorker.getPictureByName("products", value.photoPath)
         }
     var picture: Bitmap =
-        imageApiWorker.getSystemBitmapFromDrawableId(R.drawable.ic_launcher_background)
+        imageApiWorker.getBitmapFromDrawableId(R.drawable.ic_launcher_background)
         private set
 }

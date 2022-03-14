@@ -1,7 +1,6 @@
 package com.example.bf_kotlin_client.utils
 
 import android.content.Context
-import com.bumptech.glide.load.model.Headers
 
 class GlobalVariables private constructor() {
     companion object {

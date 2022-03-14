@@ -21,16 +21,15 @@ class ImageApiWorker {
         var bitmap = try {
             Glide.with(globalVariables.applicationContext).asBitmap()
                 .load(glideUrl)
-                .error(R.drawable.error)
                 .fallback(R.drawable.fallback)
                 .submit().get()
         } catch (e: Exception) {
-            getSystemBitmapFromDrawableId(R.drawable.error)
+            getBitmapFromDrawableId(R.drawable.error)
         }
         return bitmap
     }
 
-    fun getSystemBitmapFromDrawableId(drawableId: Int): Bitmap {
+    fun getBitmapFromDrawableId(drawableId: Int): Bitmap {
         return AppCompatResources.getDrawable(globalVariables.applicationContext, drawableId)!!
             .toBitmap(1000, 1000)
     }

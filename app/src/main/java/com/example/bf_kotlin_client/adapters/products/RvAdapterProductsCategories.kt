@@ -12,9 +12,7 @@ import com.example.bf_kotlin_client.databinding.ProductCategoryPreviewBinding
 import com.example.bf_kotlin_client.dtos.entities.ProductCategory
 import com.example.bf_kotlin_client.utils.AppFragmentManager.FragmentsName.ProductsInCategoryFragment
 import com.example.bf_kotlin_client.utils.GlobalVariables
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class RvAdapterProductsCategories(private var categories: ArrayList<ProductCategory>) :
     RecyclerView.Adapter<RvAdapterProductsCategories.ViewHolder>() {
@@ -26,7 +24,7 @@ class RvAdapterProductsCategories(private var categories: ArrayList<ProductCateg
     inner class ViewHolder internal constructor(var binding: ProductCategoryPreviewBinding) :
         RecyclerView.ViewHolder(binding.root) {
         var fieldImage: ObservableField<Bitmap> = ObservableField(
-            imageApiWorker.getSystemBitmapFromDrawableId(R.drawable.ic_launcher_background)
+            imageApiWorker.getBitmapFromDrawableId(R.drawable.ic_launcher_background)
         )
             private set
         var productCategory = ProductCategory()
