@@ -2,13 +2,13 @@ package com.example.bf_kotlin_client.dtos.entities
 
 class Farmer(
     var id: Int = 0,
-    var firstName: String? = null,
-    var lastName: String? = null,
-    var email: String? = null,
-    var phoneNumber: String? = null,
-    var photoPath: String? = null,
-    var description: String? = null,
-    var farmerDeliveryTypeName: String? = null,
-    var pickupAddress: String? = null,
-    var latLng: String? = null,
+    var firstName: String="",
+    var lastName: String="",
+    var email: String="",
+    var phoneNumber: String="",
+    var photoPath: String="",
+    var description: String="",
+    var farmerDeliveryTypeName: String="",
+    var pickupAddress: String="",
+    var latLng: String="",
 )

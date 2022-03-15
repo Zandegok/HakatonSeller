@@ -15,7 +15,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:onClick="@{(view)->viewModel.openProductView()}">
 
         <ImageView
             android:layout_width="match_parent"
@@ -26,7 +27,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@{viewModel.fieldTitle}"
+            android:text="@{viewModel.product.name}"
             android:textAlignment="center"
             android:textColor="#354B47"
             android:textSize="16sp" />
