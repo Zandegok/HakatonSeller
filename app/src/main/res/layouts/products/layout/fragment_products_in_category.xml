@@ -94,20 +94,18 @@
                 android:id="@+id/constraintLayoutHeaderThird"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                >
+                android:paddingTop="2dp">
 
                 <SearchView
                     android:layout_width="400dp"
                     android:layout_height="46dp"
+                    android:background="@drawable/bg_white_rounded"
                     android:iconifiedByDefault="false"
                     android:queryHint="найти"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
                     android:submitBackground="@drawable/bg_white_rounded"
-                    android:background="@drawable/bg_white_rounded"
-                    tools:layout_editor_absoluteY="-1dp"
-                    />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="9dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -116,9 +114,7 @@
                 android:layout_height="match_parent"
                 android:adapter="@{viewModel.rvProductsAdapter}"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:spanCount="3"
-                />
-
+                app:spanCount="3" />
 
 
         </LinearLayout>
