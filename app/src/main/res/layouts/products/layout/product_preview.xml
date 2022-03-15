@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -14,7 +13,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:layout_margin="11dp"
+        android:background="@drawable/round_shape"
+        android:backgroundTint="#FFFFFF"
         android:orientation="vertical"
         android:onClick="@{(view)->viewModel.openProductView()}">
 
@@ -30,7 +31,7 @@
             android:text="@{viewModel.product.name}"
             android:textAlignment="center"
             android:textColor="#354B47"
-            android:textSize="16sp" />
+            android:textSize="24sp" />
 
     </LinearLayout>
 </layout>
