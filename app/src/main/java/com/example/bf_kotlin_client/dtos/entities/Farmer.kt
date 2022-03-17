@@ -11,4 +11,6 @@ class Farmer(
     var farmerDeliveryTypeName: String="",
     var pickupAddress: String="",
     var latLng: String="",
-)
+){
+    fun getFullName() = "$firstName $lastName"
+}
