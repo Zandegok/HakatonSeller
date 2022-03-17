@@ -46,7 +46,8 @@ class RvAdapterProducts(private var products: ArrayList<Product>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var binding = ProductPreviewBinding.inflate(layoutInflater)
+        //var binding = ProductPreviewBinding.inflate(layoutInflater)
+        var binding = ProductPreviewBinding.bind(LayoutInflater.from(parent.context).inflate(R.layout.product_preview, parent, false))
         return ViewHolder(binding)
     }
 
