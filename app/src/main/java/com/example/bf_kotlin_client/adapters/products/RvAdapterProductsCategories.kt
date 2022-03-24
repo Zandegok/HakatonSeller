@@ -65,7 +65,6 @@ class RvAdapterProductsCategories(private var categories: ArrayList<ProductCateg
         holder.binding.viewModel = holder
 
         holder.productCategory = categories[position]
-
     }
 
     override fun getItemCount(): Int {
