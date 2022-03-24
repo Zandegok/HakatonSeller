@@ -24,8 +24,6 @@ class RvAdapterProductsCategories(private var categories: ArrayList<ProductCateg
         RecyclerView.ViewHolder(binding.root) {
         private var globalVariables = GlobalVariables.instance
         private var imageApiWorker = ImageApiWorker()
-        var fieldTitle: ObservableField<String> = ObservableField("")
-            private set
         var fieldImage: ObservableField<Bitmap> = ObservableField(
             globalVariables.applicationContext.getDrawable(R.drawable.ic_launcher_background)
                 ?.toBitmap()
@@ -35,7 +33,6 @@ class RvAdapterProductsCategories(private var categories: ArrayList<ProductCateg
         var productCategory = ProductCategory()
             set(value) {
                 field = value
-                fieldTitle.set(value.name)
 
                 GlobalScope.launch(Dispatchers.IO) {
                     var bitmap =

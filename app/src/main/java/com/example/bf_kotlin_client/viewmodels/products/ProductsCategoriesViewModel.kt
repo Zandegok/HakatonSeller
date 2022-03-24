@@ -25,6 +25,7 @@ class ProductsCategoriesViewModel {
 
     private fun updateRv(jsonData: String) {
         var response = Gson().fromJson(jsonData, ProductsCategoriesResponse::class.java)
+
         rvProductsAdapter.set(RvAdapterProductsCategories(response.productCategories))
 
     }
