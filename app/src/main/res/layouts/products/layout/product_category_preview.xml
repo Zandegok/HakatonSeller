@@ -34,14 +34,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{viewModel.productCategory.name}"
-                android:textColor="#354B47"
+                android:textColor="@color/grey1"
                 android:textSize="20sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="5 товаров"
-                android:textColor="#9BB2AE"
+                android:textColor="@color/grey2"
                 android:textSize="12sp" />
 
         </LinearLayout>
