@@ -64,17 +64,6 @@
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="2dp" />
 
-            <SearchView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_white_rounded"
-                android:iconifiedByDefault="false"
-                android:queryHint="найти"
-                android:submitBackground="@drawable/bg_white_rounded"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="16dp" />
-
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
