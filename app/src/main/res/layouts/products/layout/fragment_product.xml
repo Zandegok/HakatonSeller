@@ -10,15 +10,6 @@
             type="com.example.bf_kotlin_client.viewmodels.products.ProductViewModel" />
     </data>
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-<!--        android:is_refresh="@{viewModel.isRefreshing}"-->
-<!--        android:on_refresh="@{()-> viewModel.update()}"-->
-
-<!--        android:background="#F5FAF9"-->
-<!--        android:backgroundTint="#F5FAF9"-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,44 +17,6 @@
             android:orientation="vertical"
             android:paddingLeft="5dp"
             android:paddingRight="5dp">
-
-            <LinearLayout
-                android:id="@+id/constraintLayoutHeaderMain"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@drawable/map" />
-
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".5"
-                    android:fontFamily="@font/roboto_medium"
-                    android:includeFontPadding="false"
-                    android:paddingLeft="5dp"
-                    android:text="Брянск"
-                    android:textColor="#9BB3AE"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_medium"
-                android:paddingTop="3dp"
-                android:text="Продукты"
-                android:textSize="24sp"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="2dp" />
-
 
 
             <ScrollView
@@ -196,5 +149,4 @@
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>
