@@ -1,5 +1,8 @@
 package com.example.bf_kotlin_client.viewmodels.support
 
+import androidx.databinding.ObservableField
+import com.example.bf_kotlin_client.adapters.products.RvAdapterProductsCategories
+import com.example.bf_kotlin_client.adapters.support.RvAdapterSupport
 import com.example.bf_kotlin_client.apiworkers.FaqApiWorker
 import com.example.bf_kotlin_client.dtos.entities.Faq
 import com.example.bf_kotlin_client.dtos.responses.FaqResponseDto
@@ -8,12 +11,21 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class SupportMainPageViewModel {
-    var faqApiWorker= FaqApiWorker()
-    var faqs:ArrayList<Faq> =arrayListOf()
+    private var faqApiWorker = FaqApiWorker()
+
+    var rvAdapterSupport = ObservableField(RvAdapterSupport(arrayListOf()))
+
     init{
-        faqApiWorker.getAll {
-            var response = Gson().fromJson(it, FaqResponseDto::class.java)
-            faqs=response.faqs
-        }
+        update()
+    }
+
+    fun update(){
+        faqApiWorker.getAll(::updateRv)
+    }
+
+    fun updateRv(jsonData: String){
+        var response = Gson().fromJson(jsonData, FaqResponseDto::class.java)
+
+        rvAdapterSupport.set(RvAdapterSupport(response.faqs))
     }
 }
