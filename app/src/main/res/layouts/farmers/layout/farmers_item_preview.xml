@@ -18,6 +18,7 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_gravity="center_vertical"
             android:background="@drawable/bg_white_rounded"
             android:image_bitmap="@{viewModel.fieldImage}" />
 
@@ -29,34 +30,50 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
-                android:textColor="#9BB2AE"
-                android:text="@{viewModel.farmer.fullName}"
-                android:textSize="12sp" />
+                android:text="Имя"
+                android:textColor="#000000"
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:text="@{viewModel.farmer.description}"
-                android:textColor="#354B47"
+                android:text="Описание"
+                android:textColor="#000000"
                 android:textSize="20sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <RatingBar
-                    android:id="@+id/ratingBar2"
+
+                <TextView
+                    android:id="@+id/textView15"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="5.5"
+                    android:textAlignment="textEnd"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/imageView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/rating" />
 
                 <TextView
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="136 заказов" />
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="136 заказов"
+                    android:textAlignment="viewEnd"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
