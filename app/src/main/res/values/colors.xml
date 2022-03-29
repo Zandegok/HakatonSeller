@@ -9,11 +9,11 @@
     <color name="white">#ffffffff</color>
 
 
-    <color name="gr1">#005D4B</color>
-    <color name="gr2">#1DB99B</color>
-    <color name="light">#F5FAF9</color>
-    <color name="grey1">#354B47</color>
-    <color name="grey2">#9BB2AE</color>
-    <color name="grey3">#C0CCCA</color>
+    <color name="main_color_1">#005D4B</color>
+    <color name="secondary_color_1">#1DB99B</color>
+    <color name="main_color_2">#F5FAF9</color>
+    <color name="secondary_color_2">#354B47</color>
+    <color name="secondary_color_3">#9BB2AE</color>
+    <color name="secondary_color_4">#C0CCCA</color>
 
 </resources>
