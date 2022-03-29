@@ -35,7 +35,7 @@
                 android:fontFamily="@font/roboto_medium"
                 android:paddingTop="3dp"
                 android:text="Продукты"
-                android:textColor="@color/grey1"
+                android:textColor="@color/main_color_1"
                 android:textSize="24sp"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="2dp" />

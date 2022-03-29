@@ -22,7 +22,6 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/constraintLayoutHeaderSecond"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="2dp">
@@ -38,7 +37,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_medium"
                         android:text="Поддержка"
-                        android:textColor="@color/grey1"
+                        android:textColor="@color/main_color_1"
                         android:textSize="24sp" />
 
                     <ImageView
@@ -49,7 +48,8 @@
                         android:baselineAlignBottom="false"
                         android:cropToPadding="false"
                         app:srcCompat="@drawable/logo" />
-                </LinearLayout><![CDATA[
+                </LinearLayout>
+                <![CDATA[
 
 
 
@@ -65,11 +65,10 @@
             </androidx.recyclerview.widget.RecyclerView>
 
             <Button
-                android:id="@+id/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="Button" />
+                android:text="Написать в поддержку" />
 
         </LinearLayout>
 
