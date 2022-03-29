@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -10,6 +9,7 @@
             name="viewModel"
             type="com.example.bf_kotlin_client.viewmodels.support.SupportMainPageViewModel" />
     </data>
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,45 +21,28 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="2dp">
+                android:fontFamily="@font/roboto_medium"
+                android:text="Поддержка"
+                android:textColor="@color/main_color_1"
+                android:textSize="24sp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:baselineAlignBottom="false"
+                android:cropToPadding="false"
+                app:srcCompat="@drawable/logo" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto_medium"
-                        android:text="Поддержка"
-                        android:textColor="@color/main_color_1"
-                        android:textSize="24sp" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom|center"
-                        android:baselineAlignBottom="false"
-                        android:cropToPadding="false"
-                        app:srcCompat="@drawable/logo" />
-                </LinearLayout>
-                <![CDATA[
-
-
-
-                />
-
-            ]]>
-            </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
-
+                android:layout_height="wrap_content"
+                android:adapter="@{viewModel.rvAdapterSupport}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
             </androidx.recyclerview.widget.RecyclerView>
 
             <Button
