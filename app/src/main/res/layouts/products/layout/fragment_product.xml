@@ -10,15 +10,6 @@
             type="com.example.bf_kotlin_client.viewmodels.products.ProductViewModel" />
     </data>
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp">
-
-
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -67,7 +58,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="5"
-                                android:fontFamily="@font/roboto_medium"
+                                android:elevation="2dp"
+                                android:fontFamily="@font/font_family"
                                 android:text="Яблоки(Гренни смит)"
                                 android:textColor="@color/black"
                                 android:textSize="27sp" />
@@ -75,7 +67,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/roboto_medium"
+                                android:fontFamily="@font/font_family"
                                 android:text="158₽"
                                 android:textColor="#1DB99B"
                                 android:textSize="24sp" />
@@ -96,6 +88,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/font_family"
                                 android:text="1000гр."
                                 android:textColor="#9BB3AE" />
                         </LinearLayout>
@@ -108,6 +101,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/font_family"
                                 android:paddingTop="5dp"
                                 android:text="Гренни Смит - наверное, один из самых популярных сортов яблок в мире. У этих яблок довольно плотная кожица, маленькое содержание сахара и сочная, душистая мякоть. Гренни Смит используются для приготовления различных фруктовых десертов и пирогов, так как долгое время не темнеют в разрезанном виде."
                                 android:textColor="#000000" />
@@ -123,7 +117,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/roboto_medium"
+                                android:fontFamily="@font/font_family"
                                 android:text="1.1"
                                 android:textSize="20sp" />
 
@@ -138,5 +132,4 @@
 
                 </LinearLayout>
             </ScrollView>
-        </LinearLayout>
 </layout>

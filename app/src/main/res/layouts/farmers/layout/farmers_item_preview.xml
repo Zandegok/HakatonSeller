@@ -30,6 +30,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
+                android:fontFamily="@font/font_family"
                 android:text="Имя"
                 android:textColor="#000000"
                 android:textSize="16sp" />
@@ -37,6 +38,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:fontFamily="@font/font_family"
                 android:text="Описание"
                 android:textColor="#000000"
                 android:textSize="20sp" />
@@ -51,7 +53,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="@font/roboto_medium"
+                    android:fontFamily="@font/font_family"
                     android:text="5.5"
                     android:textAlignment="textEnd"
                     android:textColor="#000000"
@@ -66,7 +68,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="@font/roboto_medium"
+                    android:fontFamily="@font/font_family"
                     android:text="136 заказов"
                     android:textAlignment="viewEnd"
                     android:textColor="#000000"
