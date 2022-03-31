@@ -18,16 +18,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_medium"
-                android:text="Поддержка"
-                android:textColor="@color/main_color_1"
-                android:textSize="24sp" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -35,21 +27,38 @@
                 android:layout_gravity="bottom|center"
                 android:baselineAlignBottom="false"
                 android:cropToPadding="false"
+                android:paddingTop="60sp"
+                android:paddingBottom="40sp"
                 app:srcCompat="@drawable/logo" />
 
 
-            <androidx.recyclerview.widget.RecyclerView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:adapter="@{viewModel.rvAdapterSupport}"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
-            </androidx.recyclerview.widget.RecyclerView>
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                android:background="@drawable/round_shape"
+                android:backgroundTint="#FFFFFF"
+                android:orientation="vertical">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Написать в поддержку" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adapter="@{viewModel.rvAdapterSupport}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10sp"
+                    android:layout_marginBottom="10sp"
+                    android:background="@drawable/round_shape"
+                    android:text="Написать в поддержку"
+                    android:textColor="@color/white" />
+            </LinearLayout>
 
         </LinearLayout>
 
