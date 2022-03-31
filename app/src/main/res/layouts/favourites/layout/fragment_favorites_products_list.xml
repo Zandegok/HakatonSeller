@@ -35,7 +35,7 @@
                 android:fontFamily="@font/font_family"
                 android:paddingTop="3dp"
                 android:text="Избранное"
-                android:textColor="@color/main_color_1"
+                android:textColor="@color/sea_green"
                 android:textSize="24sp"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="2dp" />

@@ -11,6 +11,14 @@
     </data>
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/white_1"
+        android:background="@drawable/bg_white_rounded"
+        android:orientation="vertical"
+        android:submitBackground="@drawable/bg_white_rounded">
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
