@@ -13,8 +13,8 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F5FAF9"
-        android:backgroundTint="#F5FAF9">
+        android:background="@color/white_1"
+        android:backgroundTint="@color/white_1">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_medium"
                 android:text="Поддержка"
-                android:textColor="@color/main_color_1"
+                android:textColor="@color/sea_green"
                 android:textSize="24sp" />
 
             <ImageView
@@ -46,6 +46,7 @@
             </androidx.recyclerview.widget.RecyclerView>
 
             <Button
+                android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
