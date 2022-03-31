@@ -16,7 +16,7 @@ class MainActivityViewModel {
             R.id.farmersSection to FarmersListFragment,
             R.id.favouritesSection to FavoriteProductsFragment,
             R.id.profileSection to ProfileFragment,
-            R.id.supportSection to SupportMainPageFragment  )
+            R.id.supportSection to SupportQuestionsPageFragment  )
 
     var selectedItemId: ObservableField<Int> = ObservableField(0)
     var onBackPressedCallback = object : OnBackPressedCallback(true) {

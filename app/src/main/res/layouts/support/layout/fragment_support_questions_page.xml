@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.bf_kotlin_client.viewmodels.support.SupportMainPageViewModel" />
+            type="com.example.bf_kotlin_client.viewmodels.support.SupportQuestionsPageViewModel" />
     </data>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/font_family"
                 android:text="Поддержка"
-                android:textColor="@color/jade"
+                android:textColor="@color/title_jade"
                 android:textSize="24sp" />
 
             <ImageView

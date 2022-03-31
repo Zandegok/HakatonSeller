@@ -10,7 +10,7 @@ import com.google.gson.Gson
 import java.util.*
 import kotlin.collections.ArrayList
 
-class SupportMainPageViewModel {
+class SupportQuestionsPageViewModel {
     private var faqApiWorker = FaqApiWorker()
 
     var rvAdapterSupport = ObservableField(RvAdapterSupport(arrayListOf()))

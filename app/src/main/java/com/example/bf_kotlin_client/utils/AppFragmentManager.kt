@@ -9,7 +9,8 @@ import com.example.bf_kotlin_client.fragments.farmers.FarmersListFragment
 import com.example.bf_kotlin_client.fragments.favorites.FavoriteProductsFragment
 import com.example.bf_kotlin_client.fragments.products.*
 import com.example.bf_kotlin_client.fragments.profile.ProfileFragment
-import com.example.bf_kotlin_client.fragments.support.SupportMainPageFragment
+import com.example.bf_kotlin_client.fragments.support.SupportQuestionsPageFragment
+import com.example.bf_kotlin_client.fragments.support.SupportAnswersPageFragment
 
 
 class AppFragmentManager(private var fragmentManager: FragmentManager) {
@@ -19,7 +20,7 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         FragmentsName.FavoriteProductsFragment to arrayListOf(FavoriteProductsFragment()),
         FragmentsName.ProductsCategoriesFragment to arrayListOf(ProductsCategoriesFragment()),
         FragmentsName.ProfileFragment to arrayListOf(ProfileFragment()),
-        FragmentsName.SupportMainPageFragment to arrayListOf(SupportMainPageFragment()),
+        FragmentsName.SupportQuestionsPageFragment to arrayListOf(SupportQuestionsPageFragment()),
     )
     private var currentTab = tabs.entries.first()
 
@@ -28,10 +29,12 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         FavoriteProductsFragment,
         ProductsCategoriesFragment,
         ProfileFragment,
-        SupportMainPageFragment,
+        SupportQuestionsPageFragment,
         ProductsInCategoryFragment,
         ProductFragment,
+        SupportAnswersPageFragment
     }
+
     init {
         var containerId = R.id.frameLayoutActivityMain
         var fragmentTransaction = fragmentManager.beginTransaction()
@@ -46,7 +49,7 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         }
         fragmentManager.executePendingTransactions()//защита от асинхронности
         var newTab = tabs.entries.first { it.key == fragmentName }
-        if (newTab==currentTab){
+        if (newTab == currentTab) {
             refreshCurrentTab()
             return
         }
@@ -56,16 +59,17 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         }
         fragmentTransaction.show(newTab.value.last())
         fragmentTransaction.commit()
-        currentTab= newTab
+        currentTab = newTab
     }
 
     fun refreshCurrentTab() {
         fragmentManager.executePendingTransactions()//защита от асинхронности
-        var newTabMainFragment = currentTab.value.first().javaClass.constructors[0].newInstance() as Fragment
+        var newTabMainFragment =
+            currentTab.value.first().javaClass.constructors[0].newInstance() as Fragment
         var fragmentTransaction = fragmentManager.beginTransaction()
-        for(fragment in currentTab.value)
+        for (fragment in currentTab.value)
             fragmentTransaction.remove(fragment)
-        fragmentTransaction.add(R.id.frameLayoutActivityMain,newTabMainFragment)
+        fragmentTransaction.add(R.id.frameLayoutActivityMain, newTabMainFragment)
         fragmentTransaction.commit()
         currentTab.setValue(arrayListOf(newTabMainFragment))
     }
@@ -75,7 +79,8 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
 
         var newFragment: Fragment = when (fragmentName) {
             FragmentsName.ProductsInCategoryFragment -> ProductsInCategoryFragment()
-            FragmentsName.ProductFragment-> ProductFragment()
+            FragmentsName.ProductFragment -> ProductFragment()
+            FragmentsName.SupportAnswersPageFragment -> SupportAnswersPageFragment()
             else -> throw IllegalArgumentException("This Fragment can't be instantiate")
         }
 
@@ -91,6 +96,7 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         currentTab.value.add(newFragment)
 
     }
+
     fun <T : ViewDataBinding?> getCurrentFragmentBinding(): T? {
         fragmentManager.executePendingTransactions()//защита от асинхронности
         return DataBindingUtil.getBinding<T>(currentTab.value.last().requireView())

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.bf_kotlin_client.adapters.support.RvAdapterSupport.ViewHolder" />
@@ -10,7 +11,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{(view)->viewModel.openSupportNotMainPageFragment()}">
 
         <TextView
             android:layout_width="match_parent"
