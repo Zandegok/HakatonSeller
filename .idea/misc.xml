@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+
         <entry key="..\:/Users/Admin/AndroidStudioProjects/bfkotlinclient2/app/src/main/res/drawable/favourites.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/bfkotlinclient2/app/src/main/res/drawable/round_shape.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/bfkotlinclient2/app/src/main/res/layout/activity_main.xml" value="0.35280797101449274" />
@@ -17,6 +18,7 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/bfkotlinclient2/app/src/main/res/layouts/profile/layout/fragment_profile.xml" value="0.2911458333333333" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/bfkotlinclient2/app/src/main/res/layouts/support/layout/fragment_support_main_page.xml" value="0.2911458333333333" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/bfkotlinclient2/app/src/main/res/layouts/support/layout/support_preview.xml" value="0.33" />
+
       </map>
     </option>
   </component>

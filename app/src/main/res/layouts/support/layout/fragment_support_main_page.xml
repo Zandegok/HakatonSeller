@@ -21,6 +21,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font_family"
+                android:text="Поддержка"
+                android:textColor="@color/main_color_1"
+                android:textSize="24sp" />
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

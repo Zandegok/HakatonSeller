@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.bf_kotlin_client.viewmodels.farmers.FarmersListViewModel" />
@@ -12,10 +13,12 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:background="@color/white_1"
         android:backgroundTint="@color/white_1">
 <!--         android:is_refresh="@{viewModel.isRefreshing}"-->
 <!--        android:on_refresh="@{()-> viewModel.update()}"-->
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,35 +36,30 @@
                     android:id="@+id/textView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_medium"
+                    android:fontFamily="@font/font_family"
+
                     android:text="Фермеры"
                     android:textColor="@color/sea_green"
                     android:textSize="24sp" />
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <SearchView
+                android:layout_width="400dp"
+                android:layout_height="46dp"
+                android:background="@drawable/bg_white_rounded"
+                android:iconifiedByDefault="false"
+                android:queryHint="найти" />
 
-                <SearchView
-                    android:layout_width="400dp"
-                    android:layout_height="46dp"
-                    android:background="@drawable/bg_white_rounded"
-                    android:iconifiedByDefault="false"
-                    android:queryHint="найти"
-                    android:submitBackground="@drawable/bg_white_rounded" />
-
-            </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:adapter="@{viewModel.rvFarmersAdapter}"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:spanCount="1"
-                android:adapter="@{viewModel.rvFarmersAdapter}"/>
+                app:spanCount="1" />
 
-<!--            -->
+            <!--            -->
 
 
         </LinearLayout>
