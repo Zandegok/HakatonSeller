@@ -10,12 +10,6 @@
             type="com.example.bf_kotlin_client.viewmodels.profile.ProfileViewModel" />
     </data>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/bg_white_rounded"
-        android:orientation="vertical"
-        android:submitBackground="@drawable/bg_white_rounded">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -25,13 +19,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                >
+                android:submitBackground="@drawable/bg_white_rounded">
 
                 <TextView
                     android:id="@+id/textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_medium"
+                    android:fontFamily="@font/font_family"
                     android:paddingTop="3dp"
                     android:text="Ваш профиль"
                     android:textColor="#000000"
@@ -42,38 +36,23 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal">
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".65"
+                        tools:srcCompat="@tools:sample/avatars" />
 
-                            <ImageView
-                                android:id="@+id/imageView"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight=".65"
-                                tools:srcCompat="@tools:sample/avatars" />
-
-                            <ImageView
-                                android:id="@+id/imageView5"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                app:srcCompat="@drawable/edit" />
-                        </LinearLayout>
-
-                    </LinearLayout>
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/edit" />
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -84,7 +63,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/roboto_medium"
+                            android:fontFamily="@font/font_family"
                             android:text="Имя"
                             android:textColor="#000000"
                             android:textSize="20sp" />
@@ -94,7 +73,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:fontFamily="@font/roboto_medium"
+                            android:fontFamily="@font/font_family"
                             android:paddingLeft="5dp"
                             android:text="Фамилия"
                             android:textColor="#000000"
@@ -106,7 +85,6 @@
                             app:srcCompat="@drawable/edit" />
                     </LinearLayout>
 
-                    </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -117,7 +95,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:fontFamily="@font/roboto_medium"
+                        android:fontFamily="@font/font_family"
                         android:text="Email"
                         android:textColor="#000000"
                         android:textSize="20sp" />
@@ -137,7 +115,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:fontFamily="@font/roboto_medium"
+                        android:fontFamily="@font/font_family"
                         android:text="Пароль"
                         android:textColor="#000000"
                         android:textSize="20sp" />
@@ -150,5 +128,4 @@
 
             </LinearLayout>
         </ScrollView>
-    </LinearLayout>
 </layout>

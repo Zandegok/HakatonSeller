@@ -32,7 +32,7 @@
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_medium"
+                android:fontFamily="@font/font_family"
                 android:paddingTop="3dp"
                 android:text="Избранное"
                 android:textColor="@color/main_color_1"
