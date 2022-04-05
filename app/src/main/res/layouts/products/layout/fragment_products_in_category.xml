@@ -33,7 +33,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/font_family"
+                android:fontFamily="@font/main_font_roboto_regular"
                 android:paddingTop="3dp"
                 android:text="Продукты"
                 android:textColor="@color/sea_green"
