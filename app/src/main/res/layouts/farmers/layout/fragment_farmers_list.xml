@@ -15,9 +15,9 @@
         android:layout_height="wrap_content"
 
         android:background="@color/white_1"
-        android:backgroundTint="@color/white_1">
-<!--         android:is_refresh="@{viewModel.isRefreshing}"-->
-<!--        android:on_refresh="@{()-> viewModel.update()}"-->
+        android:backgroundTint="@color/white_1"
+        android:is_refresh="@{viewModel.isRefreshing}"
+        android:on_refresh="@{()-> viewModel.update()}">
 
 
         <LinearLayout

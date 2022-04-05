@@ -1,6 +1,6 @@
 package com.example.bf_kotlin_client.dtos.entities
 
-class Farmer(
+data class Farmer(
     var id: Int = 0,
     var firstName: String="",
     var lastName: String="",

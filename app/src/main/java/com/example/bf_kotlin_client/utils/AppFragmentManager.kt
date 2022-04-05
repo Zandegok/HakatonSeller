@@ -5,6 +5,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.bf_kotlin_client.R
+import com.example.bf_kotlin_client.fragments.farmers.FarmerFragment
 import com.example.bf_kotlin_client.fragments.farmers.FarmersListFragment
 import com.example.bf_kotlin_client.fragments.favorites.FavoriteProductsFragment
 import com.example.bf_kotlin_client.fragments.products.*
@@ -32,7 +33,8 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         SupportQuestionsPageFragment,
         ProductsInCategoryFragment,
         ProductFragment,
-        SupportAnswersPageFragment
+        SupportAnswersPageFragment,
+        FarmerFragment,
     }
 
     init {
@@ -81,6 +83,7 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
             FragmentsName.ProductsInCategoryFragment -> ProductsInCategoryFragment()
             FragmentsName.ProductFragment -> ProductFragment()
             FragmentsName.SupportAnswersPageFragment -> SupportAnswersPageFragment()
+            FragmentsName.FarmerFragment-> FarmerFragment()
             else -> throw IllegalArgumentException("This Fragment can't be instantiate")
         }
 
