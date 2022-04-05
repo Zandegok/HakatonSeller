@@ -39,7 +39,7 @@
 
                     android:text="Фермеры"
                     android:textColor="@color/sea_green"
-                    android:textSize="24sp" />
+                    android:textSize="@dimen/head_text_size" />
 
             </LinearLayout>
 

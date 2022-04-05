@@ -27,7 +27,7 @@
                 android:fontFamily="@font/font_family"
                 android:text="Поддержка"
                 android:textColor="@color/title_jade"
-                android:textSize="24sp" />
+                android:textSize="@dimen/head_text_size" />
 
             <ImageView
                 android:layout_width="wrap_content"

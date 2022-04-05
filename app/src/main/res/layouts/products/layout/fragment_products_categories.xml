@@ -35,9 +35,9 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/font_family"
                 android:paddingTop="3dp"
-                android:textColor="@color/sea_green"
                 android:text="Продукты"
-                android:textSize="24sp"
+                android:textColor="@color/sea_green"
+                android:textSize="@dimen/head_text_size"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="2dp" />
 

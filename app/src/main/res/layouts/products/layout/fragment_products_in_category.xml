@@ -37,7 +37,7 @@
                 android:paddingTop="3dp"
                 android:text="Продукты"
                 android:textColor="@color/sea_green"
-                android:textSize="24sp"
+                android:textSize="@dimen/head_text_size"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="2dp" />
 
