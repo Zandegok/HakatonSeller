@@ -33,11 +33,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/font_family"
+                android:fontFamily="@font/main_font_roboto_regular"
                 android:paddingTop="3dp"
                 android:text="Продукты"
                 android:textColor="@color/sea_green"
-                android:textSize="24sp"
+                android:textSize="@dimen/head_text_size"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="2dp" />
 
@@ -47,7 +47,6 @@
                 android:background="@drawable/bg_white_rounded"
                 android:iconifiedByDefault="false"
                 android:queryHint="найти"
-                android:submitBackground="@drawable/bg_white_rounded"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:layout_editor_absoluteY="16dp" />

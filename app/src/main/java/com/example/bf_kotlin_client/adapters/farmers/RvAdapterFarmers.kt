@@ -7,9 +7,10 @@ import androidx.databinding.ObservableField
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bf_kotlin_client.R
 import com.example.bf_kotlin_client.apiworkers.ImageApiWorker
-import com.example.bf_kotlin_client.databinding.FarmersItemPreviewBinding
-import com.example.bf_kotlin_client.databinding.ProductPreviewBinding
+import com.example.bf_kotlin_client.databinding.*
 import com.example.bf_kotlin_client.dtos.entities.Farmer
+import com.example.bf_kotlin_client.utils.AppFragmentManager
+import com.example.bf_kotlin_client.utils.AppFragmentManager.FragmentsName.FarmerFragment
 import com.example.bf_kotlin_client.utils.GlobalVariables
 import kotlinx.coroutines.*
 
@@ -31,11 +32,16 @@ class RvAdapterFarmers(private var farmers: ArrayList<Farmer>) :
                 field = value
                 GlobalScope.launch(Dispatchers.IO) {
                     var bitmap =
-                        imageApiWorker.getPictureByName("products", value.photoPath)
+                        imageApiWorker.getPictureByName("farmers", value.photoPath)
                     fieldImage.set(bitmap)
                 }
             }
-
+        fun openFarmerFragment(){
+            fragmentManager.openFragmentAboveMain(FarmerFragment)
+            var binding=fragmentManager.getCurrentFragmentBinding<FragmentFarmerBinding>()
+            var viewModel=binding!!.viewModel
+            viewModel!!.farmer=farmer
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
