@@ -1,7 +1,7 @@
-package com.example.bf_kotlin_client.repositories
+package com.example.bf_kotlin_client.localdb.repositories
 
 import androidx.room.*
-import com.example.bf_kotlin_client.models.KeyValuePair
+import com.example.bf_kotlin_client.localdb.models.KeyValuePair
 
 @Dao
 interface KeyValuePairsRepository {

@@ -11,13 +11,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //global variables
         var globalVariables = GlobalVariables.instance
 
         globalVariables.fragmentManager = AppFragmentManager(supportFragmentManager)
         globalVariables.applicationContext = applicationContext
         globalVariables.httpWorker = HttpWorker(applicationContext)
         globalVariables.appDatabase = AppDatabase.getInstance(applicationContext)
+
+        //todo check auth and reauth
 
         //globalVariables.androidId = Secure.getString(applicationContext.contentResolver, Secure.ANDROID_ID)
 
@@ -30,13 +31,11 @@ class MainActivity : AppCompatActivity() {
             }
         }*/
 
-        globalVariables.apiKey = "2c06052652117d40823b3614b06f965ed7df43086f5a1fe1ad2e8717ffb90e2b"
-        globalVariables.deviceId = "100002"
+        var apiKey = "2c06052652117d40823b3614b06f965ed7df43086f5a1fe1ad2e8717ffb90e2b"
+        var deviceId = "100002"
 
         globalVariables.httpHeaders =
-            hashMapOf("API_KEY" to globalVariables.apiKey, "DEVICE_ID" to globalVariables.deviceId)
-
-        //binding
+            hashMapOf("API_KEY" to apiKey, "DEVICE_ID" to deviceId)
 
         var binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)

@@ -15,11 +15,8 @@ class FavoriteProductsFragment : Fragment() {
 
         val binding = FragmentFavoritesProductsListBinding.inflate(layoutInflater)
 
-        val favoriteProductsViewModel = FavoriteProductsViewModel()
-        binding.viewModel = favoriteProductsViewModel
-
-        //var view = inflater.inflate(R.layout.fragment_products_categories, container, false)
-
+        binding.viewModel = FavoriteProductsViewModel()
+        
         return binding.root
     }
 }

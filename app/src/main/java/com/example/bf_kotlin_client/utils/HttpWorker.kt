@@ -13,10 +13,14 @@ class HttpWorker(private var applicationContext: Context) {
     private var volleyQueue = Volley.newRequestQueue(applicationContext)
 
     private fun errorFunction(volleyError: VolleyError) {
-        var httpCode = (volleyError.networkResponse ?: run {
+
+        if (volleyError.networkResponse == null) {
             Toast.makeText(applicationContext, volleyError.message, Toast.LENGTH_LONG).show()
             return
-        }).statusCode
+        }
+
+        var httpCode = volleyError.networkResponse.statusCode
+
         var dataInJson = volleyError.networkResponse.data.toString(Charsets.UTF_8)
 
         var data = Gson().fromJson(dataInJson, ServerError::class.java)

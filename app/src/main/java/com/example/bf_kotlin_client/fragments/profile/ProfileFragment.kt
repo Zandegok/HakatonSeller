@@ -14,8 +14,8 @@ class ProfileFragment : Fragment() {
     ): View {
 
         var binding = FragmentProfileBinding.inflate(layoutInflater)
-        var profileViewModel = ProfileViewModel()
-        binding.viewModel = profileViewModel
+
+        binding.viewModel = ProfileViewModel()
 
         return binding.root
     }

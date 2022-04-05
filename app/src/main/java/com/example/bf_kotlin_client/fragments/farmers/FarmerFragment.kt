@@ -15,10 +15,7 @@ class FarmerFragment: Fragment() {
 
         val binding = FragmentFarmerBinding.inflate(layoutInflater)
 
-        val farmerViewModel = FarmerViewModel()
-        binding.viewModel = farmerViewModel
-
-        //var view = inflater.inflate(R.layout.fragment_products_categories, container, false)
+        binding.viewModel = FarmerViewModel()
 
         return binding.root
     }

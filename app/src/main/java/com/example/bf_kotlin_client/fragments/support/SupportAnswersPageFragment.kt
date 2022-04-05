@@ -15,10 +15,7 @@ class SupportAnswersPageFragment : Fragment() {
 
         var binding =FragmentSupportAnswersPageBinding.inflate(layoutInflater)
 
-        var supportMainPageViewModel = SupportAnswersPageViewModel()
-        binding.viewModel = supportMainPageViewModel
-
-        //var view = inflater.inflate(R.layout.fragment_products_categories, container, false)
+        binding.viewModel = SupportAnswersPageViewModel()
 
         return binding.root
     }
