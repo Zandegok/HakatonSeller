@@ -16,13 +16,15 @@ import kotlinx.coroutines.*
 
 class RvAdapterFarmers(private var farmers: ArrayList<Farmer>) :
     RecyclerView.Adapter<RvAdapterFarmers.ViewHolder>() {
-    private var globalVariables = GlobalVariables.instance
-    private var layoutInflater = LayoutInflater.from(globalVariables.applicationContext)
+
     private var imageApiWorker = ImageApiWorker()
-    private var fragmentManager = globalVariables.fragmentManager
+    private var fragmentManager = GlobalVariables.instance.fragmentManager
 
     inner class ViewHolder internal constructor(var binding: FarmersItemPreviewBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+        RecyclerView.ViewHolder(binding.root)
+
+    inner class ViewModel {
+
         var fieldImage: ObservableField<Bitmap> = ObservableField(
             imageApiWorker.getBitmapFromDrawableId(R.drawable.ic_launcher_background)
         )
@@ -36,22 +38,27 @@ class RvAdapterFarmers(private var farmers: ArrayList<Farmer>) :
                     fieldImage.set(bitmap)
                 }
             }
-        fun openFarmerFragment(){
+
+        fun openFarmerFragment() {
             fragmentManager.openFragmentAboveMain(FarmerFragment)
-            var binding=fragmentManager.getCurrentFragmentBinding<FragmentFarmerBinding>()
-            var viewModel=binding!!.viewModel
-            viewModel!!.farmer=farmer
+            var binding = fragmentManager.getCurrentFragmentBinding<FragmentFarmerBinding>()
+            var viewModel = binding!!.viewModel
+            viewModel!!.farmer = farmer
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var binding = FarmersItemPreviewBinding.inflate(layoutInflater)
+        var binding = FarmersItemPreviewBinding.bind(
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.farmers_item_preview, parent, false)
+        )
+
         return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.viewModel = holder
-        holder.farmer = farmers[position]
+        holder.binding.viewModel = ViewModel()
+        holder.binding.viewModel!!.farmer = farmers[position]
     }
 
     override fun getItemCount(): Int {

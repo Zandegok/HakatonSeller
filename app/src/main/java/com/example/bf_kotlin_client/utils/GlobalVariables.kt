@@ -4,7 +4,7 @@ import android.content.Context
 
 class GlobalVariables private constructor() {
     companion object {
-        val instance = GlobalVariables()
+        var instance = GlobalVariables()
     }
 
     lateinit var applicationContext: Context
@@ -12,8 +12,4 @@ class GlobalVariables private constructor() {
     lateinit var appDatabase: AppDatabase
     lateinit var fragmentManager: AppFragmentManager
     lateinit var httpHeaders: MutableMap<String, String>
-
-    var apiKey: String = ""
-    var deviceId: String = ""
-
 }

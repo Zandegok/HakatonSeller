@@ -15,10 +15,7 @@ class SupportQuestionsPageFragment : Fragment() {
 
         val binding = FragmentSupportQuestionsPageBinding.inflate(layoutInflater)
 
-        val supportMainPageViewModel = SupportQuestionsPageViewModel()
-        binding.viewModel = supportMainPageViewModel
-
-        //var view = inflater.inflate(R.layout.fragment_products_categories, container, false)
+        binding.viewModel = SupportQuestionsPageViewModel()
 
         return binding.root
     }

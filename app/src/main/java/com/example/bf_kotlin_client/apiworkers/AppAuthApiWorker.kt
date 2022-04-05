@@ -1,5 +1,7 @@
 package com.example.bf_kotlin_client.apiworkers
 
+import android.annotation.SuppressLint
+import android.provider.Settings
 import com.android.volley.Request
 import com.example.bf_kotlin_client.dtos.requests.AppAuthRequest
 import com.example.bf_kotlin_client.utils.GlobalVariables
@@ -10,17 +12,17 @@ class AppAuthApiWorker {
     private var globalVariables = GlobalVariables.instance
 
     fun authByLoginAndPassword(successCallbackFunction: (String) -> Unit) {
-        val login = "android"
-        val password = "12345"
-        val deviceId = globalVariables.deviceId
+        var login = "android"
+        var password = "12345"
+        var deviceId = Settings.Secure.getString(GlobalVariables.instance.applicationContext.contentResolver, Settings.Secure.ANDROID_ID)
 
-        val appAuthRequest = AppAuthRequest(login, password, deviceId)
+        var appAuthRequest = AppAuthRequest(login, password, deviceId)
 
-        val httpMethod = Request.Method.POST
-        val url = "http://151.248.113.116:8080/mobile/apps/authByLoginAndPassword"
-        val request = Gson().toJson(appAuthRequest)
+        var httpMethod = Request.Method.POST
+        var url = "http://151.248.113.116:8080/mobile/apps/authByLoginAndPassword"
+        var request = Gson().toJson(appAuthRequest)
 
-        val httpWorker = globalVariables.httpWorker
+        var httpWorker = globalVariables.httpWorker
 
         httpWorker.makeStringRequestWithBody(httpMethod, url, successCallbackFunction, request)
     }

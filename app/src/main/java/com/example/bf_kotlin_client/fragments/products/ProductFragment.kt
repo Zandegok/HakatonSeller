@@ -15,8 +15,7 @@ class ProductFragment: Fragment() {
 
         var binding = FragmentProductBinding.inflate(layoutInflater)
 
-        var productViewModel = ProductViewModel()
-        binding.viewModel = productViewModel
+        binding.viewModel = ProductViewModel()
 
         return binding.root
     }

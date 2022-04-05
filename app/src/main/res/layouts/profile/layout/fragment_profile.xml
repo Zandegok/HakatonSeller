@@ -32,7 +32,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/main_font_roboto_regular"
+                    android:fontFamily="@font/main_font_roboto_medium"
                     android:paddingTop="3dp"
                     android:text="Ваш профиль"
                     android:textColor="#000000"
@@ -68,7 +68,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/main_font_roboto_regular"
+                            android:fontFamily="@font/main_font_roboto_medium"
                             android:text="Имя"
                             android:textColor="#000000"
                             android:textSize="20sp" />
@@ -77,7 +77,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:fontFamily="@font/main_font_roboto_regular"
+                            android:fontFamily="@font/main_font_roboto_medium"
                             android:paddingLeft="5dp"
                             android:text="Фамилия"
                             android:textColor="#000000"
@@ -97,7 +97,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:fontFamily="@font/main_font_roboto_regular"
+                        android:fontFamily="@font/main_font_roboto_medium"
                         android:text="Email"
                         android:textColor="#000000"
                         android:textSize="20sp" />
@@ -117,7 +117,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:fontFamily="@font/main_font_roboto_regular"
+                        android:fontFamily="@font/main_font_roboto_medium"
                         android:text="Пароль"
                         android:textColor="#000000"
                         android:textSize="20sp" />

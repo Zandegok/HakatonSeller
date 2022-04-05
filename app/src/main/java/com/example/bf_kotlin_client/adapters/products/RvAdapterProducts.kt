@@ -16,13 +16,14 @@ import kotlinx.coroutines.*
 
 class RvAdapterProducts(private var products: ArrayList<Product>) :
     RecyclerView.Adapter<RvAdapterProducts.ViewHolder>() {
-    private var globalVariables = GlobalVariables.instance
-    private var layoutInflater = LayoutInflater.from(globalVariables.applicationContext)
+
     private var imageApiWorker = ImageApiWorker()
-    private var fragmentManager = globalVariables.fragmentManager
+    private var fragmentManager = GlobalVariables.instance.fragmentManager
 
     inner class ViewHolder internal constructor(var binding: ProductPreviewBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+        RecyclerView.ViewHolder(binding.root)
+
+    inner class ViewModel{
         var fieldImage: ObservableField<Bitmap> = ObservableField(
             imageApiWorker.getBitmapFromDrawableId(R.drawable.ic_launcher_background)
         )
@@ -46,14 +47,13 @@ class RvAdapterProducts(private var products: ArrayList<Product>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        //var binding = ProductPreviewBinding.inflate(layoutInflater)
         var binding = ProductPreviewBinding.bind(LayoutInflater.from(parent.context).inflate(R.layout.product_preview, parent, false))
         return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.viewModel = holder
-        holder.product = products[position]
+        holder.binding.viewModel = ViewModel()
+        holder.binding.viewModel!!.product = products[position]
     }
 
     override fun getItemCount(): Int {
