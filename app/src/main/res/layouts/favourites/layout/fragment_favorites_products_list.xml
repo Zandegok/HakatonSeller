@@ -48,7 +48,7 @@
                 android:submitBackground="@drawable/bg_white_rounded"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="16dp"/>
+                tools:layout_editor_absoluteY="16dp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"

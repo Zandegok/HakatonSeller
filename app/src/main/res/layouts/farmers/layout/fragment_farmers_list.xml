@@ -44,8 +44,8 @@
             </LinearLayout>
 
             <SearchView
-                android:layout_width="400dp"
-                android:layout_height="46dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@drawable/bg_white_rounded"
                 android:iconifiedByDefault="false"
                 android:queryHint="найти" />
