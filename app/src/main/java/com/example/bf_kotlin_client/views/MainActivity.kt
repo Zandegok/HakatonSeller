@@ -6,6 +6,9 @@ import com.example.bf_kotlin_client.databinding.ActivityMainBinding
 import com.example.bf_kotlin_client.utils.*
 import com.example.bf_kotlin_client.utils.AppFragmentManager.FragmentsName.ProductsCategoriesFragment
 import com.example.bf_kotlin_client.viewmodels.MainActivityViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,29 +16,29 @@ class MainActivity : AppCompatActivity() {
 
         var globalVariables = GlobalVariables.instance
 
-        globalVariables.fragmentManager = AppFragmentManager(supportFragmentManager)
         globalVariables.applicationContext = applicationContext
+        globalVariables.fragmentManager = AppFragmentManager(supportFragmentManager)
         globalVariables.httpWorker = HttpWorker(applicationContext)
         globalVariables.appDatabase = AppDatabase.getInstance(applicationContext)
 
-        //todo check auth and reauth
+        var apiKey: String? = null
 
-        //globalVariables.androidId = Secure.getString(applicationContext.contentResolver, Secure.ANDROID_ID)
-
-        /*GlobalScope.launch(Dispatchers.IO) {
-            var value =
+        GlobalScope.launch(Dispatchers.Main.immediate) {
+            apiKey =
                 GlobalVariables.instance.appDatabase.keyValuePairsRepository.getByKey("api_key")
+        }
 
-            if (value != null) {
-                globalVariables.apiKey = value
-            }
-        }*/
+        if (apiKey == null) {
+            //todo проверить если ключа нет, то запросить ключ
+        }
+        //todo проверить если ключ есть истёк ли его срок годности или он просто левый (доступен ли он), если недоступен запросить новый ключ и положить значения в globalVariables.httpHeaders
 
-        var apiKey = "2c06052652117d40823b3614b06f965ed7df43086f5a1fe1ad2e8717ffb90e2b"
-        var deviceId = "100002"
+        //todo
 
-        globalVariables.httpHeaders =
-            hashMapOf("API_KEY" to apiKey, "DEVICE_ID" to deviceId)
+        //var apiKey = "2c06052652117d40823b3614b06f965ed7df43086f5a1fe1ad2e8717ffb90e2b"
+        //var deviceId = "100002"
+
+        //globalVariables.httpHeaders = hashMapOf("API_KEY" to apiKey, "DEVICE_ID" to deviceId)
 
         var binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
