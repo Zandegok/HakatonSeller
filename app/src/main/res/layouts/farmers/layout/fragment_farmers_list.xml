@@ -13,11 +13,11 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:background="@color/background_light"
-        android:backgroundTint="@color/background_light">
-<!--         android:is_refresh="@{viewModel.isRefreshing}"-->
-<!--        android:on_refresh="@{()-> viewModel.update()}"-->
+        android:backgroundTint="@color/background_light"
+        android:is_refresh="@{viewModel.isRefreshing}"
+        android:on_refresh="@{()-> viewModel.update()}">
+
 
 
         <LinearLayout
@@ -35,17 +35,19 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/font_family"
+                    android:fontFamily="@font/main_font_roboto_medium"
 
                     android:text="Фермеры"
                     android:textColor="@color/navigation_icons_sea_green"
-                    android:textSize="24sp" />
+                    android:textSize="@dimen/head_text_size" />
 
             </LinearLayout>
 
             <SearchView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/bg_white_rounded"
+
                 android:iconifiedByDefault="false"
                 android:queryHint="Найти"
                 android:submitBackground="@drawable/bg_white_rounded"
@@ -61,7 +63,7 @@
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="1" />
 
-            <!--            -->
+     
 
 
         </LinearLayout>

@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.bf_kotlin_client.adapters.support.RvAdapterSupport.ViewHolder" />
+            type="com.example.bf_kotlin_client.adapters.support.RvAdapterSupport.ViewModel" />
     </data>
 
     <LinearLayout

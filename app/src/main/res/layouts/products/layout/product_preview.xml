@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.bf_kotlin_client.adapters.products.RvAdapterProducts.ViewHolder" />
+            type="com.example.bf_kotlin_client.adapters.products.RvAdapterProducts.ViewModel" />
     </data>
 
     <LinearLayout
@@ -28,7 +28,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fontFamily="@font/font_family"
+            android:fontFamily="@font/main_font_roboto_medium"
             android:text="@{viewModel.product.name}"
             android:textAlignment="center"
             android:textColor="#354B47"

@@ -8,6 +8,7 @@
         <item name="colorSecondary">@color/navigation_icons_sea_green</item>
         <item name="colorSecondaryVariant">@color/description_gray</item>
         <item name="colorOnSecondary">@color/navigation_bar_grayish</item>
+
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     </style>
 </resources>

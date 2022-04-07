@@ -20,8 +20,6 @@
         android:is_refresh="@{viewModel.isRefreshing}"
         android:on_refresh="@{()-> viewModel.update()}">
 
-<!--        android:background="#F5FAF9"-->
-<!--        android:backgroundTint="#F5FAF9">-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,11 +31,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/font_family"
+                android:fontFamily="@font/main_font_roboto_medium"
                 android:paddingTop="3dp"
                 android:textColor="@color/navigation_icons_sea_green"
                 android:text="Продукты"
-                android:textSize="24sp"
+                android:textSize="@dimen/head_text_size"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="2dp" />
 

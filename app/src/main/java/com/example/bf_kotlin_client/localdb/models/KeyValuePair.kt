@@ -1,4 +1,4 @@
-package com.example.bf_kotlin_client.models
+package com.example.bf_kotlin_client.localdb.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
