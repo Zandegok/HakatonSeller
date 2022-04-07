@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/font_family"
                 android:text="5 товаров"
-                android:textColor="@color/gray"
+                android:textColor="@color/description_gray"
                 android:textSize="12sp" />
 
         </LinearLayout>

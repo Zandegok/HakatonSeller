@@ -10,6 +10,12 @@
             type="com.example.bf_kotlin_client.viewmodels.support.SupportAnswersPageViewModel" />
     </data>
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="10dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,6 +31,6 @@
             android:layout_height="wrap_content"
             android:text="@{viewModel.faq.answer}" />
     </LinearLayout>
-
+    </ScrollView>
 
 </layout>

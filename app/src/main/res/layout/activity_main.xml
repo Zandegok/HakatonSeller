@@ -13,8 +13,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white_1"
-        android:backgroundTint="@color/white_1"
+        android:background="@color/background_light"
+        android:backgroundTint="@color/background_light"
         android:onBackPressed="@{viewModel.onBackPressedCallback}">
 
 <!--          android:background="#91BCB3"
@@ -27,8 +27,8 @@
             android:layout_alignParentBottom="true"
             android:onItemSelected="@{(item)-> viewModel.onItemSelected(item)}"
             android:selectedItemId="@{viewModel.selectedItemId}"
-            app:itemIconTint="@color/gray"
-            app:itemTextColor="@color/gray"
+            app:itemIconTint="@color/description_gray"
+            app:itemTextColor="@color/description_gray"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/menu_activity_main" /><!--android:itemsIds="@{}"-->
