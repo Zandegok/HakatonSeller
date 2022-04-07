@@ -35,9 +35,7 @@
                 android:paddingTop="3dp"
                 android:textColor="@color/navigation_icons_sea_green"
                 android:text="Продукты"
-                android:textSize="@dimen/head_text_size"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="2dp" />
+                android:textSize="@dimen/head_text_size" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
