@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="2"
-            app:srcCompat="@drawable/expand_right__bigger" />
+            app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
 
     </LinearLayout>
 </layout>
