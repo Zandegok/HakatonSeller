@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity() {
 
         //globalVariables.appDatabase = AppDatabase.getInstance(applicationContext)
 
-
         var appAuthApiWorker = AppAuthApiWorker()
         appAuthApiWorker.authByLoginAndPassword(::initializeComponents,::processError)
     }
