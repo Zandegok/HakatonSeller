@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/main_font_roboto_medium"
                 android:text="5 товаров"
-                android:textColor="@color/light_green"
+                android:textColor="@color/description_gray"
                 android:textSize="12sp" />
 
         </LinearLayout>

@@ -14,14 +14,12 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white_1"
-        android:backgroundTint="@color/white_1"
+        android:background="@color/background_light"
+        android:backgroundTint="@color/background_light"
 
         android:is_refresh="@{viewModel.isRefreshing}"
         android:on_refresh="@{()-> viewModel.update()}">
 
-<!--        android:background="#F5FAF9"-->
-<!--        android:backgroundTint="#F5FAF9">-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,7 +34,7 @@
                 android:fontFamily="@font/main_font_roboto_medium"
                 android:paddingTop="3dp"
                 android:text="Продукты"
-                android:textColor="@color/sea_green"
+                android:textColor="@color/navigation_icons_sea_green"
                 android:textSize="@dimen/head_text_size"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="2dp" />
@@ -44,12 +42,12 @@
             <SearchView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_white_rounded"
                 android:iconifiedByDefault="false"
-                android:queryHint="найти"
+                android:queryHint="Найти"
+                android:submitBackground="@drawable/bg_white_rounded"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="16dp" />
+                tools:layout_editor_absoluteY="16dp"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"

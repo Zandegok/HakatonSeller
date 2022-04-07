@@ -14,14 +14,12 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white_1"
-        android:backgroundTint="@color/white_1"
+        android:background="@color/background_light"
+        android:backgroundTint="@color/background_light"
 
         android:is_refresh="@{viewModel.isRefreshing}"
         android:on_refresh="@{()-> viewModel.update()}">
 
-<!--        android:background="#F5FAF9"-->
-<!--        android:backgroundTint="#F5FAF9">-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,8 +33,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/main_font_roboto_medium"
                 android:paddingTop="3dp"
+                android:textColor="@color/navigation_icons_sea_green"
                 android:text="Продукты"
-                android:textColor="@color/sea_green"
                 android:textSize="@dimen/head_text_size"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="2dp" />
