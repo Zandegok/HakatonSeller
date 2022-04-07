@@ -3,6 +3,7 @@ package com.example.bf_kotlin_client.apiworkers
 import android.annotation.SuppressLint
 import android.provider.Settings
 import com.android.volley.Request
+import com.android.volley.VolleyError
 import com.example.bf_kotlin_client.dtos.requests.AppAuthRequest
 import com.example.bf_kotlin_client.utils.GlobalVariables
 import com.google.gson.Gson
@@ -11,7 +12,7 @@ class AppAuthApiWorker {
 
     private var globalVariables = GlobalVariables.instance
 
-    fun authByLoginAndPassword(successCallbackFunction: (String) -> Unit) {
+    fun authByLoginAndPassword(successCallbackFunction: (String) -> Unit, errorCallbackFunction: (VolleyError) -> Unit) {
         var login = "android"
         var password = "12345"
         var deviceId = Settings.Secure.getString(GlobalVariables.instance.applicationContext.contentResolver, Settings.Secure.ANDROID_ID)
@@ -24,6 +25,6 @@ class AppAuthApiWorker {
 
         var httpWorker = globalVariables.httpWorker
 
-        httpWorker.makeStringRequestWithBody(httpMethod, url, successCallbackFunction, request)
+        httpWorker.makeStringRequestWithBody(httpMethod, url, successCallbackFunction, request, hashMapOf(), errorCallbackFunction)
     }
 }

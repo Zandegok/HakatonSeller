@@ -33,13 +33,13 @@ class HttpWorker(private var applicationContext: Context) {
         url: String,
         successCallbackFunction: (String) -> Unit,
         httpHeaders: MutableMap<String, String> = hashMapOf(),
-//        errorCallbackFunction: (VolleyError) -> Unit = ::defaultErrorFunction
+        errorCallbackFunction: (VolleyError) -> Unit = ::defaultErrorFunction
     ) {
         var request = object : StringRequest(
             httpMethod,
             url,
             successCallbackFunction,
-            ::defaultErrorFunction
+            errorCallbackFunction
         ) {
             override fun getHeaders(): MutableMap<String, String> {
                 return httpHeaders
@@ -55,12 +55,13 @@ class HttpWorker(private var applicationContext: Context) {
         successCallbackFunction: (String) -> Unit,
         body: String,
         httpHeaders: MutableMap<String, String> = hashMapOf(),
+        errorCallbackFunction: (VolleyError) -> Unit = ::defaultErrorFunction
     ) {
         var request = object : StringRequest(
             httpMethod,
             url,
             successCallbackFunction,
-            ::defaultErrorFunction
+            errorCallbackFunction
         ) {
             override fun getBodyContentType(): String {
                 return "application/json; charset=utf-8"
