@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.databinding.ObservableField
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bf_kotlin_client.R
-import com.example.bf_kotlin_client.apiworkers.ImageApiWorker
+import com.example.bf_kotlin_client.apiworkers.ImagesApiWorker
 import com.example.bf_kotlin_client.databinding.FragmentProductBinding
 import com.example.bf_kotlin_client.databinding.ProductPreviewBinding
 import com.example.bf_kotlin_client.dtos.entities.Product
@@ -17,7 +17,7 @@ import kotlinx.coroutines.*
 class RvAdapterProducts(private var products: ArrayList<Product>) :
     RecyclerView.Adapter<RvAdapterProducts.ViewHolder>() {
 
-    private var imageApiWorker = ImageApiWorker()
+    private var imageApiWorker = ImagesApiWorker()
     private var fragmentManager = GlobalVariables.instance.fragmentManager
 
     inner class ViewHolder internal constructor(var binding: ProductPreviewBinding) :

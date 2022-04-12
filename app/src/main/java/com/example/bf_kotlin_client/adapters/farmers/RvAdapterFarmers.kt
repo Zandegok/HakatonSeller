@@ -6,10 +6,9 @@ import android.view.ViewGroup
 import androidx.databinding.ObservableField
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bf_kotlin_client.R
-import com.example.bf_kotlin_client.apiworkers.ImageApiWorker
+import com.example.bf_kotlin_client.apiworkers.ImagesApiWorker
 import com.example.bf_kotlin_client.databinding.*
 import com.example.bf_kotlin_client.dtos.entities.Farmer
-import com.example.bf_kotlin_client.utils.AppFragmentManager
 import com.example.bf_kotlin_client.utils.AppFragmentManager.FragmentsName.FarmerFragment
 import com.example.bf_kotlin_client.utils.GlobalVariables
 import kotlinx.coroutines.*
@@ -17,7 +16,7 @@ import kotlinx.coroutines.*
 class RvAdapterFarmers(private var farmers: ArrayList<Farmer>) :
     RecyclerView.Adapter<RvAdapterFarmers.ViewHolder>() {
 
-    private var imageApiWorker = ImageApiWorker()
+    private var imageApiWorker = ImagesApiWorker()
     private var fragmentManager = GlobalVariables.instance.fragmentManager
 
     inner class ViewHolder internal constructor(var binding: FarmersItemPreviewBinding) :

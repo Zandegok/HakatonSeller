@@ -2,13 +2,13 @@ package com.example.bf_kotlin_client.viewmodels.products
 
 import androidx.databinding.ObservableField
 import com.example.bf_kotlin_client.adapters.products.RvAdapterProducts
-import com.example.bf_kotlin_client.apiworkers.ProductApiWorker
+import com.example.bf_kotlin_client.apiworkers.ProductsApiWorker
 import com.example.bf_kotlin_client.dtos.entities.ProductCategory
 import com.example.bf_kotlin_client.dtos.responses.ProductsResponseDto
 import com.google.gson.Gson
 
 class ProductsInCategoryViewModel {
-    private var productApiWorker = ProductApiWorker()
+    private var productApiWorker = ProductsApiWorker()
 
     var category: ProductCategory = ProductCategory()
         set(value) {

@@ -1,17 +1,13 @@
 package com.example.bf_kotlin_client.viewmodels.support
 
 import androidx.databinding.ObservableField
-import com.example.bf_kotlin_client.adapters.products.RvAdapterProductsCategories
 import com.example.bf_kotlin_client.adapters.support.RvAdapterSupport
-import com.example.bf_kotlin_client.apiworkers.FaqApiWorker
-import com.example.bf_kotlin_client.dtos.entities.Faq
+import com.example.bf_kotlin_client.apiworkers.FaqsApiWorker
 import com.example.bf_kotlin_client.dtos.responses.FaqResponseDto
 import com.google.gson.Gson
-import java.util.*
-import kotlin.collections.ArrayList
 
 class SupportQuestionsPageViewModel {
-    private var faqApiWorker = FaqApiWorker()
+    private var faqApiWorker = FaqsApiWorker()
 
     var rvAdapterSupport = ObservableField(RvAdapterSupport(arrayListOf()))
 

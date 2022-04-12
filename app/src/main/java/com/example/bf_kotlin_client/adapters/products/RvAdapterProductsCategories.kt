@@ -7,7 +7,7 @@ import androidx.core.graphics.drawable.toBitmap
 import androidx.databinding.ObservableField
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bf_kotlin_client.R
-import com.example.bf_kotlin_client.apiworkers.ImageApiWorker
+import com.example.bf_kotlin_client.apiworkers.ImagesApiWorker
 import com.example.bf_kotlin_client.databinding.FragmentProductsInCategoryBinding
 import com.example.bf_kotlin_client.databinding.ProductCategoryPreviewBinding
 import com.example.bf_kotlin_client.dtos.entities.ProductCategory
@@ -21,7 +21,7 @@ class RvAdapterProductsCategories(private var categories: ArrayList<ProductCateg
     RecyclerView.Adapter<RvAdapterProductsCategories.ViewHolder>() {
 
     private var globalVariables = GlobalVariables.instance
-    private var imageApiWorker = ImageApiWorker()
+    private var imageApiWorker = ImagesApiWorker()
 
     inner class ViewHolder internal constructor(var binding: ProductCategoryPreviewBinding) : RecyclerView.ViewHolder(binding.root)
 

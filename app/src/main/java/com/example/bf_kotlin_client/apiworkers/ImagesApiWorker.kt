@@ -9,8 +9,10 @@ import com.bumptech.glide.load.model.Headers
 import com.example.bf_kotlin_client.R
 import com.example.bf_kotlin_client.utils.GlobalVariables
 
-class ImageApiWorker {
+class ImagesApiWorker {
+
     private var globalVariables = GlobalVariables.instance
+
     fun getPictureByName(controllerName: String, pictureName: String): Bitmap {
         var glideUrl = GlideUrl(
             "http://151.248.113.116:8080/mobile/${controllerName}/getPictureByName/${pictureName}",
@@ -28,6 +30,7 @@ class ImageApiWorker {
         }
         return bitmap
     }
+
 
     fun getBitmapFromDrawableId(drawableId: Int): Bitmap {
         return AppCompatResources.getDrawable(globalVariables.applicationContext, drawableId)!!

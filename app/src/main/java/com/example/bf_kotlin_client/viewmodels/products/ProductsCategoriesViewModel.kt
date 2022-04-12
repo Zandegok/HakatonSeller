@@ -2,13 +2,12 @@ package com.example.bf_kotlin_client.viewmodels.products
 
 import androidx.databinding.ObservableField
 import com.example.bf_kotlin_client.adapters.products.RvAdapterProductsCategories
-import com.example.bf_kotlin_client.apiworkers.ProductCategoryApiWorker
+import com.example.bf_kotlin_client.apiworkers.ProductsCategoriesApiWorker
 import com.example.bf_kotlin_client.dtos.responses.ProductsCategoriesResponse
-import com.example.bf_kotlin_client.utils.GlobalVariables
 import com.google.gson.Gson
 
 class ProductsCategoriesViewModel {
-    private var productCategoryApiWorker = ProductCategoryApiWorker()
+    private var productCategoryApiWorker = ProductsCategoriesApiWorker()
 
     var rvProductsAdapter = ObservableField(RvAdapterProductsCategories(arrayListOf()))
     var isRefreshing=ObservableField(false)

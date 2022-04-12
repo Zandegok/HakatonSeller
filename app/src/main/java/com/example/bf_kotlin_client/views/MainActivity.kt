@@ -32,15 +32,33 @@ class MainActivity : AppCompatActivity() {
         //globalVariables.appDatabase = AppDatabase.getInstance(applicationContext)
 
         var appAuthApiWorker = AppAuthApiWorker()
-        appAuthApiWorker.authByLoginAndPassword(::initializeComponents,::processError)
+
+        var login = "android"
+        var password = "12345"
+        var deviceId = Settings.Secure.getString(
+            GlobalVariables.instance.applicationContext.contentResolver,
+            Settings.Secure.ANDROID_ID
+        )
+
+        appAuthApiWorker.authByLoginAndPassword(
+            login,
+            password,
+            deviceId,
+            ::initializeComponents,
+            ::processError
+        )
     }
 
     private fun initializeComponents(data: String) {
-        var response = Gson().fromJson(data,AppAuthResponse::class.java)
+        var response = Gson().fromJson(data, AppAuthResponse::class.java)
 
         globalVariables.httpHeaders = hashMapOf(
             "API_KEY" to response.apiKey,
-            "DEVICE_ID" to Settings.Secure.getString(GlobalVariables.instance.applicationContext.contentResolver, Settings.Secure.ANDROID_ID))
+            "DEVICE_ID" to Settings.Secure.getString(
+                GlobalVariables.instance.applicationContext.contentResolver,
+                Settings.Secure.ANDROID_ID
+            )
+        )
 
         globalVariables.fragmentManager = AppFragmentManager(supportFragmentManager)
 
@@ -53,11 +71,15 @@ class MainActivity : AppCompatActivity() {
         globalVariables.fragmentManager.showTab(ProductsCategoriesFragment)
     }
 
-    private fun processError(volleyError: VolleyError){
+    private fun processError(volleyError: VolleyError) {
         if (volleyError.networkResponse == null) {
-            Toast.makeText(applicationContext, "Сервер недоступен, приложение будет закрыто ", Toast.LENGTH_LONG).show()
+            Toast.makeText(
+                applicationContext,
+                "Сервер недоступен, приложение будет закрыто ",
+                Toast.LENGTH_LONG
+            ).show()
 
-            Timer().schedule(3000){
+            Timer().schedule(3000) {
                 finishAffinity()
             }
 
@@ -69,9 +91,13 @@ class MainActivity : AppCompatActivity() {
         var data = Gson().fromJson(dataInJson, ServerError::class.java)
         var errorMessage = "$httpCode: ${data.message}"
 
-        Toast.makeText(applicationContext, "Ошибка сервера $errorMessage, приложение будет закрыто", Toast.LENGTH_LONG).show()
+        Toast.makeText(
+            applicationContext,
+            "Ошибка сервера $errorMessage, приложение будет закрыто",
+            Toast.LENGTH_LONG
+        ).show()
 
-        Timer().schedule(3000){
+        Timer().schedule(3000) {
             finishAffinity()
         }
     }
