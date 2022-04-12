@@ -13,7 +13,7 @@ class SupportQuestionsPageFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
 
-        val binding = FragmentSupportQuestionsPageBinding.inflate(layoutInflater)
+        var binding = FragmentSupportQuestionsPageBinding.inflate(layoutInflater)
 
         binding.viewModel = SupportQuestionsPageViewModel()
 

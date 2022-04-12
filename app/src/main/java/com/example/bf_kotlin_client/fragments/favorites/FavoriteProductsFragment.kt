@@ -13,7 +13,7 @@ class FavoriteProductsFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
 
-        val binding = FragmentFavoritesProductsListBinding.inflate(layoutInflater)
+        var binding = FragmentFavoritesProductsListBinding.inflate(layoutInflater)
 
         binding.viewModel = FavoriteProductsViewModel()
         

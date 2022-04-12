@@ -13,7 +13,7 @@ class FarmerFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        val binding = FragmentFarmerBinding.inflate(layoutInflater)
+        var binding = FragmentFarmerBinding.inflate(layoutInflater)
 
         binding.viewModel = FarmerViewModel()
 
