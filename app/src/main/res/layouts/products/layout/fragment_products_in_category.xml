@@ -28,16 +28,27 @@
             android:paddingLeft="5dp"
             android:paddingRight="5dp">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/main_font_roboto_medium"
-                android:paddingTop="3dp"
-                android:text="Продукты"
-                android:textColor="@color/navigation_icons_sea_green"
-                android:textSize="@dimen/head_text_size"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="2dp" />
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/back_button" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/main_font_roboto_medium"
+                    android:paddingTop="3dp"
+                    android:text="Продукты"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/head_text_size"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="2dp" />
+            </LinearLayout>
 
             <SearchView
                 android:layout_width="match_parent"

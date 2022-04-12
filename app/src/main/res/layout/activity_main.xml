@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:onItemSelected="@{(item)-> viewModel.onItemSelected(item)}"
-            app:itemIconTint="@color/description_gray"
+            app:itemIconTint="@color/navigation_bar_icons_gray"
             app:itemTextColor="@color/description_gray"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
