@@ -32,6 +32,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/main_font_roboto_medium"
                 android:gravity="left"
+                android:paddingTop="3dp"
                 android:text="Профиль фермера"
                 android:textColor="@color/black"
                 android:textSize="@dimen/head_text_size" />
