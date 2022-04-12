@@ -29,7 +29,7 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/main_font_roboto_medium"
                 android:text="@{viewModel.farmer.fullName}"
                 android:textColor="#000000"
@@ -37,44 +37,13 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/main_font_roboto_medium"
                 android:text="@{viewModel.farmer.description}"
                 android:textColor="#000000"
                 android:textSize="@dimen/description_text_size" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
 
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/main_font_roboto_medium"
-                    android:text="рейтинг отсутствует"
-                    android:textAlignment="textEnd"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/rating" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/main_font_roboto_medium"
-                    android:text="136 заказов"
-                    android:textAlignment="viewEnd"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-            </LinearLayout>
 
         </LinearLayout>
 
