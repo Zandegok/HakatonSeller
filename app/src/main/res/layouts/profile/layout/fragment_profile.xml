@@ -15,25 +15,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/back_button" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/main_font_roboto_medium"
-                android:paddingTop="3dp"
-                android:text="Ваш профиль"
-                android:textColor="@color/black"
-                android:textSize="@dimen/head_text_size" />
-        </LinearLayout>
+            android:fontFamily="@font/main_font_roboto_medium"
+            android:paddingTop="3dp"
+            android:text="Ваш профиль"
+            android:textColor="@color/black"
+            android:textSize="@dimen/head_text_size" />
 
         <ScrollView
             android:layout_width="match_parent"
