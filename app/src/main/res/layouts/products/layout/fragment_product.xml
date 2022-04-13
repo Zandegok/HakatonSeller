@@ -40,7 +40,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".45"
-                                app:srcCompat="@drawable/apple" />
+                                android:image_bitmap="@{viewModel.picture}" />
 
                             <ImageView
                                 android:layout_width="wrap_content"
@@ -60,7 +60,7 @@
                                 android:layout_weight="5"
                                 android:elevation="2dp"
                                 android:fontFamily="@font/main_font_roboto_medium"
-                                android:text="Яблоки(Гренни смит)"
+                                android:text="@{viewModel.product.name}"
                                 android:textColor="@color/black"
                                 android:textSize="27sp" />
 
@@ -68,7 +68,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/main_font_roboto_medium"
-                                android:text="158₽"
+                                android:text="@{viewModel.product.fullPrice}"
                                 android:textColor="#1DB99B"
                                 android:textSize="24sp" />
                         </LinearLayout>
@@ -89,7 +89,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/main_font_roboto_medium"
-                                android:text="1000гр."
+                                android:text="@{viewModel.product.fullAmount}"
                                 android:textColor="#9BB3AE" />
                         </LinearLayout>
 
@@ -103,9 +103,10 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/main_font_roboto_medium"
                                 android:paddingTop="5dp"
-                                android:text="Гренни Смит - наверное, один из самых популярных сортов яблок в мире. У этих яблок довольно плотная кожица, маленькое содержание сахара и сочная, душистая мякоть. Гренни Смит используются для приготовления различных фруктовых десертов и пирогов, так как долгое время не темнеют в разрезанном виде."
+                                android:text="@{viewModel.product.description}"
                                 android:textColor="#000000"
                                 android:textSize="@dimen/description_text_size" />
+<!--                                android:text="Гренни Смит - наверное, один из самых популярных сортов яблок в мире. У этих яблок довольно плотная кожица, маленькое содержание сахара и сочная, душистая мякоть. Гренни Смит используются для приготовления различных фруктовых десертов и пирогов, так как долгое время не темнеют в разрезанном виде."-->
                         </LinearLayout>
 
                         <LinearLayout
@@ -119,7 +120,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/main_font_roboto_medium"
-                                android:text="1.1"
+                                android:text="@{viewModel.product.ratingToString}"
                                 android:textSize="20sp" />
 
                             <ImageView

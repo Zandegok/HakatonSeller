@@ -2,7 +2,9 @@ package com.example.bf_kotlin_client.views
 
 import android.os.Bundle
 import android.provider.Settings
+import android.view.LayoutInflater
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.VolleyError
 import com.example.bf_kotlin_client.apiworkers.AppAuthApiWorker
@@ -13,9 +15,6 @@ import com.example.bf_kotlin_client.utils.*
 import com.example.bf_kotlin_client.utils.AppFragmentManager.FragmentsName.ProductsCategoriesFragment
 import com.example.bf_kotlin_client.viewmodels.MainActivityViewModel
 import com.google.gson.Gson
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import java.util.*
 import kotlin.concurrent.schedule
 
@@ -28,6 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         globalVariables.applicationContext = applicationContext
         globalVariables.httpWorker = HttpWorker(applicationContext)
+        globalVariables.layoutInflater= LayoutInflater.from(applicationContext)
 
         //globalVariables.appDatabase = AppDatabase.getInstance(applicationContext)
 
@@ -73,16 +73,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun processError(volleyError: VolleyError) {
         if (volleyError.networkResponse == null) {
-            Toast.makeText(
-                applicationContext,
-                "Сервер недоступен, приложение будет закрыто ",
-                Toast.LENGTH_LONG
-            ).show()
-
-            Timer().schedule(3000) {
-                finishAffinity()
-            }
-
+            var builder = AlertDialog.Builder(this)
+            builder.setMessage("Сервер недоступен, приложение будет закрыто")
+            builder.setTitle("Ошибка:")
+            builder.setPositiveButton("OK") {_,_-> finishAffinity() }
+            builder.setCancelable(true)
+            builder.create().show()
             return
         }
 
@@ -91,14 +87,11 @@ class MainActivity : AppCompatActivity() {
         var data = Gson().fromJson(dataInJson, ServerError::class.java)
         var errorMessage = "$httpCode: ${data.message}"
 
-        Toast.makeText(
-            applicationContext,
-            "Ошибка сервера $errorMessage, приложение будет закрыто",
-            Toast.LENGTH_LONG
-        ).show()
-
-        Timer().schedule(3000) {
-            finishAffinity()
-        }
+        var builder = AlertDialog.Builder(this)
+        builder.setMessage("$errorMessage, приложение будет закрыто")
+        builder.setTitle("Ошибка сервера:")
+        builder.setPositiveButton("OK") {_,_-> finishAffinity() }
+        builder.setCancelable(true)
+        builder.create().show()
     }
 }
