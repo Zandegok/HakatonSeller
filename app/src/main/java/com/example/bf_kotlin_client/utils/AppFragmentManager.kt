@@ -9,6 +9,7 @@ import com.example.bf_kotlin_client.fragments.farmers.FarmerFragment
 import com.example.bf_kotlin_client.fragments.farmers.FarmersListFragment
 import com.example.bf_kotlin_client.fragments.favorites.FavoriteProductsFragment
 import com.example.bf_kotlin_client.fragments.products.*
+import com.example.bf_kotlin_client.fragments.profile.ProfileAuthFragment
 import com.example.bf_kotlin_client.fragments.profile.ProfileFragment
 import com.example.bf_kotlin_client.fragments.support.SupportQuestionsPageFragment
 import com.example.bf_kotlin_client.fragments.support.SupportAnswersPageFragment
@@ -20,7 +21,7 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         FragmentsName.FarmersListFragment to arrayListOf(FarmersListFragment()),
         FragmentsName.FavoriteProductsFragment to arrayListOf(FavoriteProductsFragment()),
         FragmentsName.ProductsCategoriesFragment to arrayListOf(ProductsCategoriesFragment()),
-        FragmentsName.ProfileFragment to arrayListOf(ProfileFragment()),
+        FragmentsName.ProfileAuthFragment to arrayListOf(ProfileAuthFragment()),
         FragmentsName.SupportQuestionsPageFragment to arrayListOf(SupportQuestionsPageFragment()),
     )
     private var currentTab = tabs.entries.first()
@@ -30,6 +31,7 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         FavoriteProductsFragment,
         ProductsCategoriesFragment,
         ProfileFragment,
+        ProfileAuthFragment,
         SupportQuestionsPageFragment,
         ProductsInCategoryFragment,
         ProductFragment,
@@ -84,6 +86,7 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
             FragmentsName.ProductFragment -> ProductFragment()
             FragmentsName.SupportAnswersPageFragment -> SupportAnswersPageFragment()
             FragmentsName.FarmerFragment-> FarmerFragment()
+            FragmentsName.ProfileFragment-> ProfileFragment()
             else -> throw IllegalArgumentException("This Fragment can't be instantiate")
         }
 

@@ -69,7 +69,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/main_font_roboto_medium"
-                        android:text="Имя"
+                        android:text="@{viewModel.client.firstName}"
                         android:textColor="#000000"
                         android:textSize="20sp" />
 
@@ -79,7 +79,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/main_font_roboto_medium"
                         android:paddingLeft="5dp"
-                        android:text="Фамилия"
+                        android:text="@{viewModel.client.lastName}"
                         android:textColor="#000000"
                         android:textSize="20sp" />
 
@@ -98,7 +98,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/main_font_roboto_medium"
-                        android:text="Email"
+                        android:text="@{viewModel.client.email}"
                         android:textColor="#000000"
                         android:textSize="20sp" />
 
