@@ -18,6 +18,7 @@ class RvAdapterFarmers(private var farmers: ArrayList<Farmer>) :
 
     private var imageApiWorker = ImagesApiWorker()
     private var fragmentManager = GlobalVariables.instance.fragmentManager
+    private var layoutInflater = GlobalVariables.instance.layoutInflater
 
     inner class ViewHolder internal constructor(var binding: FarmersItemPreviewBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -40,24 +41,21 @@ class RvAdapterFarmers(private var farmers: ArrayList<Farmer>) :
 
         fun openFarmerFragment() {
             fragmentManager.openFragmentAboveMain(FarmerFragment)
-            var binding = fragmentManager.getCurrentFragmentBinding<FragmentFarmerBinding>()
-            var viewModel = binding!!.viewModel
-            viewModel!!.farmer = farmer
+            var binding = fragmentManager.getCurrentFragmentBinding<FragmentFarmerBinding>()!!
+            var viewModel = binding.viewModel!!
+            viewModel.farmer = farmer
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var binding = FarmersItemPreviewBinding.bind(
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.farmers_item_preview, parent, false)
-        )
-
+        var binding = FarmersItemPreviewBinding.inflate(layoutInflater, parent, false)
         return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.viewModel = ViewModel()
-        holder.binding.viewModel!!.farmer = farmers[position]
+        val viewModel = ViewModel()
+        viewModel.farmer = farmers[position]
+        holder.binding.viewModel = viewModel
     }
 
     override fun getItemCount(): Int {

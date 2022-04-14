@@ -19,6 +19,8 @@ class RvAdapterProducts(private var products: ArrayList<Product>) :
 
     private var imageApiWorker = ImagesApiWorker()
     private var fragmentManager = GlobalVariables.instance.fragmentManager
+    private var layoutInflater = GlobalVariables.instance.layoutInflater
+
 
     inner class ViewHolder internal constructor(var binding: ProductPreviewBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -40,20 +42,21 @@ class RvAdapterProducts(private var products: ArrayList<Product>) :
         fun openProductView(){
             fragmentManager.openFragmentAboveMain(ProductFragment)
             var binding =
-                fragmentManager.getCurrentFragmentBinding<FragmentProductBinding>()
-            var viewModel = binding!!.viewModel
-            viewModel!!.product=product
+                fragmentManager.getCurrentFragmentBinding<FragmentProductBinding>()!!
+            var viewModel = binding.viewModel!!
+            viewModel.product=product
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var binding = ProductPreviewBinding.bind(LayoutInflater.from(parent.context).inflate(R.layout.product_preview, parent, false))
+        var binding = ProductPreviewBinding.inflate(layoutInflater, parent, false)
         return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.viewModel = ViewModel()
-        holder.binding.viewModel!!.product = products[position]
+        val viewModel = ViewModel()
+        viewModel.product = products[position]
+        holder.binding.viewModel = viewModel
     }
 
     override fun getItemCount(): Int {
