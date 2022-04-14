@@ -15,7 +15,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/background_light"
-        android:backgroundTint="@color/background_light"
+        android:paddingRight="@dimen/padding"
+        android:paddingLeft="@dimen/padding"
 
         android:is_refresh="@{viewModel.isRefreshing}"
         android:on_refresh="@{()-> viewModel.update()}">
@@ -26,7 +27,9 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingLeft="5dp"
-            android:paddingRight="5dp">
+            android:paddingRight="5dp"
+            android:background="@drawable/bg_white_rounded"
+            >
 
             <TextView
                 android:layout_width="wrap_content"

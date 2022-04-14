@@ -15,15 +15,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/background_light"
-        android:backgroundTint="@color/background_light"
-
         android:is_refresh="@{viewModel.isRefreshing}"
-        android:on_refresh="@{()-> viewModel.update()}">
+        android:on_refresh="@{()-> viewModel.update()}"
+        android:paddingLeft="@dimen/padding"
+        android:paddingRight="@dimen/padding">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/bg_white_rounded"
             android:orientation="vertical"
             android:paddingLeft="5dp"
             android:paddingRight="5dp">
@@ -36,6 +37,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+
                     app:srcCompat="@drawable/back_button" />
 
                 <TextView
@@ -58,7 +60,7 @@
                 android:submitBackground="@drawable/bg_white_rounded"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="16dp"/>
+                tools:layout_editor_absoluteY="16dp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
