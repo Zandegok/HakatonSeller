@@ -14,12 +14,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:background="@drawable/round_shape"
-        android:backgroundTint="#FFFFFF"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-
-        android:onClick="@{(view)->viewModel.openProductList()}">
+        android:paddingRight="@dimen/padding"
+        android:paddingLeft="@dimen/padding"
+        android:onClick="@{(view)->viewModel.openProductList()}"
+        android:background="@drawable/bg_white_rounded"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,7 +26,6 @@
             android:layout_marginLeft="10dp"
             android:layout_weight="2"
             android:orientation="vertical"
-
             android:touchscreenBlocksFocus="true">
 
             <TextView
@@ -46,13 +44,13 @@
                 android:textColor="@color/description_gray"
                 android:textSize="12sp" />
 
-        </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:image_bitmap="@{viewModel.fieldImage}" />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:image_bitmap="@{viewModel.fieldImage}" />
+        </LinearLayout>
 
     </LinearLayout>
 </layout>
