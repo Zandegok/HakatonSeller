@@ -16,7 +16,7 @@ class MainActivityViewModel {
             R.id.productsSection to ProductsCategoriesFragment,
             R.id.farmersSection to FarmersListFragment,
             R.id.favouritesSection to FavoriteProductsFragment,
-            R.id.profileSection to ProfileFragment,
+            R.id.profileSection to ProfileAuthFragment,
             R.id.supportSection to SupportQuestionsPageFragment
         )
 

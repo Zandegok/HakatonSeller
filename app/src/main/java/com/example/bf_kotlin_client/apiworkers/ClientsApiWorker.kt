@@ -31,7 +31,7 @@ class ClientsApiWorker {
             url,
             successCallbackFunction,
             request,
-            hashMapOf(),
+            globalVariables.httpHeaders,
             errorCallbackFunction
         )
     }

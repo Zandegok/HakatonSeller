@@ -25,9 +25,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        globalVariables.applicationContext = applicationContext
-        globalVariables.httpWorker = HttpWorker(applicationContext)
-        globalVariables.layoutInflater= LayoutInflater.from(applicationContext)
+        globalVariables.applicationContext = this
+        globalVariables.httpWorker = HttpWorker(this)
+        globalVariables.layoutInflater= LayoutInflater.from(this)
 
         //globalVariables.appDatabase = AppDatabase.getInstance(applicationContext)
 
