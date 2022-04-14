@@ -13,3 +13,14 @@ data class Product (
     var farmer: Farmer? = null,
     var productCategoryId: Int = 0,
 )
+{
+    fun getFullPrice(): String {
+        return "$price $priceMeasurementName"
+    }
+    fun getFullAmount():String{
+        return "$amount $amountMeasurementName"
+    }
+    fun getRatingToString():String{
+        return "$rating"
+    }
+}
