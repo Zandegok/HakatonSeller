@@ -17,6 +17,15 @@ fun setImageBitmap(
     imageView.setImageBitmap(bitmap)
 }
 
+@BindingAdapter("android:is_back_button")
+fun setIsBackButton(
+    view: View, enabled: Boolean,
+) {
+    if (enabled == false) return
+    var callback = GlobalVariables.instance.onBackPressedCallback
+    view.setOnClickListener { callback.handleOnBackPressed()}
+}
+
 @BindingAdapter("android:is_refresh")
 fun setRefresh(
     swipeRefreshLayout: SwipeRefreshLayout, value: Boolean,
@@ -33,6 +42,7 @@ fun setOnRefreshListener(
         swipeRefreshLayout.setOnRefreshListener(listener)
     }
 }
+
 @BindingAdapter("android:onItemSelected")
 fun setOnItemSelected(
     bottomNavigationView: BottomNavigationView,
@@ -44,9 +54,10 @@ fun setOnItemSelected(
 }
 
 @BindingAdapter("android:onBackPressed")
-fun onBackPressed(view: View, callback:OnBackPressedCallback?){
-    var activity= view.context as AppCompatActivity
+fun onBackPressed(view: View, callback: OnBackPressedCallback?) {
+    var activity = view.context as AppCompatActivity
     if (callback != null) {
         activity.onBackPressedDispatcher.addCallback(callback)
     }
 }
+

@@ -26,6 +26,10 @@ class MainActivityViewModel {
         }
     }
 
+    init{
+        GlobalVariables.instance.onBackPressedCallback = onBackPressedCallback
+    }
+
     fun onItemSelected(menuItem: MenuItem): Boolean {
         var tabName = menuItemIdToTabName[menuItem.itemId]
         fragmentManager.showTab(tabName!!)
