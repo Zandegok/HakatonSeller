@@ -26,7 +26,7 @@
             android:onItemSelected="@{(item)-> viewModel.onItemSelected(item)}"
             app:itemIconTint="@color/text_or_icon_color"
             app:itemTextColor="@color/text_or_icon_color"
-            android:background="@color/main_color"
+            android:background="@color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/menu_activity_main" />

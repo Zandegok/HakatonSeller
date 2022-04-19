@@ -23,4 +23,5 @@
         android:textColor="@color/white"
         android:backgroundTint="@color/text_or_icon_color"
         android:text="Изменить" />
+
 </LinearLayout>
