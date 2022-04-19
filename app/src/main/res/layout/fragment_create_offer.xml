@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="15dp"
-            android:text="Создать заказ"
+            android:text="Создать запрос"
             android:textAlignment="textStart"
             android:textColor="@color/text_or_icon_color"
             android:textSize="24sp" />
