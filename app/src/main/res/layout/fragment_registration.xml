@@ -71,6 +71,19 @@
                     android:textColor="@color/text_or_icon_color" />
 
                 <EditText
+                    android:id="@+id/editTextPassword2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:ems="10"
+                    android:fontFamily="@font/roboto_medium"
+                    android:hint="имя"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/text_or_icon_color" />
+
+                <EditText
                     android:id="@+id/editTextNomber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
