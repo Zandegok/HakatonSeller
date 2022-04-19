@@ -11,6 +11,9 @@ import com.example.bf_kotlin_client.fragments.support.*
 class AppFragmentManager(private var fragmentManager: FragmentManager) {
 
     private var tabs: MutableMap<FragmentsName, ArrayList<Fragment>> = mutableMapOf(
+        FragmentsName.Tutorial1Fragment to arrayListOf( Tutorial1Fragment()),
+        FragmentsName.RegistrationFragment to arrayListOf(RegistrationFragment()),
+        FragmentsName.ProfileAuthFragment to arrayListOf( ProfileAuthFragment()),
         FragmentsName.ProfileFragment to arrayListOf( ProfileFragment()),
         FragmentsName.CreateOfferFragment to arrayListOf( CreateOfferFragment()),
         FragmentsName.OffersFragment to arrayListOf( OffersFragment()),
@@ -72,11 +75,9 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         fragmentManager.executePendingTransactions()//защита от асинхронности
 
         var newFragment: Fragment = when (fragmentName) {
+            FragmentsName.Tutorial2Fragment->Tutorial2Fragment()
             FragmentsName.EditProfileFragment ->EditProfileFragment()
             FragmentsName.ProfileAuthFragment ->ProfileAuthFragment()
-            FragmentsName.RegistrationFragment ->RegistrationFragment()
-            FragmentsName.Tutorial1Fragment ->Tutorial1Fragment()
-            FragmentsName.Tutorial2Fragment ->Tutorial2Fragment()
             else -> throw IllegalArgumentException("This Fragment can't be instantiate")
         }
 

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/background_color">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -53,6 +52,7 @@
                     android:ems="10"
                     android:fontFamily="@font/roboto_medium"
                     android:hint="Логин"
+                    android:text="@={viewModel.login}"
                     android:inputType="textPersonName"
                     android:textColor="@color/text_or_icon_color" />
 
@@ -66,6 +66,7 @@
                     android:ems="10"
                     android:fontFamily="@font/roboto_medium"
                     android:hint="Пароль"
+                    android:text="@={viewModel.password}"
                     android:inputType="textPersonName"
                     android:textColor="@color/text_or_icon_color" />
 
@@ -79,6 +80,7 @@
                     android:ems="10"
                     android:fontFamily="@font/roboto_medium"
                     android:hint="Номер телефона"
+                    android:text="@={viewModel.phoneNumber}"
                     android:inputType="textPersonName"
                     android:textColor="@color/text_or_icon_color" />
 
@@ -92,6 +94,7 @@
                     android:ems="10"
                     android:fontFamily="@font/roboto_medium"
                     android:hint="Почта"
+                    android:text="@={viewModel.email}"
                     android:inputType="textPersonName"
                     android:textColor="@color/text_or_icon_color" />
 
@@ -105,6 +108,7 @@
                     android:ems="10"
                     android:fontFamily="@font/roboto_medium"
                     android:hint="О себе"
+                    android:text="@={viewModel.info}"
                     android:inputType="textPersonName"
                     android:textColor="@color/text_or_icon_color" />
 

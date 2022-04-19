@@ -1,22 +1,16 @@
 package com.example.bf_kotlin_client.views
 
 import android.os.Bundle
-import android.provider.Settings
 import android.view.LayoutInflater
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.VolleyError
-import com.example.bf_kotlin_client.apiworkers.AppAuthApiWorker
 import com.example.bf_kotlin_client.databinding.ActivityMainBinding
 import com.example.bf_kotlin_client.dtos.entities.ServerError
-import com.example.bf_kotlin_client.dtos.responses.AppAuthResponse
 import com.example.bf_kotlin_client.utils.*
-import com.example.bf_kotlin_client.utils.AppFragmentManager.FragmentsName.ProfileFragment
+import com.example.bf_kotlin_client.utils.AppFragmentManager.FragmentsName.ProfileAuthFragment
 import com.example.bf_kotlin_client.viewmodels.MainActivityViewModel
 import com.google.gson.Gson
-import java.util.*
-import kotlin.concurrent.schedule
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,11 +25,6 @@ class MainActivity : AppCompatActivity() {
 
         globalVariables.appDatabase = AppDatabase.getInstance(applicationContext)
 
-        var appAuthApiWorker = AppAuthApiWorker()
-
-        var login = "qaz"
-        var password = "zaq"
-
         globalVariables.fragmentManager = AppFragmentManager(supportFragmentManager)
 
         var binding = ActivityMainBinding.inflate(layoutInflater)
@@ -44,14 +33,9 @@ class MainActivity : AppCompatActivity() {
         var mainActivityViewModel = MainActivityViewModel()
         binding.viewModel = mainActivityViewModel
 
-        globalVariables.fragmentManager.showTab(ProfileFragment)
+        globalVariables.fragmentManager.showTab(AppFragmentManager.FragmentsName.Tutorial1Fragment)
 
-        appAuthApiWorker.authByLoginAndPassword(
-            login,
-            password,
-            {Toast.makeText(applicationContext,it,Toast.LENGTH_LONG).show()},
-            ::processError
-        )
+
     }
 
 
