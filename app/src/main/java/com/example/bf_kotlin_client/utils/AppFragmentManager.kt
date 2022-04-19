@@ -5,38 +5,28 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.bf_kotlin_client.R
-import com.example.bf_kotlin_client.fragments.farmers.FarmerFragment
-import com.example.bf_kotlin_client.fragments.farmers.FarmersListFragment
-import com.example.bf_kotlin_client.fragments.favorites.FavoriteProductsFragment
-import com.example.bf_kotlin_client.fragments.products.*
-import com.example.bf_kotlin_client.fragments.profile.ProfileAuthFragment
-import com.example.bf_kotlin_client.fragments.profile.ProfileFragment
-import com.example.bf_kotlin_client.fragments.support.SupportQuestionsPageFragment
-import com.example.bf_kotlin_client.fragments.support.SupportAnswersPageFragment
+import com.example.bf_kotlin_client.fragments.support.*
 
 
 class AppFragmentManager(private var fragmentManager: FragmentManager) {
 
     private var tabs: MutableMap<FragmentsName, ArrayList<Fragment>> = mutableMapOf(
-        FragmentsName.FarmersListFragment to arrayListOf(FarmersListFragment()),
-        FragmentsName.FavoriteProductsFragment to arrayListOf(FavoriteProductsFragment()),
-        FragmentsName.ProductsCategoriesFragment to arrayListOf(ProductsCategoriesFragment()),
-        FragmentsName.ProfileAuthFragment to arrayListOf(ProfileAuthFragment()),
-        FragmentsName.SupportQuestionsPageFragment to arrayListOf(SupportQuestionsPageFragment()),
+        FragmentsName.ProfileFragment to arrayListOf( ProfileFragment()),
+        FragmentsName.CreateOfferFragment to arrayListOf( CreateOfferFragment()),
+        FragmentsName.OffersFragment to arrayListOf( OffersFragment()),
+
     )
     private var currentTab = tabs.entries.first()
 
     enum class FragmentsName {
-        FarmersListFragment,
-        FavoriteProductsFragment,
-        ProductsCategoriesFragment,
-        ProfileFragment,
+        CreateOfferFragment,
+        EditProfileFragment,
+        OffersFragment,
         ProfileAuthFragment,
-        SupportQuestionsPageFragment,
-        ProductsInCategoryFragment,
-        ProductFragment,
-        SupportAnswersPageFragment,
-        FarmerFragment,
+        ProfileFragment,
+        RegistrationFragment,
+        Tutorial1Fragment,
+        Tutorial2Fragment
     }
 
     init {
@@ -82,11 +72,11 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         fragmentManager.executePendingTransactions()//защита от асинхронности
 
         var newFragment: Fragment = when (fragmentName) {
-            FragmentsName.ProductsInCategoryFragment -> ProductsInCategoryFragment()
-            FragmentsName.ProductFragment -> ProductFragment()
-            FragmentsName.SupportAnswersPageFragment -> SupportAnswersPageFragment()
-            FragmentsName.FarmerFragment-> FarmerFragment()
-            FragmentsName.ProfileFragment-> ProfileFragment()
+            FragmentsName.EditProfileFragment ->EditProfileFragment()
+            FragmentsName.ProfileAuthFragment ->ProfileAuthFragment()
+            FragmentsName.RegistrationFragment ->RegistrationFragment()
+            FragmentsName.Tutorial1Fragment ->Tutorial1Fragment()
+            FragmentsName.Tutorial2Fragment ->Tutorial2Fragment()
             else -> throw IllegalArgumentException("This Fragment can't be instantiate")
         }
 
