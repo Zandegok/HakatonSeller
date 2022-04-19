@@ -13,9 +13,11 @@ class MainActivityViewModel {
 
     private var menuItemIdToTabName: MutableMap<Int, AppFragmentManager.FragmentsName> =
         mutableMapOf(
-            R.id.profileSection to ProfileFragment,
-            R.id.createSection to CreateOfferFragment,
-            R.id.myRequestsSection to OffersFragment
+            R.id.productsSection to ProductsCategoriesFragment,
+            R.id.farmersSection to FarmersListFragment,
+            R.id.favouritesSection to FavoriteProductsFragment,
+            R.id.profileSection to ProfileAuthFragment,
+            R.id.supportSection to SupportQuestionsPageFragment
         )
 
     var onBackPressedCallback = object : OnBackPressedCallback(true) {
