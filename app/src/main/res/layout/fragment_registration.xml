@@ -80,6 +80,7 @@
                     android:ems="10"
                     android:fontFamily="@font/roboto_medium"
                     android:hint="имя"
+                    android:text="@={viewModel.name}"
                     android:inputType="textPersonName"
                     android:textColor="@color/text_or_icon_color" />
 
@@ -142,6 +143,7 @@
                     android:backgroundTint="@color/text_or_icon_color"
                     android:fontFamily="@font/roboto_medium"
                     android:text="Готово"
+                    android:onClick="@{_->viewModel.register()}"
                     android:textColor="@color/white" />
 
             </LinearLayout>
