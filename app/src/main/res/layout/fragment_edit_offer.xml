@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
@@ -6,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.bf_kotlin_client.viewmodels.CreateOfferViewModel" />
+            type="com.example.bf_kotlin_client.viewmodels.EditOfferViewModel" />
     </data>
 
     <LinearLayout
@@ -22,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="15dp"
-            android:text="Создать запрос"
+            android:text="Изменить запрос"
             android:textAlignment="textStart"
             android:textColor="@color/text_or_icon_color"
             android:textSize="24sp" />
@@ -43,11 +44,11 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/textView4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:text="Запрос"
+                    android:text="TextView"
                     android:textAlignment="center"
                     android:textColor="@color/text_or_icon_color"
                     android:textSize="24sp" />
@@ -63,7 +64,6 @@
                     android:ems="10"
                     android:fontFamily="@font/roboto_medium"
                     android:hint="Название"
-                    android:text="@={viewModel.name}"
                     android:inputType="textPersonName"
                     android:textColor="@color/text_or_icon_color" />
 
@@ -77,12 +77,11 @@
                     android:ems="10"
                     android:fontFamily="@font/roboto_medium"
                     android:hint="Описание"
-                    android:text="@={viewModel.description}"
                     android:inputType="textPersonName"
                     android:textColor="@color/text_or_icon_color" />
 
                 <EditText
-                    android:id="@+id/editTextInfo"
+                    android:id="@+id/editTextNomber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -91,9 +90,28 @@
                     android:ems="10"
                     android:fontFamily="@font/roboto_medium"
                     android:hint="Цена"
-                    android:text="@={viewModel.price}"
                     android:inputType="textPersonName"
                     android:textColor="@color/text_or_icon_color" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal">
+
+                <Switch
+                    android:id="@+id/switch2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Открыт/Закрыт"
+                    android:textColor="@color/text_or_icon_color"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -106,18 +124,30 @@
                     android:id="@+id/buttonNext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="85dp"
-                    android:layout_marginRight="85dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/text_or_icon_color"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="Создать"
-                    android:onClick="@{_->viewModel.create()}"
+                    android:text="Сохранить"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/buttonNext3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/text_or_icon_color"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Удалить"
                     android:textColor="@color/white" />
 
             </LinearLayout>
         </LinearLayout>
+
     </LinearLayout>
 
 
