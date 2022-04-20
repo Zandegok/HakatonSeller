@@ -49,4 +49,19 @@ class AuthApiWorker {
             request,
         )
     }
+    fun update(buyer: Buyer,successCallbackFunction: (String?) ->Unit){
+        var httpMethod = Request.Method.POST
+        var url = "http://151.248.113.116:8080/buyers/editBuyer"
+        var request = Gson().toJson(buyer)
+
+        var httpWorker = globalVariables.httpWorker
+
+        httpWorker.makeStringRequestWithBody(
+            httpMethod,
+            url,
+            successCallbackFunction,
+            request,
+        )
+
+    }
 }

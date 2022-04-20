@@ -26,7 +26,7 @@ class RegistrationViewModel {
             phoneNumber.get().toString(),
             email.get().toString(),
             info.get().toString()
-        )
+        ).also { it.id=-1 }
         authApiWorker.reqister(buyer,::successCallbackFunction)
     }
 

@@ -8,7 +8,5 @@ data class Buyer(
     var email: String? = null,
     var info: String ="",
 ) {
-
     var id = 0
-
 }

@@ -1,7 +1,9 @@
 package com.example.bf_kotlin_client.viewmodels
 
+import android.widget.Toast
 import androidx.databinding.ObservableField
 import com.example.bf_kotlin_client.apiworkers.AuthApiWorker
+import com.example.bf_kotlin_client.databinding.FragmentProfileBinding
 import com.example.bf_kotlin_client.dtos.entities.Buyer
 import com.example.bf_kotlin_client.localdb.models.KeyValuePair
 import com.example.bf_kotlin_client.utils.AppFragmentManager
@@ -12,18 +14,19 @@ import com.google.gson.Gson
 import kotlinx.coroutines.*
 
 class ProfileAuthViewModel {
-    var fragmentManager= GlobalVariables.instance.fragmentManager
-    var authApiWorker= AuthApiWorker()
-    var login= ObservableField("")
-    var password= ObservableField("")
-    init{
+    var fragmentManager = GlobalVariables.instance.fragmentManager
+    var authApiWorker = AuthApiWorker()
+    var login = ObservableField("")
+    var password = ObservableField("")
+
+    init {
         var keyValuePairsRepository = GlobalVariables.instance.appDatabase.keyValuePairsRepository
         var login: String? = null
         var password: String? = null
         GlobalScope.launch(Dispatchers.IO) {
             login = keyValuePairsRepository.getByKey("login")
             password = keyValuePairsRepository.getByKey("password")
-        setLoginAndPassword(login, password)
+            setLoginAndPassword(login, password)
         }
     }
 
@@ -34,23 +37,35 @@ class ProfileAuthViewModel {
         }
     }
 
-    fun auth(){
-        authApiWorker.authByLoginAndPassword(login.get().toString(),password.get().toString(),::successCallbackFunction)
+    fun auth() {
+        authApiWorker.authByLoginAndPassword(login.get().toString(),
+            password.get().toString(),
+            ::successCallbackFunction)
     }
 
     private fun successCallbackFunction(data: String?) {
-        var buyer= Gson().fromJson(data,Buyer::class.java)
-        if (buyer!=null)
-            fragmentManager.showTab(ProfileFragment)
-        GlobalVariables.instance.mainActivityViewModel.bottomNavigationViewEnabled=true;
+        var buyer = Gson().fromJson(data, Buyer::class.java)
+        if (buyer == null) {
+            Toast.makeText(GlobalVariables.instance.applicationContext,
+                "Не удалось найти указанного пользователя",
+                Toast.LENGTH_LONG).show()
+            return
+        }
+
+        fragmentManager.showTab(ProfileFragment)
+        var binding=fragmentManager.getCurrentFragmentBinding<FragmentProfileBinding>()!!
+        var viewModel=binding.viewModel!!
+        viewModel.buyer=buyer
+        GlobalVariables.instance.mainActivityViewModel.bottomNavigationViewEnabled = true;
         var keyValuePairsRepository = GlobalVariables.instance.appDatabase.keyValuePairsRepository
         GlobalScope.launch(Dispatchers.IO) {
-            keyValuePairsRepository.insert(KeyValuePair("login",login.get().toString()))
-            keyValuePairsRepository.insert(KeyValuePair("password",password.get().toString()))
+            keyValuePairsRepository.insert(KeyValuePair("login", login.get().toString()))
+            keyValuePairsRepository.insert(KeyValuePair("password", password.get().toString()))
         }
 
     }
-    fun openRegistration(){
+
+    fun openRegistration() {
         fragmentManager.showTab(RegistrationFragment)
     }
 }

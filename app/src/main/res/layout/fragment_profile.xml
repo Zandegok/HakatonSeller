@@ -59,20 +59,8 @@
                     android:layout_marginBottom="20dp"
                     android:ems="10"
                     android:fontFamily="@font/roboto_medium"
-                    android:hint="Логин"
-                    android:inputType="textPersonName"
-                    android:textColor="@color/text_or_icon_color" />
-
-                <EditText
-                    android:id="@+id/editTextPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="20dp"
-                    android:ems="10"
-                    android:fontFamily="@font/roboto_medium"
-                    android:hint="Пароль"
+                    android:hint="Имя/Наименование"
+                    android:text="@{viewModel.name}"
                     android:inputType="textPersonName"
                     android:textColor="@color/text_or_icon_color" />
 
@@ -86,7 +74,8 @@
                     android:ems="10"
                     android:fontFamily="@font/roboto_medium"
                     android:hint="Номер телефона"
-                    android:inputType="textPersonName"
+                    android:text="@{viewModel.phoneNumber}"
+                    android:inputType="phone"
                     android:textColor="@color/text_or_icon_color" />
 
                 <EditText
@@ -99,7 +88,8 @@
                     android:ems="10"
                     android:fontFamily="@font/roboto_medium"
                     android:hint="Почта"
-                    android:inputType="textPersonName"
+                    android:text="@{viewModel.email}"
+                    android:inputType="textEmailAddress"
                     android:textColor="@color/text_or_icon_color" />
 
                 <EditText
@@ -112,7 +102,8 @@
                     android:ems="10"
                     android:fontFamily="@font/roboto_medium"
                     android:hint="О себе"
-                    android:inputType="textPersonName"
+                    android:text="@{viewModel.info}"
+                    android:inputType="text"
                     android:textColor="@color/text_or_icon_color" />
 
             </LinearLayout>
@@ -131,7 +122,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="@color/text_or_icon_color"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="Редактировать"
+                    android:text="Сохранить изменения"
+                    android:onClick="@{_-> viewModel.update()}"
                     android:textColor="@color/white" />
 
             </LinearLayout>
