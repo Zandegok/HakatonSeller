@@ -106,14 +106,13 @@
                     android:id="@+id/buttonNext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="85dp"
-                    android:layout_marginRight="85dp"
+                    android:layout_marginLeft="125dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/text_or_icon_color"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="Создать"
                     android:onClick="@{_->viewModel.create()}"
+                    android:text="Создать"
                     android:textColor="@color/white" />
 
             </LinearLayout>
