@@ -20,14 +20,14 @@ class RvAdapterOffers(private var offers: ArrayList<Offer>) :
 
     inner class ViewModel {
 
-        var offer = Offer()
+        var offer= Offer()
 
 
-        fun openFarmerFragment() {
+        fun openEditOfferFragment() {
             fragmentManager.openFragmentAboveMain(AppFragmentManager.FragmentsName.EditOfferFragment)
             var binding = fragmentManager.getCurrentFragmentBinding<FragmentEditOfferBinding>()
-            var viewModel = binding!!.viewModel
-            viewModel!!.offer = offer
+            var viewModel = binding!!.viewModel!!
+            viewModel.offer=offer
         }
     }
 
@@ -41,8 +41,8 @@ class RvAdapterOffers(private var offers: ArrayList<Offer>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        //holder.binding.viewModel = ViewModel()
-        //holder.binding.viewModel!!.offer = offers[position]
+        holder.binding.viewModel = ViewModel()
+        holder.binding.viewModel!!.offer = offers[position]
     }
 
     override fun getItemCount(): Int {

@@ -2,6 +2,7 @@ package com.example.bf_kotlin_client.utils
 
 import android.content.Context
 import android.view.LayoutInflater
+import com.example.bf_kotlin_client.dtos.entities.Buyer
 
 class GlobalVariables private constructor() {
     companion object {
@@ -14,4 +15,5 @@ class GlobalVariables private constructor() {
     lateinit var fragmentManager: AppFragmentManager
     lateinit var httpHeaders: MutableMap<String, String>
     lateinit var layoutInflater: LayoutInflater
+    lateinit var buyer: Buyer
 }

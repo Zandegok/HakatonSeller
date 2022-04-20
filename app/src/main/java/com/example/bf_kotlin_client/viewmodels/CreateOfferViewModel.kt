@@ -14,11 +14,11 @@ class CreateOfferViewModel {
     var description = ObservableField("")
     var name = ObservableField("")
     fun create() {
-        var offer = Offer(
+        var offer = Offer(0,
             name.get().toString(),
             description.get().toString(),
-            price.get()?.toInt(),
-            true
+            (price.get()!!.toDouble() * 100).toInt(),
+            true,
         )
         offersApiWorker.create(offer,::successCallbackFunction)
     }

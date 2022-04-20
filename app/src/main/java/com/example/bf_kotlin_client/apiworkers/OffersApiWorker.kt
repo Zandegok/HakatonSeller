@@ -12,15 +12,14 @@ class OffersApiWorker {
 
     fun getAll(successCallbackFunction: (String) -> Unit) {
         val httpMethod = Request.Method.GET
-        val url = "http://151.248.113.116:8080/buyers/getAll"
+        val url = "http://151.248.113.116:8080/buyers/getAllRequests"
 
         val httpWorker = globalVariables.httpWorker
 
         httpWorker.makeStringRequestWithoutBody(
             httpMethod,
             url,
-            successCallbackFunction,
-            globalVariables.httpHeaders
+            successCallbackFunction
         )
     }
 

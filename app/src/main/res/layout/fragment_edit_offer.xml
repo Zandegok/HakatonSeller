@@ -65,6 +65,7 @@
                     android:fontFamily="@font/roboto_medium"
                     android:hint="Название"
                     android:inputType="textPersonName"
+                    android:text="@={viewModel.productName}"
                     android:textColor="@color/text_or_icon_color" />
 
                 <EditText
@@ -77,6 +78,7 @@
                     android:ems="10"
                     android:fontFamily="@font/roboto_medium"
                     android:hint="Описание"
+                    android:text="@={viewModel.essence}"
                     android:inputType="textPersonName"
                     android:textColor="@color/text_or_icon_color" />
 
@@ -90,7 +92,8 @@
                     android:ems="10"
                     android:fontFamily="@font/roboto_medium"
                     android:hint="Цена"
-                    android:inputType="textPersonName"
+                    android:text="@={viewModel.price}"
+                    android:inputType="numberDecimal"
                     android:textColor="@color/text_or_icon_color" />
 
             </LinearLayout>
@@ -110,6 +113,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/roboto_medium"
                     android:text="Открыт/Закрыт"
+                    android:checked="@{viewModel.isOpen}"
                     android:textColor="@color/text_or_icon_color"
                     android:textSize="16sp" />
 
@@ -118,7 +122,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/buttonNext"
