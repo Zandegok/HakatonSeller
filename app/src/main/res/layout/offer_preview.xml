@@ -14,7 +14,9 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     android:background="@drawable/round_shape"
-    android:backgroundTint="@color/main_color">
+    android:backgroundTint="@color/main_color"
+    android:paddingLeft="10sp"
+    android:paddingRight="10sp">
 
     <TextView
         android:id="@+id/textView3"
