@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         globalVariables.layoutInflater = LayoutInflater.from(this)
 
         globalVariables.appDatabase = AppDatabase.getInstance(applicationContext)
-globalVariables.buyer= Buyer()
+        globalVariables.buyer = Buyer()
         globalVariables.fragmentManager = AppFragmentManager(supportFragmentManager)
 
         var binding = ActivityMainBinding.inflate(layoutInflater)
@@ -33,7 +33,7 @@ globalVariables.buyer= Buyer()
 
         var mainActivityViewModel = MainActivityViewModel()
         binding.viewModel = mainActivityViewModel
-
+        globalVariables.mainActivityViewModel = mainActivityViewModel
         globalVariables.fragmentManager.showTab(AppFragmentManager.FragmentsName.Tutorial1Fragment)
 
 

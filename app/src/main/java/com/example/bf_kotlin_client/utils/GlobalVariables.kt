@@ -3,6 +3,7 @@ package com.example.bf_kotlin_client.utils
 import android.content.Context
 import android.view.LayoutInflater
 import com.example.bf_kotlin_client.dtos.entities.Buyer
+import com.example.bf_kotlin_client.viewmodels.MainActivityViewModel
 
 class GlobalVariables private constructor() {
     companion object {
@@ -16,4 +17,5 @@ class GlobalVariables private constructor() {
     lateinit var httpHeaders: MutableMap<String, String>
     lateinit var layoutInflater: LayoutInflater
     lateinit var buyer: Buyer
+    lateinit var mainActivityViewModel: MainActivityViewModel
 }

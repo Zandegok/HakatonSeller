@@ -22,6 +22,7 @@ class ProfileAuthViewModel {
         var buyer= Gson().fromJson(data,Buyer::class.java)
         if (buyer!=null)
             fragmentManager.showTab(ProfileFragment)
+        GlobalVariables.instance.mainActivityViewModel.bottomNavigationViewEnabled=true;
     }
     fun openRegistration(){
         fragmentManager.showTab(RegistrationFragment)
