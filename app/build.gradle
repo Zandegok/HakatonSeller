@@ -12,7 +12,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.example.bf_kotlin_client"
+        applicationId "com.example.Hakaton_buyer"
         minSdk 27
         targetSdk 31
         versionCode 1
