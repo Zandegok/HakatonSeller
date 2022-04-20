@@ -34,7 +34,7 @@ class EditOfferViewModel {
     }
 
     fun delete() {
-        offersApiWorker.update(offer){
+        offersApiWorker.delete(offer){
             Toast.makeText(GlobalVariables.instance.applicationContext, it, Toast.LENGTH_LONG)
                 .show()
         }

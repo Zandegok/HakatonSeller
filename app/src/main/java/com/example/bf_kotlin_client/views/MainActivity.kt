@@ -9,9 +9,9 @@ import com.example.bf_kotlin_client.databinding.ActivityMainBinding
 import com.example.bf_kotlin_client.dtos.entities.Buyer
 import com.example.bf_kotlin_client.dtos.entities.ServerError
 import com.example.bf_kotlin_client.utils.*
-import com.example.bf_kotlin_client.utils.AppFragmentManager.FragmentsName.ProfileAuthFragment
 import com.example.bf_kotlin_client.viewmodels.MainActivityViewModel
 import com.google.gson.Gson
+import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,21 +24,31 @@ class MainActivity : AppCompatActivity() {
         globalVariables.httpWorker = HttpWorker(this)
         globalVariables.layoutInflater = LayoutInflater.from(this)
 
-        globalVariables.appDatabase = AppDatabase.getInstance(applicationContext)
+        val appDatabase = AppDatabase.getInstance(applicationContext)
+        globalVariables.appDatabase = appDatabase
         globalVariables.buyer = Buyer()
         globalVariables.fragmentManager = AppFragmentManager(supportFragmentManager)
-
         var binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         var mainActivityViewModel = MainActivityViewModel()
         binding.viewModel = mainActivityViewModel
         globalVariables.mainActivityViewModel = mainActivityViewModel
-        globalVariables.fragmentManager.showTab(AppFragmentManager.FragmentsName.Tutorial1Fragment)
-
+        var isFirst: String? = null
+        GlobalScope.launch(Dispatchers.Main){
+            show(appDatabase.keyValuePairsRepository.getByKey("isFirst"))
+        }
 
     }
 
+    private fun show(isFirst: String? ) {
+        if (isFirst == null) {
+            globalVariables.fragmentManager.showTab(AppFragmentManager.FragmentsName.Tutorial1Fragment)
+        } else {
+            globalVariables.fragmentManager.showTab(AppFragmentManager.FragmentsName.ProfileAuthFragment)
+        }
+
+    }
 
     private fun processError(volleyError: VolleyError) {
         if (volleyError.networkResponse == null) {

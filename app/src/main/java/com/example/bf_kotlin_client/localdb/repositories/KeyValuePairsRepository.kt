@@ -8,6 +8,9 @@ interface KeyValuePairsRepository {
     @Query("SELECT `value` from key_value_pairs WHERE `key` = :key")
     suspend fun getByKey(key: String): String?
 
+    @Query("SELECT * from key_value_pairs")
+    suspend fun getAll(): List<KeyValuePair>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(keyValuePair: KeyValuePair)
 

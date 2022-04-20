@@ -55,7 +55,7 @@ class OffersApiWorker {
     }
     fun delete(offer: Offer, successCallbackFunction: (String?) -> Unit){
 
-        var httpMethod = Request.Method.DELETE
+        var httpMethod = Request.Method.POST
         var url = "http://151.248.113.116:8080/buyers/deleteRequest"
         var request = Gson().toJson(offer)
         var httpWorker = globalVariables.httpWorker
@@ -63,7 +63,10 @@ class OffersApiWorker {
             httpMethod,
             url,
             successCallbackFunction,
-            request,
-        )
+            request
+        ) {
+            it.message
+
+        }
     }
 }
