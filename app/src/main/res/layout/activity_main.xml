@@ -29,7 +29,7 @@
             app:itemTextColor="@color/text_or_icon_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/menu_activity_main" />
+            app:menu="@menu/menu_activity_main"/>
 
         <FrameLayout
             android:id="@+id/frameLayoutActivityMain"

@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.bf_kotlin_client.viewmodels.EditProfileViewModel" />
+            type="com.example.bf_kotlin_client.viewmodels.EditOfferViewModel" />
     </data>
 
     <LinearLayout
@@ -63,8 +63,9 @@
                     android:layout_marginBottom="20dp"
                     android:ems="10"
                     android:fontFamily="@font/roboto_medium"
-                    android:hint="Логин"
+                    android:hint="Название"
                     android:inputType="textPersonName"
+                    android:text="@={viewModel.productName}"
                     android:textColor="@color/text_or_icon_color" />
 
                 <EditText
@@ -76,7 +77,8 @@
                     android:layout_marginBottom="20dp"
                     android:ems="10"
                     android:fontFamily="@font/roboto_medium"
-                    android:hint="Пароль"
+                    android:hint="Описание"
+                    android:text="@={viewModel.essence}"
                     android:inputType="textPersonName"
                     android:textColor="@color/text_or_icon_color" />
 
@@ -89,8 +91,9 @@
                     android:layout_marginBottom="20dp"
                     android:ems="10"
                     android:fontFamily="@font/roboto_medium"
-                    android:hint="Номер телефона"
-                    android:inputType="textPersonName"
+                    android:hint="Цена"
+                    android:text="@={viewModel.price}"
+                    android:inputType="numberDecimal"
                     android:textColor="@color/text_or_icon_color" />
 
             </LinearLayout>
@@ -99,11 +102,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="15dp"
-                android:orientation="horizontal"/>
+                android:orientation="horizontal">
+
+                <Switch
+                    android:id="@+id/switch2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Открыт/Закрыт"
+                    android:checked="@{viewModel.isOpen}"
+                    android:textColor="@color/text_or_icon_color"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/buttonNext"

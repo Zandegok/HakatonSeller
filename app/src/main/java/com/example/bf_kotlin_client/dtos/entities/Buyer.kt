@@ -6,7 +6,7 @@ data class Buyer(
     var password: String = "",
     var phoneNumber: String? = null,
     var email: String? = null,
-    var info: Any,
+    var info: String ="",
 ) {
 
     var id = 0

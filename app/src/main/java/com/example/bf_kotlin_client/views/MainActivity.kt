@@ -6,6 +6,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.VolleyError
 import com.example.bf_kotlin_client.databinding.ActivityMainBinding
+import com.example.bf_kotlin_client.dtos.entities.Buyer
 import com.example.bf_kotlin_client.dtos.entities.ServerError
 import com.example.bf_kotlin_client.utils.*
 import com.example.bf_kotlin_client.utils.AppFragmentManager.FragmentsName.ProfileAuthFragment
@@ -24,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         globalVariables.layoutInflater = LayoutInflater.from(this)
 
         globalVariables.appDatabase = AppDatabase.getInstance(applicationContext)
-
+globalVariables.buyer= Buyer()
         globalVariables.fragmentManager = AppFragmentManager(supportFragmentManager)
 
         var binding = ActivityMainBinding.inflate(layoutInflater)

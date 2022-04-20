@@ -63,6 +63,7 @@
                     android:ems="10"
                     android:fontFamily="@font/roboto_medium"
                     android:hint="Название"
+                    android:text="@={viewModel.name}"
                     android:inputType="textPersonName"
                     android:textColor="@color/text_or_icon_color" />
 
@@ -76,6 +77,7 @@
                     android:ems="10"
                     android:fontFamily="@font/roboto_medium"
                     android:hint="Описание"
+                    android:text="@={viewModel.description}"
                     android:inputType="textPersonName"
                     android:textColor="@color/text_or_icon_color" />
 
@@ -89,6 +91,7 @@
                     android:ems="10"
                     android:fontFamily="@font/roboto_medium"
                     android:hint="Цена"
+                    android:text="@={viewModel.price}"
                     android:inputType="textPersonName"
                     android:textColor="@color/text_or_icon_color" />
 
@@ -110,6 +113,7 @@
                     android:backgroundTint="@color/text_or_icon_color"
                     android:fontFamily="@font/roboto_medium"
                     android:text="Создать"
+                    android:onClick="@{_->viewModel.create()}"
                     android:textColor="@color/white" />
 
             </LinearLayout>

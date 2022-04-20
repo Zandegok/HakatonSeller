@@ -1,6 +1,6 @@
 package com.example.bf_kotlin_client.dtos.entities
 
-class Request(
+class Offer (
     var id: Int = 0,
     var productName: String = "",
     var essence: String = "",

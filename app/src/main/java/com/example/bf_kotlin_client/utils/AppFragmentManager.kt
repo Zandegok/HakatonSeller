@@ -23,6 +23,7 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
 
     enum class FragmentsName {
         CreateOfferFragment,
+        EditOfferFragment,
         EditProfileFragment,
         OffersFragment,
         ProfileAuthFragment,
@@ -75,8 +76,9 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         fragmentManager.executePendingTransactions()//защита от асинхронности
 
         var newFragment: Fragment = when (fragmentName) {
-            FragmentsName.Tutorial2Fragment->Tutorial2Fragment()
             FragmentsName.EditProfileFragment ->EditProfileFragment()
+            FragmentsName.Tutorial2Fragment->Tutorial2Fragment()
+            FragmentsName.EditOfferFragment ->EditOfferFragment()
             FragmentsName.ProfileAuthFragment ->ProfileAuthFragment()
             else -> throw IllegalArgumentException("This Fragment can't be instantiate")
         }
