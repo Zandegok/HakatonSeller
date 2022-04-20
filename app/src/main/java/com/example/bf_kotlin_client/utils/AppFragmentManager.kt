@@ -25,6 +25,8 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         CreateOfferFragment,
         EditOfferFragment,
         EditProfileFragment,
+        OfferResponses,
+        ResponsePage,
         OffersFragment,
         ProfileAuthFragment,
         ProfileFragment,
@@ -77,6 +79,8 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
 
         var newFragment: Fragment = when (fragmentName) {
             FragmentsName.EditProfileFragment ->EditProfileFragment()
+            FragmentsName.ResponsePage ->ResponsePageFragment()
+            FragmentsName.OfferResponses ->OfferResponseFragment()
             FragmentsName.Tutorial2Fragment->Tutorial2Fragment()
             FragmentsName.EditOfferFragment ->EditOfferFragment()
             FragmentsName.ProfileAuthFragment ->ProfileAuthFragment()
