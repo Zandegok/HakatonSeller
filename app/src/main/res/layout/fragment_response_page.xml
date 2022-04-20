@@ -75,7 +75,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="@{viewModel.response.price}"
+                    android:text="@{viewModel.response.priceString}"
                     android:textSize="20sp" />
 
                 <TextView
