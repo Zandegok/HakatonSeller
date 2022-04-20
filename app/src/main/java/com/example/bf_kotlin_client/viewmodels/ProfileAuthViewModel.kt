@@ -14,7 +14,7 @@ import com.google.gson.Gson
 import kotlinx.coroutines.*
 
 class ProfileAuthViewModel {
-    var fragmentManager = GlobalVariables.instance.fragmentManager
+
     var authApiWorker = AuthApiWorker()
     var login = ObservableField("")
     var password = ObservableField("")
@@ -51,11 +51,12 @@ class ProfileAuthViewModel {
                 Toast.LENGTH_LONG).show()
             return
         }
-
+        var fragmentManager = GlobalVariables.instance.fragmentManager
         fragmentManager.showTab(ProfileFragment)
-        var binding=fragmentManager.getCurrentFragmentBinding<FragmentProfileBinding>()!!
-        var viewModel=binding.viewModel!!
-        viewModel.buyer=buyer
+        var binding = fragmentManager.getCurrentFragmentBinding<FragmentProfileBinding>()!!
+        var viewModel = binding.viewModel!!
+        viewModel.buyer = buyer
+        GlobalVariables.instance.buyer = buyer
         GlobalVariables.instance.mainActivityViewModel.bottomNavigationViewEnabled = true;
         var keyValuePairsRepository = GlobalVariables.instance.appDatabase.keyValuePairsRepository
         GlobalScope.launch(Dispatchers.IO) {
@@ -66,6 +67,8 @@ class ProfileAuthViewModel {
     }
 
     fun openRegistration() {
+        var fragmentManager = GlobalVariables.instance.fragmentManager
+
         fragmentManager.showTab(RegistrationFragment)
     }
 }

@@ -13,6 +13,8 @@ import com.example.bf_kotlin_client.viewmodels.ProfileAuthViewModel
 import kotlinx.coroutines.*
 
 class ProfileAuthFragment : Fragment() {
+    private val profileAuthViewModel = ProfileAuthViewModel()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -20,7 +22,7 @@ class ProfileAuthFragment : Fragment() {
     ): View {
         val binding = FragmentProfileAuthBinding.inflate(layoutInflater)
 
-        binding.viewModel = ProfileAuthViewModel()
+        binding.viewModel = profileAuthViewModel
 
         return binding.root
     }

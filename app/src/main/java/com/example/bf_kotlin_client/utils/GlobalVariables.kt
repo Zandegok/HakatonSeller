@@ -2,6 +2,7 @@ package com.example.bf_kotlin_client.utils
 
 import android.content.Context
 import android.view.LayoutInflater
+import androidx.activity.OnBackPressedCallback
 import com.example.bf_kotlin_client.dtos.entities.Buyer
 import com.example.bf_kotlin_client.viewmodels.MainActivityViewModel
 
@@ -10,6 +11,7 @@ class GlobalVariables private constructor() {
         var instance = GlobalVariables()
     }
 
+    lateinit var onBackPressedCallback: OnBackPressedCallback
     lateinit var applicationContext: Context
     lateinit var httpWorker: HttpWorker
     lateinit var appDatabase: AppDatabase

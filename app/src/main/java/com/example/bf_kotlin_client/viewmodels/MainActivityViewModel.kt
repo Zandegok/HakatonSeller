@@ -32,7 +32,9 @@ class MainActivityViewModel {
             fragmentManager.popBackStack()
         }
     }
-
+    init{
+        GlobalVariables.instance.onBackPressedCallback = onBackPressedCallback
+    }
     fun onItemSelected(menuItem: MenuItem): Boolean {
         if (!bottomNavigationViewEnabled) {
             return false

@@ -25,7 +25,7 @@ class RvAdapterResponses (private var responces: ArrayList<Response>):
             var response= Response()
 
 
-            fun openEditOfferFragment() {
+            fun openResponseFragment() {
                 fragmentManager.openFragmentAboveMain(AppFragmentManager.FragmentsName.ResponsePage)
                 var binding = fragmentManager.getCurrentFragmentBinding<FragmentResponsePageBinding>()
                 var viewModel = binding!!.viewModel!!

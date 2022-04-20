@@ -64,4 +64,17 @@ class AuthApiWorker {
         )
 
     }
+    fun getAllSellers(successCallbackFunction: (String?) -> Unit){
+        var httpMethod = Request.Method.GET
+        var url = "http://151.248.113.116:8080/buyers/getAllSellers"
+
+        var httpWorker = globalVariables.httpWorker
+
+        httpWorker.makeStringRequestWithoutBody(
+            httpMethod,
+            url,
+            successCallbackFunction,
+        )
+
+    }
 }

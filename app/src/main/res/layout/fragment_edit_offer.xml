@@ -118,7 +118,7 @@
                     android:layout_weight="1"
                     android:backgroundTint="@color/text_or_icon_color"
                     android:fontFamily="@font/roboto_medium"
-                    android:onClick="@{_->viewModel.update()}"
+                    android:onClick="@{_->viewModel.openResponsesFragment()}"
                     android:text="Посмотреть"
                     android:textColor="@color/white" />
 

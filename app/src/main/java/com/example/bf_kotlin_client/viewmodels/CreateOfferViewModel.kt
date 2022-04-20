@@ -18,7 +18,7 @@ class CreateOfferViewModel {
             name.get().toString(),
             description.get().toString(),
             (price.get()!!.toDouble() * 100).toInt(),
-            true,
+            true,GlobalVariables.instance.buyer.id
         )
         offersApiWorker.create(offer,::successCallbackFunction)
     }

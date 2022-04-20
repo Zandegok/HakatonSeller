@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.bf_kotlin_client.viewmodels.EditOfferViewModel" />
+            type="com.example.bf_kotlin_client.viewmodels.ResponsePageViewModel" />
     </data>
 
     <LinearLayout
@@ -49,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:fontFamily="sans-serif"
-                    android:text="Поставщик 1"
+                    android:text="@{viewModel.seller.name}"
                     android:textAlignment="center"
                     android:textColor="@color/text_or_icon_color"
                     android:textSize="24sp" />
@@ -63,7 +63,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="TextView"
+                    android:text="@{viewModel.seller.phoneNumber}"
                     android:textSize="20sp" />
 
                 <TextView
@@ -75,7 +75,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="TextView"
+                    android:text="@{viewModel.response.price}"
                     android:textSize="20sp" />
 
                 <TextView
@@ -87,7 +87,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="TextView"
+                    android:text="@{viewModel.response.comment}"
                     android:textSize="20sp" />
 
                 <Button
@@ -100,7 +100,7 @@
                     android:layout_weight="1"
                     android:backgroundTint="@color/text_or_icon_color"
                     android:fontFamily="@font/roboto_medium"
-                    android:onClick="@{_->viewModel.update()}"
+                    android:is_back_button="@{true}"
                     android:text="Ок"
                     android:textColor="@color/white" />
 

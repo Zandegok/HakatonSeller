@@ -14,7 +14,6 @@ class ResponseApiWorker {
 
     fun getAllResponses(
         successCallbackFunction: (String) -> Unit,
-        errorCallbackFunction: (VolleyError) -> Unit
     ) {
 
 
@@ -27,8 +26,6 @@ class ResponseApiWorker {
             httpMethod,
             url,
             successCallbackFunction,
-            hashMapOf(),
-            errorCallbackFunction
         )
     }
 }

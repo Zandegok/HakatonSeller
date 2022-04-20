@@ -26,8 +26,8 @@ class MainActivity : AppCompatActivity() {
 
         val appDatabase = AppDatabase.getInstance(applicationContext)
         globalVariables.appDatabase = appDatabase
-        globalVariables.buyer = Buyer()
         globalVariables.fragmentManager = AppFragmentManager(supportFragmentManager)
+        globalVariables.buyer = Buyer()
         var binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

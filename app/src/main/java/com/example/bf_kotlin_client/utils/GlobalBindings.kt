@@ -42,7 +42,14 @@ fun setOnItemSelected(
         bottomNavigationView.setOnItemSelectedListener(listener)
     }
 }
-
+@BindingAdapter("android:is_back_button")
+fun setIsBackButton(
+    view: View, enabled: Boolean,
+) {
+    if (enabled == false) return
+    var callback = GlobalVariables.instance.onBackPressedCallback
+    view.setOnClickListener { callback.handleOnBackPressed()}
+}
 @BindingAdapter("android:onBackPressed")
 fun onBackPressed(view: View, callback:OnBackPressedCallback?){
     var activity= view.context as AppCompatActivity
