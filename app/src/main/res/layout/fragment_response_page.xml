@@ -48,8 +48,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
+                    android:layout_weight="1"
                     android:fontFamily="sans-serif"
-                    android:text="@{viewModel.seller.name}"
+                    android:text="вадим"
                     android:textAlignment="center"
                     android:textColor="@color/text_or_icon_color"
                     android:textSize="24sp" />
@@ -63,7 +64,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="@{viewModel.seller.phoneNumber}"
+                    android:text="Тел.: +123123"
                     android:textSize="20sp" />
 
                 <TextView
@@ -75,7 +76,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="@{viewModel.response.priceString}"
+                    android:text="@{viewModel.price}"
                     android:textSize="20sp" />
 
                 <TextView
@@ -87,7 +88,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="@{viewModel.response.comment}"
+                    android:text="@{viewModel.comment}"
                     android:textSize="20sp" />
 
                 <Button
