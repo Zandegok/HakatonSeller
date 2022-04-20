@@ -13,7 +13,7 @@ class MainActivityViewModel {
 
     private var menuItemIdToTabName: MutableMap<Int, AppFragmentManager.FragmentsName> =
         mutableMapOf(
-            R.id.profileSection to ProfileAuthFragment,
+            R.id.profileSection to ProfileFragment,
             R.id.createSection to CreateOfferFragment,
             R.id.myRequestsSection to OffersFragment
         )

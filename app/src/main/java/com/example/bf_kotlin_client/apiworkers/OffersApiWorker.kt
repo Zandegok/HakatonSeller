@@ -38,4 +38,32 @@ class OffersApiWorker {
             request,
         )
     }
+    fun update(offer: Offer, successCallbackFunction: (String?) -> Unit){
+
+        var httpMethod = Request.Method.PUT
+        var url = "http://151.248.113.116:8080/buyers/updateRequest"
+        var request = Gson().toJson(offer)
+
+        var httpWorker = globalVariables.httpWorker
+
+        httpWorker.makeStringRequestWithBody(
+            httpMethod,
+            url,
+            successCallbackFunction,
+            request,
+        )
+    }
+    fun delete(offer: Offer, successCallbackFunction: (String?) -> Unit){
+
+        var httpMethod = Request.Method.DELETE
+        var url = "http://151.248.113.116:8080/buyers/deleteRequest"
+        var request = Gson().toJson(offer)
+        var httpWorker = globalVariables.httpWorker
+        httpWorker.makeStringRequestWithBody(
+            httpMethod,
+            url,
+            successCallbackFunction,
+            request,
+        )
+    }
 }

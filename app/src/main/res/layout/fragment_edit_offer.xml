@@ -48,7 +48,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:text="TextView"
+                    android:text="Запрос"
                     android:textAlignment="center"
                     android:textColor="@color/text_or_icon_color"
                     android:textSize="24sp" />
@@ -134,6 +134,7 @@
                     android:backgroundTint="@color/text_or_icon_color"
                     android:fontFamily="@font/roboto_medium"
                     android:text="Сохранить"
+                    android:onClick="@{_->viewModel.update()}"
                     android:textColor="@color/white" />
 
                 <Button
@@ -147,7 +148,8 @@
                     android:backgroundTint="@color/text_or_icon_color"
                     android:fontFamily="@font/roboto_medium"
                     android:text="Удалить"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:onClick="@{_->viewModel.delete()}"/>
 
             </LinearLayout>
         </LinearLayout>
