@@ -50,7 +50,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_weight="1"
                     android:fontFamily="sans-serif"
-                    android:text="вадим"
+                    android:text="@{viewModel.sellerName}"
                     android:textAlignment="center"
                     android:textColor="@color/text_or_icon_color"
                     android:textSize="24sp" />
@@ -64,7 +64,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="Тел.: +123123"
+                    android:text="@{viewModel.sellerPhone}"
                     android:textSize="20sp" />
 
                 <TextView
@@ -76,7 +76,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="@{viewModel.price}"
+                    android:text="@{viewModel.response.priceString}"
                     android:textSize="20sp" />
 
                 <TextView
@@ -88,7 +88,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="@{viewModel.comment}"
+                    android:text="@{viewModel.response.comment}"
                     android:textSize="20sp" />
 
                 <Button
