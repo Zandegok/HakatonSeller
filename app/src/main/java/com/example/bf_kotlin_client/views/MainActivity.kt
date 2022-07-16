@@ -9,10 +9,18 @@ import com.example.bf_kotlin_client.utils.*
 import com.example.bf_kotlin_client.viewmodels.MainActivityViewModel
 import kotlinx.coroutines.*
 
+/**
+ * Главный класс, с которого начинается инициализация приложения
+ * @property globalVariables хранилище всех глобальных переменных приложения
+ */
 class MainActivity : AppCompatActivity() {
 
     private var globalVariables = GlobalVariables.instance
 
+    /**
+     * Вызывается при создании приложения, инициализирует глобальные переменные и создаёт элементы дизайна
+     *
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -36,6 +44,11 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Статический метод для изначального отображения приложения
+     * (с инструкцией в первый раз и без во второй)
+     * @param isFirst первый ли раз запускается приложение
+     */
     private fun show(isFirst: String?) {
         if (isFirst == null) {
             globalVariables.fragmentManager.showTab(AppFragmentManager.FragmentsName.Tutorial1Fragment)

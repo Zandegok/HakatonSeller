@@ -6,10 +6,21 @@ import com.example.bf_kotlin_client.dtos.requests.AppAuthRequest
 import com.example.bf_kotlin_client.utils.GlobalVariables
 import com.google.gson.Gson
 
+/**
+ * Класс, создающий и вызывающий запросы к серверу отностельно пользователей
+ *
+ */
 class AuthApiWorker {
 
     private var globalVariables = GlobalVariables.instance
 
+    /**
+     * Вызывает запрос на аутентификацию пользователя по указанному логину и паролю
+     *
+     * @param login логин покупателя
+     * @param password пароль покупателя
+     * @param successCallbackFunction функция, обрабатывающая ответ в случае успешного запроса
+     */
     fun authByLoginAndPassword(
         login: String,
         password: String,
@@ -27,6 +38,13 @@ class AuthApiWorker {
             request,
         )
     }
+
+    /**
+     * Вызывает запрос на регистрацию пользователя
+     *
+     * @param buyer новый пользователь
+     * @param successCallbackFunction функция, обрабатывающая ответ в случае успешного запроса
+     */
     fun register(buyer: Buyer, successCallbackFunction: (String?) -> Unit){
         val httpMethod = Request.Method.POST
         val url = "http://151.248.113.116:8080/buyers/signUp"
@@ -39,6 +57,13 @@ class AuthApiWorker {
             request,
         )
     }
+
+    /**
+     * Вызывает запрос на измение пользователя по указанному логину и паролю
+     *
+     * @param buyer пользователь, данные которого изменяются (логин изменить нельзя)
+     * @param successCallbackFunction функция, обрабатывающая ответ в случае успешного запроса
+     */
     fun update(buyer: Buyer,successCallbackFunction: (String?) ->Unit){
         val httpMethod = Request.Method.POST
         val url = "http://151.248.113.116:8080/buyers/editBuyer"
@@ -52,6 +77,12 @@ class AuthApiWorker {
         )
 
     }
+
+    /**
+     * Выдаёт список всех продавцов
+     *
+     * @param successCallbackFunction функция, обрабатывающая ответ в случае успешного запроса
+     */
     fun getAllSellers(successCallbackFunction: (String?) -> Unit){
         val httpMethod = Request.Method.GET
         val url = "http://151.248.113.116:8080/buyers/getAllSellers"

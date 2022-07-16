@@ -2,11 +2,19 @@ package com.example.bf_kotlin_client.apiworkers
 
 import com.android.volley.Request
 import com.example.bf_kotlin_client.utils.GlobalVariables
-
+/**
+ * Класс, создающий и вызывающий запросы к серверу отностельно запросов
+ *
+ */
 class ResponseApiWorker {
 
     private var globalVariables = GlobalVariables.instance
 
+    /**
+     * выдаёт список всех запросов
+     *
+     * @param successCallbackFunction
+     */
     fun getAllResponses(
         successCallbackFunction: (String) -> Unit,
     ) {
