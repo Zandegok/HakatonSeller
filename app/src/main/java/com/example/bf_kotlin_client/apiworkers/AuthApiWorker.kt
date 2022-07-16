@@ -1,9 +1,6 @@
 package com.example.bf_kotlin_client.apiworkers
 
-import android.annotation.SuppressLint
-import android.provider.Settings
 import com.android.volley.Request
-import com.android.volley.VolleyError
 import com.example.bf_kotlin_client.dtos.entities.Buyer
 import com.example.bf_kotlin_client.dtos.requests.AppAuthRequest
 import com.example.bf_kotlin_client.utils.GlobalVariables
@@ -18,15 +15,11 @@ class AuthApiWorker {
         password: String,
         successCallbackFunction: (String?) -> Unit,
     ) {
-
-        var appAuthRequest = AppAuthRequest(login, password)
-
-        var httpMethod = Request.Method.POST
-        var url = "http://151.248.113.116:8080/buyers/logInByLoginAndPassword"
-        var request = Gson().toJson(appAuthRequest)
-
-        var httpWorker = globalVariables.httpWorker
-
+        val appAuthRequest = AppAuthRequest(login, password)
+        val httpMethod = Request.Method.POST
+        val url = "http://151.248.113.116:8080/buyers/logInByLoginAndPassword"
+        val request = Gson().toJson(appAuthRequest)
+        val httpWorker = globalVariables.httpWorker
         httpWorker.makeStringRequestWithBody(
             httpMethod,
             url,
@@ -34,14 +27,11 @@ class AuthApiWorker {
             request,
         )
     }
-    fun reqister(buyer: Buyer,successCallbackFunction: (String?) -> Unit){
-
-        var httpMethod = Request.Method.POST
-        var url = "http://151.248.113.116:8080/buyers/signUp"
-        var request = Gson().toJson(buyer)
-
-        var httpWorker = globalVariables.httpWorker
-
+    fun register(buyer: Buyer, successCallbackFunction: (String?) -> Unit){
+        val httpMethod = Request.Method.POST
+        val url = "http://151.248.113.116:8080/buyers/signUp"
+        val request = Gson().toJson(buyer)
+        val httpWorker = globalVariables.httpWorker
         httpWorker.makeStringRequestWithBody(
             httpMethod,
             url,
@@ -50,12 +40,10 @@ class AuthApiWorker {
         )
     }
     fun update(buyer: Buyer,successCallbackFunction: (String?) ->Unit){
-        var httpMethod = Request.Method.POST
-        var url = "http://151.248.113.116:8080/buyers/editBuyer"
-        var request = Gson().toJson(buyer)
-
-        var httpWorker = globalVariables.httpWorker
-
+        val httpMethod = Request.Method.POST
+        val url = "http://151.248.113.116:8080/buyers/editBuyer"
+        val request = Gson().toJson(buyer)
+        val httpWorker = globalVariables.httpWorker
         httpWorker.makeStringRequestWithBody(
             httpMethod,
             url,
@@ -65,16 +53,13 @@ class AuthApiWorker {
 
     }
     fun getAllSellers(successCallbackFunction: (String?) -> Unit){
-        var httpMethod = Request.Method.GET
-        var url = "http://151.248.113.116:8080/buyers/getAllSellers"
-
-        var httpWorker = globalVariables.httpWorker
-
+        val httpMethod = Request.Method.GET
+        val url = "http://151.248.113.116:8080/buyers/getAllSellers"
+        val httpWorker = globalVariables.httpWorker
         httpWorker.makeStringRequestWithoutBody(
             httpMethod,
             url,
             successCallbackFunction,
         )
-
     }
 }

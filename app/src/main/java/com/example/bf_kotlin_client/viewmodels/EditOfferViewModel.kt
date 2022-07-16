@@ -5,7 +5,6 @@ import androidx.databinding.ObservableField
 import com.example.bf_kotlin_client.apiworkers.OffersApiWorker
 import com.example.bf_kotlin_client.databinding.FragmentOfferResponsesBinding
 import com.example.bf_kotlin_client.dtos.entities.Offer
-import com.example.bf_kotlin_client.utils.AppFragmentManager
 import com.example.bf_kotlin_client.utils.AppFragmentManager.FragmentsName.OfferResponses
 import com.example.bf_kotlin_client.utils.GlobalVariables
 
@@ -43,10 +42,10 @@ class EditOfferViewModel {
         }
     }
     fun openResponsesFragment(){
-        var fragmentManager = GlobalVariables.instance.fragmentManager
+        val fragmentManager = GlobalVariables.instance.fragmentManager
         fragmentManager.openFragmentAboveMain(OfferResponses)
-        var binding=fragmentManager.getCurrentFragmentBinding<FragmentOfferResponsesBinding>()!!
-        var viewModel = binding.viewModel!!
+        val binding=fragmentManager.getCurrentFragmentBinding<FragmentOfferResponsesBinding>()!!
+        val viewModel = binding.viewModel!!
         viewModel.offer=offer
     }
 }

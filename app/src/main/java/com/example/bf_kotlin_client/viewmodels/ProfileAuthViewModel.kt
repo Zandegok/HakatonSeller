@@ -6,7 +6,6 @@ import com.example.bf_kotlin_client.apiworkers.AuthApiWorker
 import com.example.bf_kotlin_client.databinding.FragmentProfileBinding
 import com.example.bf_kotlin_client.dtos.entities.Buyer
 import com.example.bf_kotlin_client.localdb.models.KeyValuePair
-import com.example.bf_kotlin_client.utils.AppFragmentManager
 import com.example.bf_kotlin_client.utils.AppFragmentManager.FragmentsName.ProfileFragment
 import com.example.bf_kotlin_client.utils.AppFragmentManager.FragmentsName.RegistrationFragment
 import com.example.bf_kotlin_client.utils.GlobalVariables
@@ -21,8 +20,8 @@ class ProfileAuthViewModel {
 
     init {
         var keyValuePairsRepository = GlobalVariables.instance.appDatabase.keyValuePairsRepository
-        var login: String? = null
-        var password: String? = null
+        var login: String?
+        var password: String?
         GlobalScope.launch(Dispatchers.IO) {
             login = keyValuePairsRepository.getByKey("login")
             password = keyValuePairsRepository.getByKey("password")
@@ -44,31 +43,29 @@ class ProfileAuthViewModel {
     }
 
     private fun successCallbackFunction(data: String?) {
-        var buyer = Gson().fromJson(data, Buyer::class.java)
+        val buyer = Gson().fromJson(data, Buyer::class.java)
         if (buyer == null) {
             Toast.makeText(GlobalVariables.instance.applicationContext,
                 "Не удалось найти указанного пользователя",
                 Toast.LENGTH_LONG).show()
             return
         }
-        var fragmentManager = GlobalVariables.instance.fragmentManager
+        val fragmentManager = GlobalVariables.instance.fragmentManager
         fragmentManager.showTab(ProfileFragment)
-        var binding = fragmentManager.getCurrentFragmentBinding<FragmentProfileBinding>()!!
-        var viewModel = binding.viewModel!!
+        val binding = fragmentManager.getCurrentFragmentBinding<FragmentProfileBinding>()!!
+        val viewModel = binding.viewModel!!
         viewModel.buyer = buyer
         GlobalVariables.instance.buyer = buyer
         GlobalVariables.instance.mainActivityViewModel.bottomNavigationViewEnabled = true;
-        var keyValuePairsRepository = GlobalVariables.instance.appDatabase.keyValuePairsRepository
+        val keyValuePairsRepository = GlobalVariables.instance.appDatabase.keyValuePairsRepository
         GlobalScope.launch(Dispatchers.IO) {
             keyValuePairsRepository.insert(KeyValuePair("login", login.get().toString()))
             keyValuePairsRepository.insert(KeyValuePair("password", password.get().toString()))
         }
-
     }
 
     fun openRegistration() {
-        var fragmentManager = GlobalVariables.instance.fragmentManager
-
+        val fragmentManager = GlobalVariables.instance.fragmentManager
         fragmentManager.showTab(RegistrationFragment)
     }
 }

@@ -10,13 +10,11 @@ class GlobalVariables private constructor() {
     companion object {
         var instance = GlobalVariables()
     }
-
     lateinit var onBackPressedCallback: OnBackPressedCallback
     lateinit var applicationContext: Context
     lateinit var httpWorker: HttpWorker
     lateinit var appDatabase: AppDatabase
     lateinit var fragmentManager: AppFragmentManager
-    lateinit var httpHeaders: MutableMap<String, String>
     lateinit var layoutInflater: LayoutInflater
     lateinit var buyer: Buyer
     lateinit var mainActivityViewModel: MainActivityViewModel

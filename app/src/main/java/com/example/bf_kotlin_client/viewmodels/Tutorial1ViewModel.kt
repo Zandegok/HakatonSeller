@@ -1,6 +1,5 @@
 package com.example.bf_kotlin_client.viewmodels
 
-import com.example.bf_kotlin_client.utils.AppFragmentManager
 import com.example.bf_kotlin_client.utils.AppFragmentManager.FragmentsName.Tutorial2Fragment
 import com.example.bf_kotlin_client.utils.GlobalVariables
 

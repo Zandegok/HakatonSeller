@@ -1,7 +1,6 @@
 package com.example.bf_kotlin_client.viewmodels
 
 import androidx.databinding.ObservableField
-import com.example.bf_kotlin_client.adapters.RvAdapterOffers
 import com.example.bf_kotlin_client.adapters.RvAdapterResponses
 import com.example.bf_kotlin_client.apiworkers.ResponseApiWorker
 import com.example.bf_kotlin_client.dtos.entities.Offer
@@ -25,9 +24,9 @@ class OfferResponsesViewModel {
 
     private fun updateRv(jsonData: String?) {
 
-        var responsesDto = Gson().fromJson(jsonData, ResponsesDto::class.java)
-        var buyer = GlobalVariables.instance.buyer
-        var filteredResponse =
+        val responsesDto = Gson().fromJson(jsonData, ResponsesDto::class.java)
+        GlobalVariables.instance.buyer
+        val filteredResponse =
             responsesDto.responses.filter { it.requestId == offer.id } as ArrayList<Response>
         rvProductsAdapter.set(RvAdapterResponses(filteredResponse))
 

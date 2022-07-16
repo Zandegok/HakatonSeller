@@ -27,7 +27,7 @@ class ProfileViewModel {
         }
 
     fun update() {
-        var newBuyer = Buyer(name.get().toString(),
+        val newBuyer = Buyer(name.get().toString(),
             login.get().toString(),
             password.get().toString(),
             phoneNumber.get().toString(),

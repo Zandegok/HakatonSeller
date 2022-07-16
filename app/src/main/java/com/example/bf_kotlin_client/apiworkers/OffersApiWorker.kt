@@ -1,15 +1,12 @@
 package com.example.bf_kotlin_client.apiworkers
 
 import com.android.volley.Request
-import com.example.bf_kotlin_client.dtos.entities.Buyer
 import com.example.bf_kotlin_client.dtos.entities.Offer
 import com.example.bf_kotlin_client.utils.GlobalVariables
 import com.google.gson.Gson
 
 class OffersApiWorker {
-
     private var globalVariables = GlobalVariables.instance
-
     fun getAll(successCallbackFunction: (String) -> Unit) {
         val httpMethod = Request.Method.GET
         val url = "http://151.248.113.116:8080/buyers/getAllRequests"
@@ -22,14 +19,13 @@ class OffersApiWorker {
             successCallbackFunction
         )
     }
-
     fun create(offer: Offer, successCallbackFunction: (String?) -> Unit){
 
-        var httpMethod = Request.Method.POST
-        var url = "http://151.248.113.116:8080/buyers/createNewRequest"
-        var request = Gson().toJson(offer)
+        val httpMethod = Request.Method.POST
+        val url = "http://151.248.113.116:8080/buyers/createNewRequest"
+        val request = Gson().toJson(offer)
 
-        var httpWorker = globalVariables.httpWorker
+        val httpWorker = globalVariables.httpWorker
 
         httpWorker.makeStringRequestWithBody(
             httpMethod,
@@ -40,11 +36,11 @@ class OffersApiWorker {
     }
     fun update(offer: Offer, successCallbackFunction: (String?) -> Unit){
 
-        var httpMethod = Request.Method.PUT
-        var url = "http://151.248.113.116:8080/buyers/updateRequest"
-        var request = Gson().toJson(offer)
+        val httpMethod = Request.Method.PUT
+        val url = "http://151.248.113.116:8080/buyers/updateRequest"
+        val request = Gson().toJson(offer)
 
-        var httpWorker = globalVariables.httpWorker
+        val httpWorker = globalVariables.httpWorker
 
         httpWorker.makeStringRequestWithBody(
             httpMethod,
@@ -55,10 +51,10 @@ class OffersApiWorker {
     }
     fun delete(offer: Offer, successCallbackFunction: (String?) -> Unit){
 
-        var httpMethod = Request.Method.POST
-        var url = "http://151.248.113.116:8080/buyers/deleteRequest"
-        var request = Gson().toJson(offer)
-        var httpWorker = globalVariables.httpWorker
+        val httpMethod = Request.Method.POST
+        val url = "http://151.248.113.116:8080/buyers/deleteRequest"
+        val request = Gson().toJson(offer)
+        val httpWorker = globalVariables.httpWorker
         httpWorker.makeStringRequestWithBody(
             httpMethod,
             url,

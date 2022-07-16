@@ -36,8 +36,8 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
     }
 
     init {
-        var containerId = R.id.frameLayoutActivityMain
-        var fragmentTransaction = fragmentManager.beginTransaction()
+        val containerId = R.id.frameLayoutActivityMain
+        val fragmentTransaction = fragmentManager.beginTransaction()
         for (tab in tabs)
             fragmentTransaction.add(containerId, tab.value[0])
         fragmentTransaction.commit()
@@ -48,12 +48,12 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
             throw IllegalArgumentException("$fragmentName is not main fragment")
         }
         fragmentManager.executePendingTransactions()//защита от асинхронности
-        var newTab = tabs.entries.first { it.key == fragmentName }
+        val newTab = tabs.entries.first { it.key == fragmentName }
         if (newTab == currentTab) {
             refreshCurrentTab()
             return
         }
-        var fragmentTransaction = fragmentManager.beginTransaction()
+        val fragmentTransaction = fragmentManager.beginTransaction()
         for (fragment in fragmentManager.fragments) {
             fragmentTransaction.hide(fragment)
         }
@@ -62,11 +62,11 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         currentTab = newTab
     }
 
-    fun refreshCurrentTab() {
+    private fun refreshCurrentTab() {
         fragmentManager.executePendingTransactions()//защита от асинхронности
-        var newTabMainFragment =
+        val newTabMainFragment =
             currentTab.value.first().javaClass.constructors[0].newInstance() as Fragment
-        var fragmentTransaction = fragmentManager.beginTransaction()
+        val fragmentTransaction = fragmentManager.beginTransaction()
         for (fragment in currentTab.value)
             fragmentTransaction.remove(fragment)
         fragmentTransaction.add(R.id.frameLayoutActivityMain, newTabMainFragment)
@@ -77,7 +77,7 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
     fun openFragmentAboveMain(fragmentName: FragmentsName) {
         fragmentManager.executePendingTransactions()//защита от асинхронности
 
-        var newFragment: Fragment = when (fragmentName) {
+        val newFragment: Fragment = when (fragmentName) {
             FragmentsName.EditProfileFragment ->EditProfileFragment()
             FragmentsName.ResponsePage ->ResponsePageFragment()
             FragmentsName.OfferResponses ->OfferResponseFragment()
@@ -87,13 +87,13 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
             else -> throw IllegalArgumentException("This Fragment can't be instantiate")
         }
 
-        var fragmentTransaction = fragmentManager.beginTransaction()
+        val fragmentTransaction = fragmentManager.beginTransaction()
 
         for (fragment in fragmentManager.fragments) {
             fragmentTransaction.hide(fragment)
         }
 
-        var containerId = R.id.frameLayoutActivityMain
+        val containerId = R.id.frameLayoutActivityMain
         fragmentTransaction.add(containerId, newFragment, fragmentName.name)
         fragmentTransaction.commit()
         currentTab.value.add(newFragment)
@@ -107,12 +107,12 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
 
     fun popBackStack() {
         fragmentManager.executePendingTransactions()//защита от асинхронности
-        var currentTabFragments = currentTab.value
+        val currentTabFragments = currentTab.value
         if (currentTabFragments.size == 1) {
             refreshCurrentTab()
             return
         }
-        var fragmentTransaction = fragmentManager.beginTransaction()
+        val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.remove(currentTabFragments.last())
         currentTabFragments.removeAt(currentTabFragments.lastIndex)
         fragmentTransaction.show(currentTabFragments.last())

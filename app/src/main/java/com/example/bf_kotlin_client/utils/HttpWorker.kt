@@ -3,7 +3,8 @@ package com.example.bf_kotlin_client.utils
 import android.content.Context
 import android.widget.Toast
 import com.android.volley.VolleyError
-import com.android.volley.toolbox.*
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.example.bf_kotlin_client.dtos.entities.ServerError
 import com.google.gson.Gson
 
@@ -17,13 +18,10 @@ class HttpWorker(private var applicationContext: Context) {
             return
         }
 
-        var httpCode = volleyError.networkResponse.statusCode
-
-        var dataInJson = volleyError.networkResponse.data.toString(Charsets.UTF_8)
-
-        var data = Gson().fromJson(dataInJson, ServerError::class.java)
-
-        var errorMessage = "$httpCode: ${data.message}"
+        val httpCode = volleyError.networkResponse.statusCode
+        val dataInJson = volleyError.networkResponse.data.toString(Charsets.UTF_8)
+        val data = Gson().fromJson(dataInJson, ServerError::class.java)
+        val errorMessage = "$httpCode: ${data.message}"
 
         Toast.makeText(applicationContext, errorMessage, Toast.LENGTH_LONG).show()
     }
@@ -35,7 +33,7 @@ class HttpWorker(private var applicationContext: Context) {
         httpHeaders: MutableMap<String, String> = hashMapOf(),
         errorCallbackFunction: (VolleyError) -> Unit = ::defaultErrorFunction
     ) {
-        var request = object : StringRequest(
+        val request = object : StringRequest(
             httpMethod,
             url,
             successCallbackFunction,
@@ -57,7 +55,7 @@ class HttpWorker(private var applicationContext: Context) {
         httpHeaders: MutableMap<String, String> = hashMapOf(),
         errorCallbackFunction: (VolleyError) -> Unit = ::defaultErrorFunction
     ) {
-        var request = object : StringRequest(
+        val request = object : StringRequest(
             httpMethod,
             url,
             successCallbackFunction,
@@ -66,11 +64,9 @@ class HttpWorker(private var applicationContext: Context) {
             override fun getBodyContentType(): String {
                 return "application/json; charset=utf-8"
             }
-
             override fun getBody(): ByteArray {
                 return body.toByteArray()
             }
-
             override fun getHeaders(): MutableMap<String, String> {
                 return httpHeaders
             }

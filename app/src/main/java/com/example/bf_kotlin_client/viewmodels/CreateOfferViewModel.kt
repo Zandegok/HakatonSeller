@@ -2,7 +2,6 @@ package com.example.bf_kotlin_client.viewmodels
 
 import android.widget.Toast
 import androidx.databinding.ObservableField
-import com.example.bf_kotlin_client.dtos.entities.Buyer
 import com.example.bf_kotlin_client.dtos.entities.Offer
 import com.example.bf_kotlin_client.utils.AppFragmentManager
 import com.example.bf_kotlin_client.utils.GlobalVariables

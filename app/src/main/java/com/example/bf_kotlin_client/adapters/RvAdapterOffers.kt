@@ -19,24 +19,20 @@ class RvAdapterOffers(private var offers: ArrayList<Offer>) :
         RecyclerView.ViewHolder(binding.root)
 
     inner class ViewModel {
-
         var offer= Offer()
-
-
         fun openEditOfferFragment() {
             fragmentManager.openFragmentAboveMain(AppFragmentManager.FragmentsName.EditOfferFragment)
-            var binding = fragmentManager.getCurrentFragmentBinding<FragmentEditOfferBinding>()
-            var viewModel = binding!!.viewModel!!
+            val binding = fragmentManager.getCurrentFragmentBinding<FragmentEditOfferBinding>()
+            val viewModel = binding!!.viewModel!!
             viewModel.offer=offer
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var binding = OfferPreviewBinding.bind(
+        val binding = OfferPreviewBinding.bind(
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.offer_preview, parent, false)
         )
-
         return ViewHolder(binding)
     }
 
