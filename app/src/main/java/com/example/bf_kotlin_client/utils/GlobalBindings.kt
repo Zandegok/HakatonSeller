@@ -1,12 +1,9 @@
 package com.example.bf_kotlin_client.utils
 
-import android.graphics.Bitmap
 import android.view.View
-import android.widget.ImageView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.BindingAdapter
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
 
@@ -26,7 +23,7 @@ fun setOnItemSelected(
 fun setIsBackButton(
     view: View, enabled: Boolean,
 ) {
-    if (enabled == false) return
+    if (!enabled) return
     val callback = GlobalVariables.instance.onBackPressedCallback
     view.setOnClickListener { callback.handleOnBackPressed()}
 }
