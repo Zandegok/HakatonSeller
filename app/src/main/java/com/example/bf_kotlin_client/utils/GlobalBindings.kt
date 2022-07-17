@@ -10,6 +10,9 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
 
+/**
+ * Список глобальных методов, позволяющий реализовать привязку полей внутри XML
+ */
 @BindingAdapter("android:onItemSelected")
 fun setOnItemSelected(
     bottomNavigationView: BottomNavigationView,
@@ -24,12 +27,12 @@ fun setIsBackButton(
     view: View, enabled: Boolean,
 ) {
     if (enabled == false) return
-    var callback = GlobalVariables.instance.onBackPressedCallback
+    val callback = GlobalVariables.instance.onBackPressedCallback
     view.setOnClickListener { callback.handleOnBackPressed()}
 }
 @BindingAdapter("android:onBackPressed")
 fun onBackPressed(view: View, callback:OnBackPressedCallback?){
-    var activity= view.context as AppCompatActivity
+    val activity= view.context as AppCompatActivity
     if (callback != null) {
         activity.onBackPressedDispatcher.addCallback(callback)
     }

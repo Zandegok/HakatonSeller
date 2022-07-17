@@ -5,6 +5,10 @@ import androidx.room.*
 import com.example.bf_kotlin_client.localdb.models.KeyValuePair
 import com.example.bf_kotlin_client.localdb.repositories.KeyValuePairsRepository
 
+/**
+ * Класс, осуществляющий доступ к локальной базе данных при помощи Singleton
+ * @property keyValuePairsRepository интерфейс для работы с таблицей пар ключ/значение
+ */
 @Database(entities = [KeyValuePair::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 

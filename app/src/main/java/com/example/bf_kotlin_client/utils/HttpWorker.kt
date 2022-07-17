@@ -8,9 +8,20 @@ import com.android.volley.toolbox.Volley
 import com.example.bf_kotlin_client.dtos.entities.ServerError
 import com.google.gson.Gson
 
+/**
+ * Класс, осуществляющий запросы к серверу
+ *
+ * @property applicationContext поле, дающее доступ к системным параметрам
+ * @property volleyQueue поле для отправки асинхронных запросов к серверу
+ */
 class HttpWorker(private var applicationContext: Context) {
     private var volleyQueue = Volley.newRequestQueue(applicationContext)
 
+    /**
+     * Функция, которая в случае ошибки при запросе, выводит её на экран
+     *
+     * @param volleyError ошибка запроса
+     */
     private fun defaultErrorFunction(volleyError: VolleyError) {
 
         if (volleyError.networkResponse == null) {
@@ -26,6 +37,15 @@ class HttpWorker(private var applicationContext: Context) {
         Toast.makeText(applicationContext, errorMessage, Toast.LENGTH_LONG).show()
     }
 
+    /**
+     * Вызывает строковый запрос без тела
+     *
+     * @param httpMethod тип запроса
+     * @param url адрес запроса
+     * @param successCallbackFunction функция, обрабатывающая ответ в случае успешного запроса
+     * @param httpHeaders заголовки запроса в виде словаря
+     * @param errorCallbackFunction функция, вызываемая при ошибке запроса (по умолчанию [defaultErrorFunction])
+     */
     fun makeStringRequestWithoutBody(
         httpMethod: Int,
         url: String,
@@ -47,6 +67,16 @@ class HttpWorker(private var applicationContext: Context) {
         volleyQueue.add(request)
     }
 
+    /**
+     * Вызывает строковый запрос c телом
+     *
+     * @param httpMethod тип запроса
+     * @param url адрес запроса
+     * @param successCallbackFunction функция, обрабатывающая ответ в случае успешного запроса
+     * @param body тело запроса в виде JSON строки
+     * @param httpHeaders заголовки запроса в виде словаря
+     * @param errorCallbackFunction функция, вызываемая при ошибке запроса (по умолчанию [defaultErrorFunction])
+     */
     fun makeStringRequestWithBody(
         httpMethod: Int,
         url: String,

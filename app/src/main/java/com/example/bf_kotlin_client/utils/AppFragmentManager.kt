@@ -7,9 +7,15 @@ import androidx.fragment.app.FragmentManager
 import com.example.bf_kotlin_client.R
 import com.example.bf_kotlin_client.fragments.support.*
 
-
+/**
+ * Класс, реализующий переключение независимых вкладок и фрагментов внутри них
+ *
+ * @property fragmentManager класс, дающий доступ к управлению фрагментами
+ */
 class AppFragmentManager(private var fragmentManager: FragmentManager) {
-
+    /**
+     * список вкладок, меджу которыми происходит переключение по типу главного фрагмента
+     */
     private var tabs: MutableMap<FragmentsName, ArrayList<Fragment>> = mutableMapOf(
         FragmentsName.Tutorial1Fragment to arrayListOf( Tutorial1Fragment()),
         FragmentsName.RegistrationFragment to arrayListOf(RegistrationFragment()),
@@ -19,8 +25,16 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         FragmentsName.OffersFragment to arrayListOf( OffersFragment()),
 
     )
+
+    /**
+     * открытая вкладка
+     */
     private var currentTab = tabs.entries.first()
 
+    /**
+     * Enum, каждый элемент которого соответствует доступным фрагментам
+     *
+     */
     enum class FragmentsName {
         CreateOfferFragment,
         EditOfferFragment,
@@ -35,6 +49,9 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         Tutorial2Fragment
     }
 
+    /**
+     * отрисовывает все фрагменты, уже лежащие в списке вкладок
+     */
     init {
         val containerId = R.id.frameLayoutActivityMain
         val fragmentTransaction = fragmentManager.beginTransaction()
@@ -43,6 +60,11 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         fragmentTransaction.commit()
     }
 
+    /**
+     * Меняет открытую вкладку
+     *
+     * @param fragmentName
+     */
     fun showTab(fragmentName: FragmentsName) {
         if (fragmentName !in tabs.keys) {
             throw IllegalArgumentException("$fragmentName is not main fragment")
@@ -62,6 +84,10 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         currentTab = newTab
     }
 
+    /**
+     * приводит открытую вкладку к первоначальному состоянию
+     *
+     */
     private fun refreshCurrentTab() {
         fragmentManager.executePendingTransactions()//защита от асинхронности
         val newTabMainFragment =
@@ -74,6 +100,11 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
         currentTab.setValue(arrayListOf(newTabMainFragment))
     }
 
+    /**
+     * Добавляет новй фрагмент поверх предыдущего в текущей вкладке
+     *
+     * @param fragmentName название фрагмента
+     */
     fun openFragmentAboveMain(fragmentName: FragmentsName) {
         fragmentManager.executePendingTransactions()//защита от асинхронности
 
@@ -100,11 +131,21 @@ class AppFragmentManager(private var fragmentManager: FragmentManager) {
 
     }
 
+    /**
+     * Получает ViewDataBinding, привязанный к последнему открытому фрагменту в текущей вкладке
+     *
+     * @param T тип привянного ViewDataBinding
+     * @return Если тип T совпадает с типом ViewDataBinding, что привязано к фрагменту, то возвращает его, иначе null
+     */
     fun <T : ViewDataBinding?> getCurrentFragmentBinding(): T? {
         fragmentManager.executePendingTransactions()//защита от асинхронности
         return DataBindingUtil.getBinding<T>(currentTab.value.last().requireView())
     }
 
+    /**
+     * удаляет последний фрагмент в текущей вкладке, если там всего 1 фрагмент, то обовляет его
+     *
+     */
     fun popBackStack() {
         fragmentManager.executePendingTransactions()//защита от асинхронности
         val currentTabFragments = currentTab.value
